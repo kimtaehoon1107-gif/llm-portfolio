@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>김태훈 | 데이터사이언스 포트폴리오</title>
+    <meta
+      name="description"
+      content="경북대학교 데이터사이언스학과 김태훈의 데이터 분석 및 머신러닝 포트폴리오입니다."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">김태훈</a>
+      <nav class="site-nav" aria-label="주요 섹션">
+        <a href="#work">Project</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="../index.html">AI 포트폴리오</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="eyebrow">Data Science Portfolio</p>
+          <h1 id="hero-title">김태훈</h1>
+          <p class="hero-copy">
+            건강 데이터를 구조화하고, 머신러닝 기반 변수 선택과 군집 분석으로
+            해석 가능한 인사이트를 만드는 데이터사이언스 전공자입니다.
+          </p>
+          <div class="hero-actions" aria-label="주요 이동">
+            <a class="button primary" href="#work">대표 프로젝트</a>
+            <a class="button ghost" href="mailto:kimdh0994@naver.com">이메일</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-strip" aria-label="포트폴리오 요약">
+        <p>
+          경북대학교 데이터사이언스학과에서 노인 노쇠 코호트 데이터를 바탕으로
+          예측 요인 분석, 변수 선택, 군집 조합 분석 프로젝트를 수행했습니다.
+        </p>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2 id="work-title">대표 프로젝트</h2>
+        </div>
+
+        <article class="project">
+          <div class="project-media">
+            <img
+              src="assets/frailty-poster.png"
+              alt="그룹별 군집 조합 분석을 통한 노쇠 예측 요인 분석 포스터"
+            >
+          </div>
+          <div class="project-content">
+            <p class="project-kicker">2024 대한산업공학회 춘계공동학술대회</p>
+            <h3>그룹별 군집 조합 분석을 통한 노쇠 예측 요인 분석</h3>
+            <p>
+              노인 노쇠 코호트 데이터를 기반으로 신체, 인지, 심리 등 변수군을
+              정리하고, Boruta 변수 선택과 K-means 군집화를 결합해 노쇠 관련
+              요인 조합을 분석했습니다.
+            </p>
+            <dl class="project-facts">
+              <div>
+                <dt>데이터</dt>
+                <dd>한국 노인 노쇠 코호트 기반 다변량 건강 데이터</dd>
+              </div>
+              <div>
+                <dt>방법</dt>
+                <dd>Random Forest, Boruta, K-means, SMOTE</dd>
+              </div>
+              <div>
+                <dt>역할</dt>
+                <dd>전처리, 변수 선택, 군집 분석, 결과 시각화</dd>
+              </div>
+            </dl>
+            <div class="link-row" aria-label="프로젝트 자료">
+              <a href="포트폴리오%20자료/김태훈_포스터.pdf">발표자료 PDF</a>
+              <a href="포트폴리오%20자료/ㄹㅇ포스터.pdf">발표 슬라이드(방법론) PDF</a>
+              <a href="포트폴리오%20자료/최종코딩.ipynb">분석 노트북</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section process" aria-labelledby="process-title">
+        <div class="section-heading">
+          <p class="eyebrow">Approach</p>
+          <h2 id="process-title">분석 접근</h2>
+        </div>
+        <div class="process-grid">
+          <article>
+            <span>01</span>
+            <h3>변수 정리</h3>
+            <p>건강 지표를 범주별로 나누고 모델 학습에 필요한 형태로 인코딩했습니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>중요 변수 선택</h3>
+            <p>Boruta와 Random Forest를 활용해 노쇠 예측에 유의미한 변수를 선별했습니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>군집 조합 분석</h3>
+            <p>K-means로 변수군별 군집을 만들고 조합별 위험 양상을 비교했습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">데이터를 설명 가능한 결과로 바꾸는 과정에 집중합니다.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            분석 과정에서 모델 성능뿐 아니라 왜 그런 결과가 나왔는지 설명할 수
+            있는 구조를 중요하게 봅니다. 전처리, 피처 엔지니어링, 모델링,
+            시각화를 한 흐름으로 연결해 의사결정에 쓰일 수 있는 결과물을
+            만드는 데 관심이 있습니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2 id="skills-title">사용 기술</h2>
+        </div>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>pandas</li>
+          <li>NumPy</li>
+          <li>scikit-learn</li>
+          <li>Random Forest</li>
+          <li>BorutaPy</li>
+          <li>K-means</li>
+          <li>SMOTE</li>
+          <li>Matplotlib</li>
+        </ul>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">프로젝트와 분석 경험을 더 이어가고 싶습니다.</h2>
+        </div>
+        <a class="button primary" href="mailto:kimdh0994@naver.com">kimdh0994@naver.com</a>
+      </section>
+    </main>
+  </body>
+</html>

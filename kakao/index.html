@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김태훈 | 카카오뱅크 AI 서비스 품질·안전성 평가 지원 포트폴리오</title>
+<meta name="description" content="카카오뱅크 AI 서비스 품질 및 안전성 평가 담당자 지원을 위한 포트폴리오입니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo"><img src="assets/symbol-logo.svg" alt="카카오뱅크 심볼">김태훈</a>
+    <nav class="nav-links">
+      <a href="#about">소개</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">스킬</a>
+      <a href="#contact">연락처</a>
+      <a href="../index.html">종합 포트폴리오</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <img src="assets/symbol-logo.svg" alt="카카오뱅크 심볼" class="hero-logo">
+      <p class="hero-eyebrow">카카오뱅크 AI기술전략팀 · AI 서비스 품질 및 안전성 평가 담당자 지원</p>
+      <h1>AI가 만든 답변,<br>믿을 수 있는지 <span class="accent">직접 검증</span>합니다.</h1>
+      <p class="hero-sub">
+        게임 도메인 문서를 기반으로 RAG 파이프라인을 설계하고, 검색·생성·안전성을 각각 분리해 측정합니다.
+        dev 점수를 그대로 믿지 않고 held-out 검증으로 일반화 여부를 스스로 확인하는 방식으로 작업합니다.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+        <a href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">소개</h2>
+      <p class="about-text">
+        문서 기반 LLM/RAG 시스템의 <strong>평가 파이프라인</strong>과 <strong>소형 언어모델(SLM) 데이터·파인튜닝</strong> 과정을
+        게임(던전앤파이터) 도메인으로 직접 재현하며 공부하고 있습니다. 관심사는 모델이 얼마나 그럴듯하게 말하는지가 아니라,
+        어떤 조건에서 답을 신뢰할 수 있고 어떤 조건에서 거부해야 하는지를 <strong>측정 가능한 기준</strong>으로 만드는 것입니다.
+      </p>
+      <p class="about-text">
+        벤치마크 질문 설계, 검색기 비교(BM25/BGE-M3), 데이터 라벨링, RAFT 학습 데이터 구성, LoRA/QLoRA 파인튜닝,
+        adversarial·stealth safety 평가까지 한 파이프라인 안에서 실험하고, dev 성능과 held-out 성능을 분리해 보고하는 습관을 갖고 있습니다.
+      </p>
+      <p class="about-text">
+        <strong>수상</strong> — 제10회 대한민국 SW융합 해커톤 대회 우수상(과학기술정보통신부, 2023.08),
+        제9회 국가승인통계 활용 디지털콘텐츠 공모전 장려상(통계청, 2022.10)
+      </p>
+      <p class="about-text">
+        <strong>자격/어학</strong> — 빅데이터분석기사, SQLD, 정보처리기능사, IELTS 6.5
+      </p>
+    </div>
+  </section>
+
+  <section id="projects" class="section section-alt">
+    <div class="section-inner">
+      <h2 class="section-title">대표 프로젝트</h2>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-done">완료 · 배포됨</span>
+            <h3>DNF 문서 기반 LLM 평가 파이프라인</h3>
+            <p class="project-tagline">RAG 검색 비교 · 평가 지표 설계 · Adversarial Safety 평가</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          던전앤파이터 공식 업데이트 문서를 수집해 벤치마크 질문 22개를 직접 설계하고,
+          BM25 휴리스틱과 BGE-M3 검색기를 비교했습니다. 검색·생성·형식·안전성을 하나의 점수로 뭉치지 않고
+          각각 따로 측정했고, dev 세트에서 좋았던 structured record 개선이 held-out 25문항에서는
+          실제로 발동하지 않는다는 것을 스스로 검출해 headline 수치를 과장하지 않고 보고했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>RAG 효과</strong><span>비RAG 11.27 → RAG 18.86 / 21</span></li>
+          <li><strong>검색기 비교</strong><span>BGE-M3 top-1 21/22 vs BM25 19/22</span></li>
+          <li><strong>답변 형식 개선</strong><span>format proxy 9/22 → 22/22 (instruct 모델 교체)</span></li>
+          <li><strong>Safety (fresh held-out)</strong><span>intent gate v6 attack recall 12/24, FP 0/24</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>Python</span><span>Selenium</span><span>BM25</span><span>BGE-M3</span><span>Ollama · Qwen3</span><span>Safety Red-teaming</span>
+        </div>
+        <div class="project-links">
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-llm-eval/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">웹 포트폴리오</a>
+          <a href="https://github.com/kimtaehoon1107-gif/dnf-llm-eval" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub 저장소</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-progress">산학협력</span>
+            <h3>AI Fellowship — (주)모닛 AI 육아도우미 챗봇</h3>
+            <p class="project-tagline">AI양재허브 AI Seoul Fellow · 경북대 Applied AI Lab 산학협력 · 데이터 라벨링 · Zero-shot/Few-shot → 파인튜닝</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          AI양재허브 AI Seoul Fellow 프로그램을 통해 스타트업 (주)모닛과 경북대학교 데이터사이언스대학원
+          인공지능응용연구실(Applied AI Lab, 책임교수 김수현)이 협업한 산학 프로젝트(2023.11~2024.02, 3개월)입니다.
+          육아 커뮤니티(맘카페)와 네이버쇼핑 리뷰 데이터를 기반으로, 리뷰 텍스트만으로 상품의 속성별 만족도를 분류하고
+          사용자 세그먼트에 맞춰 추천할 수 있는지를 검증했으며, LLM의 zero-shot/few-shot 분류 성능을 먼저 검증한 뒤
+          파인튜닝으로 정확도를 끌어올리는 방식으로 접근했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>데이터 구축</strong><span>Selenium 크롤링 + 대/중/소 라벨링 체계 직접 설계, 더미 데이터로 2차 보강</span></li>
+          <li><strong>세그멘테이션</strong><span>K-means 9개 → 6개 군집 재설계, Silhouette Score로 최적값 검증</span></li>
+          <li><strong>평가 기준 개선</strong><span>감성분석 점수만으로 놓치는 실측 정보를 교차검증으로 발견해 평가 기준 수정</span></li>
+          <li><strong>구조 전환</strong><span>복합 맞춤형 추천의 현실적 한계를 파악해 Aspect 기반 구조로 재설계</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>Selenium</span><span>OpenAI API</span><span>K-means</span><span>Silhouette Score</span><span>데이터 라벨링 설계</span>
+        </div>
+        <div class="project-links">
+          <a href="https://monitaichat.azurewebsites.net/MonitBaby" target="_blank" rel="noopener" class="btn btn-sm btn-primary">서비스 데모</a>
+          <span class="project-note">산학협력 프로젝트 · 요청 시 상세 자료 공유 가능</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-progress">진행 중</span>
+            <h3>DNF Domain QA SLM/RAG v2</h3>
+            <p class="project-tagline">데이터 라벨링 설계 · RAFT 학습 데이터 · LoRA/QLoRA 파인튜닝 · 거부(Refusal) 게이트</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          위 평가 프로젝트를 v1 baseline으로 삼아, 데이터 설계·라벨링(Label Studio)부터 RAFT 스타일 학습 데이터 구성,
+          LoRA/QLoRA로 실제 로컬 GPU 파인튜닝까지 확장한 프로젝트입니다. 근거가 없는 질문은 답을 지어내지 않고
+          거부하도록 answerability 게이트를 학습에 포함시켰고, domain expanded·official·fresh 세 종류의
+          held-out 세트로 나누어 평가해 dev 성능과 실제 일반화 성능의 격차를 직접 진단했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>학습 데이터</strong><span>도메인 확장 청크 1,307개 · RAFT v2 456행 (정답 222·부분 57·거부 177)</span></li>
+          <li><strong>파인튜닝</strong><span>Qwen2.5-0.5B-Instruct LoRA v2, train loss 0.0531, runtime 1016초</span></li>
+          <li><strong>3종 held-out 평가</strong><span>domain 120건 1.0000 · official 30건 1.0000 · fresh 30건 0.4333</span></li>
+          <li><strong>정직한 리포팅</strong><span>fresh 세트의 '보수적 거절 편향'을 스스로 발견해 그대로 보고, 원인을 검색기가 아닌 학습 데이터로 진단해 v3 방향 수립</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>LoRA/QLoRA</span><span>RAFT</span><span>Label Studio</span><span>BGE-M3 Retrieval</span><span>Gradio</span>
+        </div>
+        <div class="project-links">
+          <span class="project-note">저장소 정리 중 · 요청 시 코드/리포트 공유 가능</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-award">우수상 수상</span>
+            <h3>방구석 아이돌 — Perfecting K-POP Dance with AI</h3>
+            <p class="project-tagline">Pose Estimation 안무 채점 · Liquid Warping GAN 모션 합성 · 5인 팀 프로젝트</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          제10회 대한민국 SW융합 해커톤 대회(과학기술정보통신부 주최) 자유 과제에 5인 팀 "옥-K"로 출품한 프로젝트입니다.
+          사용자의 춤 영상에서 관절 keypoint를 추출해 원곡 안무와 프레임 단위로 비교, 정확도를 채점하고,
+          Liquid Warping GAN으로 사용자 외형을 해당 동작에 합성하는 두 파이프라인을 팀 단위로 설계·구현했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>수상</strong><span>제10회 대한민국 SW융합 해커톤 대회 우수상 (2023.08)</span></li>
+          <li><strong>주관</strong><span>과학기술정보통신부 · 정보통신산업진흥원 · SW융합클러스터 12개 기관</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>Pose Estimation</span><span>Liquid Warping GAN</span><span>팀 프로젝트</span>
+        </div>
+        <div class="project-links">
+          <span class="project-note">5인 팀 프로젝트 · 팀명 옥-K</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-award">장려상 수상</span>
+            <h3>국가승인통계 활용 디지털콘텐츠 공모전 — 원자력·신재생에너지 균형 정책 제언</h3>
+            <p class="project-tagline">공공데이터 교차분석 · 정책 논증 설계 · 2인 팀</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          통계청 주최 「제9회 국가승인통계 활용 디지털콘텐츠 공모전」에 출품한 데이터 분석 프로젝트입니다.
+          온실가스·탄소배출 통계로 에너지 산업이 국내 최대 탄소배출원임을 제기하고, 발전량·정산단가 통계로
+          신재생에너지 단독 대체의 한계를 논증한 뒤, 최종에너지 소비 통계까지 종합해 원자력·신재생에너지의
+          균형 있는 조합이 필요하다는 정책 결론을 도출했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>수상</strong><span>제9회 국가승인통계 활용 디지털콘텐츠 공모전 장려상 (통계청, 2022.10)</span></li>
+          <li><strong>활용 데이터</strong><span>온실가스·탄소배출(환경부), 에너지원별 발전량·정산단가(한전), 최종에너지 소비(에너지경제연구원)</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>공공데이터 분석</span><span>정책 논증</span><span>2인 팀</span>
+        </div>
+        <div class="project-links">
+          <span class="project-note">2인 팀 프로젝트 · 경북대 통계학과 × 안동대 정보통계학과</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">스킬</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>평가 · 안전성</h4>
+          <p>벤치마크/루브릭 설계, Held-out 검증, Adversarial·Stealth Red-teaming, Ablation 설계</p>
+        </div>
+        <div class="skill-group">
+          <h4>모델 · 데이터</h4>
+          <p>RAG(BM25, BGE-M3), LoRA/QLoRA 파인튜닝, RAFT 데이터 구성, 데이터 라벨링/정제(Label Studio)</p>
+        </div>
+        <div class="skill-group">
+          <h4>도구</h4>
+          <p>Python, Ollama, Hugging Face, Selenium, Gradio, Git</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-alt">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title">연락처</h2>
+      <p class="contact-text">협업이나 지원 관련 문의는 아래로 연락 주세요.</p>
+      <div class="contact-links">
+        <a href="mailto:nhauyen0911@gmail.com" class="btn btn-primary">이메일 보내기</a>
+        <a href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; 2026 김태훈</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
