@@ -109,20 +109,21 @@
         <li class="project-list-item">
           <div class="project-list-body">
             <div class="project-list-head">
-              <span class="badge badge-progress">진행 중</span>
+              <span class="badge badge-done">개발 사이클 완료</span>
               <h3>DNF Domain QA SLM/RAG v2</h3>
             </div>
             <p class="project-list-desc">
-              v1의 평가 결과를 출발점으로, 학습 데이터 라벨링부터 RAFT 데이터 구성, LoRA 파인튜닝까지 진행한
-              후속 프로젝트입니다. domain 120건·official 30건에서는 1.0000을 기록했지만 fresh 30건에서는 0.4333에
-              그쳤고, 검색이 아니라 학습 데이터 쪽에서 생긴 '보수적 거절 편향' 때문이라는 걸 숨기지 않고 보고한 뒤
-              v3 방향을 새로 설정했습니다.
+              공식 문서 1,307개 청크를 BGE-M3 hybrid로 검색하고, 누수를 통제한 QA 408행·RAFT 576행으로
+              Qwen2.5-0.5B LoRA를 학습한 평가 주도형 QA/RAG 프로젝트입니다. 동일 dev에서 세 방식을 비교해 tuned 모델이
+              schema 30/30, exact citation 14/22, human Partial joint 8/20을 기록했지만, 거절 게이트를 통과하지 못해
+              frozen blind는 열지 않고 개발 기준선으로만 보고했습니다.
             </p>
             <div class="project-list-tags">
-              <span>LoRA/QLoRA</span><span>RAFT</span><span>Label Studio</span><span>Answerability Gate</span>
+              <span>BGE-M3 Hybrid RAG</span><span>RAFT</span><span>LoRA</span><span>Partial/Refusal 평가</span>
             </div>
             <div class="project-list-links">
-              <span class="project-note">저장소 정리 중 · 요청 시 공유 가능</span>
+              <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener">GitHub 저장소</a>
+              <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/blob/main/PORTFOLIO_REPORT.md" target="_blank" rel="noopener">결과 보고서</a>
             </div>
           </div>
         </li>

@@ -102,28 +102,28 @@
       <article class="project-card">
         <div class="project-head">
           <div>
-            <span class="badge badge-progress">진행 중</span>
+            <span class="badge badge-done">개발 사이클 완료</span>
             <h3>DNF Domain QA SLM/RAG v2</h3>
-            <p class="project-tagline">데이터 라벨링 설계 · RAFT 학습 데이터 · LoRA/QLoRA 파인튜닝 · 거부(Refusal) 게이트</p>
+            <p class="project-tagline">공식문서 RAG · RAFT/LoRA · Partial/Refusal 평가 · Blind 게이트</p>
           </div>
         </div>
         <p class="project-desc">
-          위 평가 프로젝트를 v1 baseline으로 삼아, 데이터 설계·라벨링(Label Studio)부터 RAFT 스타일 학습 데이터 구성,
-          LoRA/QLoRA로 실제 로컬 GPU 파인튜닝까지 확장한 프로젝트입니다. 근거가 없는 질문은 답을 지어내지 않고
-          거부하도록 answerability 게이트를 학습에 포함시켰고, domain expanded·official·fresh 세 종류의
-          held-out 세트로 나누어 평가해 dev 성능과 실제 일반화 성능의 격차를 직접 진단했습니다.
+          v1의 실패 분석을 바탕으로 공식 문서 수집·정제, BGE-M3 검색, QA/RAFT 데이터 구축, Qwen LoRA 학습,
+          근거 인용과 Partial/Refusal 평가까지 연결한 프로젝트입니다. 동일한 개발셋에서 RAG-only·base Qwen·tuned Qwen을
+          비교했고, tuned 모델의 형식·인용·부분답변 개선과 남은 거절 한계를 함께 측정했습니다.
         </p>
         <ul class="project-metrics">
-          <li><strong>학습 데이터</strong><span>도메인 확장 청크 1,307개 · RAFT v2 456행 (정답 222·부분 57·거부 177)</span></li>
-          <li><strong>파인튜닝</strong><span>Qwen2.5-0.5B-Instruct LoRA v2, train loss 0.0531, runtime 1016초</span></li>
-          <li><strong>3종 held-out 평가</strong><span>domain 120건 1.0000 · official 30건 1.0000 · fresh 30건 0.4333</span></li>
-          <li><strong>정직한 리포팅</strong><span>fresh 세트의 '보수적 거절 편향'을 스스로 발견해 그대로 보고, 원인을 검색기가 아닌 학습 데이터로 진단해 v3 방향 수립</span></li>
+          <li><strong>데이터 무결성</strong><span>도메인 청크 1,307개 · QA 408행 · RAFT 576행 · eval/blind context 누수 0</span></li>
+          <li><strong>파인튜닝</strong><span>Qwen2.5-0.5B-Instruct LoRA 264/264 step 완료 · end-task 지표로 checkpoint-250 선택</span></li>
+          <li><strong>동일 dev 3축 비교</strong><span>tuned: schema 30/30 · exact citation 14/22 · human Partial joint 8/20</span></li>
+          <li><strong>정직한 최종 판정</strong><span>거절 게이트 미통과로 frozen blind는 열지 않고 개발 기준선으로만 보고</span></li>
         </ul>
         <div class="project-tags">
-          <span>LoRA/QLoRA</span><span>RAFT</span><span>Label Studio</span><span>BGE-M3 Retrieval</span><span>Gradio</span>
+          <span>BGE-M3 Hybrid RAG</span><span>RAFT</span><span>LoRA</span><span>Evaluation-driven ML</span><span>Gradio</span>
         </div>
         <div class="project-links">
-          <span class="project-note">저장소 정리 중 · 요청 시 코드/리포트 공유 가능</span>
+          <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>
+          <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/blob/main/PORTFOLIO_REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">결과 보고서</a>
         </div>
       </article>
 
