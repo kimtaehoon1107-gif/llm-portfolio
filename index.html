@@ -104,22 +104,22 @@
           <div>
             <span class="badge badge-done">개발 사이클 완료</span>
             <h3>DNF Domain QA SLM/RAG v2</h3>
-            <p class="project-tagline">공식문서 RAG · RAFT/LoRA · Partial/Refusal 평가 · Blind 게이트</p>
+            <p class="project-tagline">근거 범위 판단 · 실패 원인 분해 · 통제 비교 · Blind 검증 정책</p>
           </div>
         </div>
         <p class="project-desc">
-          v1의 실패 분석을 바탕으로 공식 문서 수집·정제, BGE-M3 검색, QA/RAFT 데이터 구축, Qwen LoRA 학습,
-          근거 인용과 Partial/Refusal 평가까지 연결한 프로젝트입니다. 동일한 개발셋에서 RAG-only·base Qwen·tuned Qwen을
-          비교했고, tuned 모델의 형식·인용·부분답변 개선과 남은 거절 한계를 함께 측정했습니다.
+          목표는 던파 공식 문서를 근거로 답하되, 문서가 질문 전체를 뒷받침하지 못하면 확인 가능한 부분만 답하고
+          나머지는 거절하는 QA 시스템을 만드는 것이었습니다. v1의 오류를 검색 실패·잘못된 근거 선택·생성 및 거절 실패로
+          나누어 측정하고, 같은 검색 결과를 RAG-only·base SLM·tuned SLM에 제공해 학습의 효과를 통제 비교했습니다.
         </p>
         <ul class="project-metrics">
-          <li><strong>데이터 무결성</strong><span>도메인 청크 1,307개 · QA 408행 · RAFT 576행 · eval/blind context 누수 0</span></li>
-          <li><strong>파인튜닝</strong><span>Qwen2.5-0.5B-Instruct LoRA 264/264 step 완료 · end-task 지표로 checkpoint-250 선택</span></li>
-          <li><strong>동일 dev 3축 비교</strong><span>tuned: schema 30/30 · exact citation 14/22 · human Partial joint 8/20</span></li>
-          <li><strong>정직한 최종 판정</strong><span>거절 게이트 미통과로 frozen blind는 열지 않고 개발 기준선으로만 보고</span></li>
+          <li><strong>평가 설계</strong><span>답변 가능·부분 가능·답변 불가·안전 질문을 분리하고, 근거 사용과 거절을 각각 측정</span></li>
+          <li><strong>학습 실험</strong><span>근거와 방해 문서를 함께 주는 RAFT 데이터로 Qwen LoRA 학습</span></li>
+          <li><strong>통제 비교</strong><span>검색 조건을 고정한 뒤 규칙 기반 RAG·미학습 SLM·학습 SLM의 차이를 비교</span></li>
+          <li><strong>최종 판단</strong><span>학습 모델은 인용과 부분답변을 개선했지만 거절 기준을 충족하지 못해 blind를 열지 않음</span></li>
         </ul>
         <div class="project-tags">
-          <span>BGE-M3 Hybrid RAG</span><span>RAFT</span><span>LoRA</span><span>Evaluation-driven ML</span><span>Gradio</span>
+          <span>Failure Decomposition</span><span>Controlled Comparison</span><span>RAFT/LoRA</span><span>Partial/Refusal</span><span>Blind Gate</span>
         </div>
         <div class="project-links">
           <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>

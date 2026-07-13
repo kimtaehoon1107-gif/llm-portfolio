@@ -113,13 +113,13 @@
               <h3>DNF Domain QA SLM/RAG v2</h3>
             </div>
             <p class="project-list-desc">
-              공식 문서 1,307개 청크를 BGE-M3 hybrid로 검색하고, 누수를 통제한 QA 408행·RAFT 576행으로
-              Qwen2.5-0.5B LoRA를 학습한 평가 주도형 QA/RAG 프로젝트입니다. 동일 dev에서 세 방식을 비교해 tuned 모델이
-              schema 30/30, exact citation 14/22, human Partial joint 8/20을 기록했지만, 거절 게이트를 통과하지 못해
-              frozen blind는 열지 않고 개발 기준선으로만 보고했습니다.
+              목표는 던파 공식 문서를 근거로 답하되, 문서가 질문 전체를 뒷받침하지 못하면 확인 가능한 부분만 답하고
+              나머지는 거절하는 QA 시스템을 만드는 것이었습니다. v1의 오류를 검색 실패·잘못된 근거 선택·생성 및 거절
+              실패로 나누어 측정하고, 같은 검색 결과를 RAG-only·base SLM·tuned SLM에 제공해 학습 효과를 통제 비교했습니다.
+              tuned SLM은 인용과 부분답변을 개선했지만 거절 기준을 충족하지 못해 blind는 열지 않았습니다.
             </p>
             <div class="project-list-tags">
-              <span>BGE-M3 Hybrid RAG</span><span>RAFT</span><span>LoRA</span><span>Partial/Refusal 평가</span>
+              <span>Failure Decomposition</span><span>Controlled Comparison</span><span>RAFT/LoRA</span><span>Blind Gate</span>
             </div>
             <div class="project-list-links">
               <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener">GitHub 저장소</a>
