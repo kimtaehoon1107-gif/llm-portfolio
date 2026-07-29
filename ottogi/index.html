@@ -61,9 +61,10 @@
         출처를 겹쳐봐야 진짜 원인인지 확인할 수 있다는 것을 이때 배웠습니다.
       </p>
       <p class="about-text">
-        같은 습관을 개인 AI 프로젝트에도 적용하고 있습니다. 데이터 수집부터 검증까지 전 과정을
-        직접 다루면서, 결과가 좋아 보여도 그대로 믿지 않고 별도 데이터로 다시 확인하는 방식을
-        일관되게 유지해왔습니다.
+        최근에는 Kaggle 경진대회 데이터로 같은 습관을 더 엄격하게 적용해봤습니다. 그럴듯해 보이는
+        개선도 검증 방식을 바꿔보면 효과가 사라지는 경우가 있다는 걸 확인했고, 성능이 정체되는
+        지점은 데이터의 결측 패턴까지 파고들어 원인을 찾아냈습니다. 숫자가 좋아졌다고 바로
+        채택하지 않고, 그 개선이 우연이 아닌지부터 확인하는 게 이제는 습관이 됐습니다.
       </p>
       <p class="about-text">
         <strong>수상</strong> — 제9회 국가승인통계 활용 디지털콘텐츠 공모전 장려상(통계청, 2022.10)
@@ -77,6 +78,33 @@
   <section id="projects" class="section section-alt">
     <div class="section-inner">
       <h2 class="section-title">대표 프로젝트</h2>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-progress">개인 프로젝트</span>
+            <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
+            <p class="project-tagline">클래스 불균형 처리 · 이상치·결측치 진단 · Nested 교차검증 · 공개 코드 감사</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          Kaggle 경진대회 데이터(69만 행)로 심한 클래스 불균형 3-class 분류 문제를 다룬 개인
+          프로젝트입니다. LightGBM 기준 모델에서 XGBoost로 개선한 뒤, Target Encoding·다중 시드
+          배깅·딥러닝 계열 모델까지 추가 기법을 nested 교차검증으로 검증해, 개선폭이 fold 변동보다
+          작은 기법은 최종 모델에서 제외했습니다. 원본 데이터의 생성 규칙을 복원해 결측치 패턴별로
+          성능 정체의 원인도 정량적으로 분해했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>검증 설계</strong><span>Nested 7-fold 교차검증으로 개선 효과를 fold 밖에서 재확인</span></li>
+          <li><strong>원인 분해</strong><span>결측치 21.71%인 행이 전체 오차의 54.97%를 차지함을 정량 확인</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>불균형 분류</span><span>결측치·이상치 진단</span><span>Nested 교차검증</span><span>XGBoost/LightGBM</span>
+        </div>
+        <div class="project-links">
+          <span class="project-note">분석 리포트·코드 요청 시 공유 가능</span>
+        </div>
+      </article>
 
       <article class="project-card">
         <div class="project-head">
@@ -130,27 +158,6 @@
         </div>
       </article>
 
-      <article class="project-card">
-        <div class="project-head">
-          <div>
-            <span class="badge badge-progress">개인 프로젝트</span>
-            <h3>AI 응답 신뢰성 검증 프로젝트</h3>
-            <p class="project-tagline">데이터 파이프라인 전 과정 · 근거 기반 검증</p>
-          </div>
-        </div>
-        <p class="project-desc">
-          AI가 만든 답을 그대로 믿지 않고 검증하는 데 관심이 생겨 시작한 개인 프로젝트입니다. 데이터
-          수집부터 처리, 결과 검증까지 전 과정을 직접 설계했고, 검증에서 좋아 보인 결과를 그대로
-          믿지 않고 별도 데이터로 다시 확인하는 방식을 일관되게 적용했습니다.
-        </p>
-        <div class="project-tags">
-          <span>데이터 파이프라인</span><span>근거 기반 검증</span>
-        </div>
-        <div class="project-links">
-          <a href="https://kimtaehoon1107-gif.github.io/dnf-llm-eval/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">웹 포트폴리오</a>
-        </div>
-      </article>
-
     </div>
   </section>
 
@@ -160,15 +167,15 @@
       <div class="skills-grid">
         <div class="skill-group">
           <h4>통계 분석</h4>
-          <p>변수 선택(Boruta), 군집화(K-means), 불균형 보완(SMOTE), 이상치·결측치 처리</p>
+          <p>변수 선택(Boruta), 군집화(K-means), 불균형 데이터 처리(SMOTE, class weight), 이상치·결측치 처리</p>
         </div>
         <div class="skill-group">
           <h4>데이터 검증</h4>
-          <p>이종 데이터 교차분석, 근거 기반 검증, 결과 재확인 습관</p>
+          <p>Nested 교차검증, 이종 데이터 교차분석, 성능 정체 원인 분해, 공개 코드 감사</p>
         </div>
         <div class="skill-group">
           <h4>도구</h4>
-          <p>Python, SAS, Selenium, Git</p>
+          <p>Python, XGBoost, LightGBM, SAS, Selenium, Git</p>
         </div>
       </div>
     </div>
