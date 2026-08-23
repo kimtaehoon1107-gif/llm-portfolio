@@ -130,6 +130,38 @@
       <article class="project-card">
         <div class="project-head">
           <div>
+            <span class="badge badge-progress">개인 프로젝트</span>
+            <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
+            <p class="project-tagline">클래스 불균형 처리 · 결측 패턴·분포 차이 진단 · Fold-safe 검증 · 공개 코드 감사</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          Kaggle 경진대회 데이터 690,088행을 활용한 불균형 3-class 분류 프로젝트입니다. LightGBM
+          5-fold 기준 모델을 구축한 뒤 XGBoost 7-fold OOF 검증으로 성능을 개선했습니다. Target
+          Encoding은 각 outer training fold 내부의 inner 5-fold에서 생성해 누수를 방지했으며,
+          다중 시드 배깅과 FT-Transformer 기반 Cross-family 혼합도 추가로 검증했습니다.
+          Cross-family 혼합은 평가 fold를 제외한 나머지 fold에서 가중치를 선택했으나, 개선폭이
+          +0.000041에 그치고 fold별 우위가 안정적이지 않아 최종 모델에서는 제외했습니다. 원본
+          5만 행 데이터에서 학습한 생성 규칙을 대회 데이터로 전이하고, 수면시간 또는 스트레스
+          변수가 결측된 21.71%의 행이 Balanced Accuracy 잔여 간극의 54.97%를 설명한다는 점을
+          확인했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>검증 설계</strong><span>7-fold OOF 검증, outer fold 내부 5-fold Target Encoding, leave-one-outer-fold-out 앙상블 가중치 평가</span></li>
+          <li><strong>원인 분해</strong><span>결측치 21.71%인 행이 Balanced Accuracy 잔여 간극의 54.97%를 설명함을 정량 확인</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>불균형 분류</span><span>결측 패턴·분포 진단</span><span>Fold-safe 검증</span><span>XGBoost/LightGBM</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>
+          <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk/blob/main/REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 리포트</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
             <span class="badge badge-progress">산학협력</span>
             <h3>AI Fellowship — (주)모닛 AI 육아도우미 챗봇</h3>
             <p class="project-tagline">AI양재허브 AI Seoul Fellow · 경북대 Applied AI Lab 산학협력 · 데이터 라벨링 · Zero-shot/Few-shot → 파인튜닝</p>
@@ -179,6 +211,34 @@
         </div>
         <div class="project-links">
           <span class="project-note">5인 팀 프로젝트 · 팀명 옥-K</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-done">학술 발표</span>
+            <h3>그룹별 군집 조합 분석을 통한 노쇠 예측 요인 분석</h3>
+            <p class="project-tagline">변수 선택 · 이상치·결측치 처리 · 군집화 · 대학원 개인 연구</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          2024 대한산업공학회 춘계공동학술대회에서 발표한 개인 연구입니다. 지도교수 지도 하에 데이터
+          전처리부터 분석·시각화까지 단독으로 수행했습니다. 노인 노쇠 코호트 데이터의 신체·인지·심리
+          변수군을 정리하며 결측값과 이상치를 먼저 확인하고, Boruta로 노쇠 예측에 유의미한 변수를
+          선택한 뒤 K-means로 변수군별 군집을 구성해 군집 조합별 위험 양상을 비교했습니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>데이터 정제</strong><span>결측치·이상치 확인 후 범주형 변수 인코딩</span></li>
+          <li><strong>분석 방법</strong><span>Boruta 변수 선택 + K-means 군집화 + SMOTE 불균형 보완</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>통계적 데이터 정제</span><span>Boruta</span><span>K-means</span><span>SMOTE</span>
+        </div>
+        <div class="project-links">
+          <a href="research/포트폴리오%20자료/김태훈_포스터.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary">포스터 PDF</a>
+          <a href="research/포트폴리오%20자료/ㄹㅇ포스터.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-outline">발표 슬라이드</a>
+          <a href="research/포트폴리오%20자료/최종코딩.ipynb" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 노트북</a>
         </div>
       </article>
 
