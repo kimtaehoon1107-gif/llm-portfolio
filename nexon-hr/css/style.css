@@ -376,10 +376,50 @@ a { color: inherit; }
   margin: 0 0 44px;
 }
 
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--bg-alt);
+}
+
+.about-header-text h3 {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.about-header-text p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
 .about-text {
   color: var(--text-muted);
   font-size: 1.06rem;
   margin-bottom: 20px;
+}
+
+.project-demo {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  margin-bottom: 22px;
+  display: block;
 }
 
 .about-text strong { color: var(--text); font-weight: 700; }
