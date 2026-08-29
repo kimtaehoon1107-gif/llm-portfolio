@@ -57,7 +57,7 @@
         </div>
         <div class="hero-stat">
           <strong>1,378</strong>
-          <span>자동화 테스트 통과 (0 failed)</span>
+          <span>자동화 테스트 통과 · 실패 0건</span>
         </div>
       </div>
     </div>
@@ -87,10 +87,10 @@
       </p>
       <div class="about-callout">
         <p class="about-text" style="margin-bottom:0;">
-          게임 도메인은 이 방법론을 검증하기 위한 연습장이었을 뿐입니다. <strong>개발용 데이터에서 좋아 보이는 결과를 그대로 믿지 않고
-          별도 검증 데이터로 다시 확인하는 습관</strong>은 근태·채용·인사정보처럼 구성원의 처우와 신뢰에 직접 연결되는
-          인사 데이터를 다룰 때도 동일하게 필요하다고 생각합니다. 반복 업무는 자동화로 줄이되, 그 결과를 사람이 확인할
-          기준과 예외 처리까지 함께 설계하는 것이 HR AX/DX의 핵심이라고 보고 있습니다.
+          게임 도메인의 복잡한 공식 문서와 업데이트 정보를 다루며, <strong>개발용 데이터에서 좋아 보이는 결과를 별도 검증 데이터로
+          다시 확인하는 방법</strong>을 익혔습니다. 이 검증 습관은 근태·채용·인사정보처럼 구성원의 처우와 신뢰에 직접 연결되는
+          인사 데이터를 다룰 때도 필요하다고 생각합니다. 반복 업무는 자동화로 줄이되, 결과를 사람이 확인할 기준과 예외 처리까지
+          함께 설계하는 것이 HR AX/DX의 핵심이라고 보고 있습니다.
         </p>
       </div>
       <div class="bento-grid">
@@ -128,7 +128,7 @@
             <span class="badge badge-done">완료 · 배포됨</span>
             <h3>DNF 공식 문서 QA/RAG</h3>
             <p class="project-tagline">공식 문서 검색 · 근거 표시 · 별도 평가 · 사람 검수</p>
-            <p class="project-meta">개인 프로젝트 · 2026.08 최신 스냅샷 기준</p>
+            <p class="project-meta">2026.07~2026.08 · 개인 프로젝트 · 문서 수집·검색·검증·데모 전 과정 단독 수행</p>
           </div>
         </div>
         <p class="project-desc">
@@ -143,7 +143,7 @@
           <li><strong>데이터 규모</strong><span>공식 문서 996개 → 검색용 청크 3,925개</span></li>
           <li><strong>파이프라인</strong><span>BM25+BGE-M3 하이브리드 검색 → reranker → bounded verifier → 서버 인용 복원</span></li>
           <li><strong>평가 결과</strong><span>사람 검수 결과 20/32(62.5%) · 사전 적용 기준 80% 미달</span></li>
-          <li><strong>재현성</strong><span>2026.08.13 새 클론 재검증 1,378 passed / 0 failed</span></li>
+          <li><strong>재현성</strong><span>2026.08.13 새 클론 재검증 · 자동화 테스트 1,378건 통과 · 실패 0건</span></li>
         </ul>
         <div class="project-tags">
           <span>Hybrid Retrieval</span><span>BGE Reranker</span><span>Bounded Verifier</span><span>Sealed Evaluation</span><span>Human Review</span><span>무료·로컬 환경 구현</span>
@@ -161,19 +161,14 @@
             <span class="badge badge-progress">개인 프로젝트</span>
             <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
             <p class="project-tagline">클래스 불균형 처리 · 결측 패턴·분포 차이 진단 · Fold-safe 검증 · 공개 코드 감사</p>
-            <p class="project-meta">개인 프로젝트 · 데이터 정제·모델링·검증 전 과정 수행</p>
+            <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증 전 과정 단독 수행</p>
           </div>
         </div>
         <p class="project-desc">
-          Kaggle 경진대회 데이터 690,088행을 활용한 불균형 3-class 분류 프로젝트입니다. LightGBM
-          5-fold 기준 모델을 구축한 뒤 XGBoost 7-fold OOF 검증으로 성능을 개선했습니다. Target
-          Encoding은 각 outer training fold 내부의 inner 5-fold에서 생성해 누수를 방지했으며,
-          다중 시드 배깅과 FT-Transformer 기반 Cross-family 혼합도 추가로 검증했습니다.
-          Cross-family 혼합은 평가 fold를 제외한 나머지 fold에서 가중치를 선택했으나, 개선폭이
-          +0.000041에 그치고 fold별 우위가 안정적이지 않아 최종 모델에서는 제외했습니다. 원본
-          5만 행 데이터에서 학습한 생성 규칙을 대회 데이터로 전이하고, 수면시간 또는 스트레스
-          변수가 결측된 21.71%의 행이 Balanced Accuracy 잔여 간극의 54.97%를 설명한다는 점을
-          확인했습니다.
+          약 69만 건의 불균형 데이터를 대상으로 예측 모델을 구축하고, 데이터 누수를 방지한 교차검증으로
+          성능을 확인했습니다. 전체 평균만 보지 않고 결측 집단을 따로 분석한 결과, 전체의 21.71%인
+          특정 집단이 남은 성능 격차의 54.97%를 설명한다는 점을 찾았습니다. 추가 모델의 개선폭은
+          0.000041에 그쳐 최종안에서 제외했습니다.
         </p>
         <ul class="project-metrics">
           <li><strong>검증 설계</strong><span>7-fold OOF 검증, outer fold 내부 5-fold Target Encoding, leave-one-outer-fold-out 앙상블 가중치 평가</span></li>
@@ -254,7 +249,7 @@
             <span class="badge badge-done">완료 · 배포됨</span>
             <h3>DNF 문서 기반 LLM 평가 파이프라인</h3>
             <p class="project-tagline">RAG 검색 비교 · 평가 지표 설계 · Adversarial Safety 평가</p>
-            <p class="project-meta">개인 프로젝트 · 벤치마크 설계·검색 비교·평가 전 과정 수행</p>
+            <p class="project-meta">2026.06~2026.07 · 개인 프로젝트 · 벤치마크 설계·검색 비교·평가 전 과정 단독 수행</p>
           </div>
         </div>
         <p class="project-desc">
