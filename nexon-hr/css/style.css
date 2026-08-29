@@ -793,6 +793,40 @@ a { color: inherit; }
   margin-top: 20px;
 }
 
+.compact-preview {
+  display: block;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-alt);
+}
+
+.compact-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 180ms ease;
+}
+
+.compact-preview:hover img {
+  transform: scale(1.02);
+}
+
+.compact-preview-portrait {
+  padding: 12px;
+}
+
+.compact-preview-portrait img {
+  width: auto;
+  height: 220px;
+  margin: 0 auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
 .compact-proof {
   margin: 0;
   padding: 12px 14px;
