@@ -546,7 +546,14 @@ a { color: inherit; }
 .project-tagline {
   color: var(--text-muted);
   font-size: 0.92rem;
-  margin: 0 0 20px;
+  margin: 0 0 4px;
+}
+
+.project-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin: 0 0 18px;
 }
 
 .badge {
@@ -717,4 +724,11 @@ a { color: inherit; }
 
   .bento-grid { grid-template-columns: 1fr; }
   .bento-wide { grid-column: auto; }
+}
+
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
