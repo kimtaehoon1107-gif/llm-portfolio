@@ -411,15 +411,97 @@ a { color: inherit; }
   margin-bottom: 20px;
 }
 
+.bento-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.bento-card {
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+}
+
+.bento-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.bento-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bento-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bento-list strong {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.bento-list span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.bento-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bento-chips span {
+  font-size: 0.84rem;
+  font-weight: 600;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 10px;
+  text-align: center;
+}
+
+.bento-stat {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
 .project-demo {
   width: 100%;
-  max-height: 280px;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
+  background: var(--bg-alt);
   margin-bottom: 22px;
   display: block;
+}
+
+.project-demo-portrait {
+  width: auto;
+  max-width: 280px;
+  max-height: 460px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-text strong { color: var(--text); font-weight: 700; }
@@ -632,4 +714,7 @@ a { color: inherit; }
   .project-metrics { grid-template-columns: 1fr; }
 
   .skills-grid { grid-template-columns: 1fr; }
+
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-wide { grid-column: auto; }
 }
