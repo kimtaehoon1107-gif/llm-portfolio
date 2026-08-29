@@ -7,7 +7,7 @@
 <meta name="description" content="넥슨네트웍스 인재전략팀 [인사운영] 채용연계형 인턴 지원을 위한 포트폴리오입니다.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20260830-1">
 </head>
 <body>
 
@@ -18,14 +18,14 @@
       <span class="nav-divider"></span>
       <span class="nav-role">인사운영 인턴 지원</span>
     </div>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#about">소개</a>
       <a href="#skills">핵심 역량</a>
       <a href="#projects">프로젝트</a>
       <a href="#process">업무 방식</a>
       <a href="#contact">연락처</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-controls="navLinks" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -159,12 +159,19 @@
             <p class="project-meta">2026.07~2026.08 · 개인 프로젝트 · 문서 수집·검색·검증·데모 전 과정 단독 수행</p>
           </div>
         </div>
-        <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>업데이트와 가이드가 여러 문서에 흩어져 있어 답과 근거를 함께 찾고 검증하기 어려웠습니다.</p></div>
-          <div class="story-item"><strong>내 역할</strong><p>공식 문서 수집·정제부터 검색, 평가, 데모 구성까지 전 과정을 단독 수행했습니다.</p></div>
-          <div class="story-item"><strong>핵심 판단</strong><p>개발용 평가와 최종 검증을 분리하고, 사람 검수 정확도 80%를 적용 기준으로 정했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>문서 996개와 검색 단위 3,925개를 구축하고 자동화 테스트 1,378건을 통과했습니다. 사람 검수는 20/32로 기준에 미달해 실서비스 적용을 보류했습니다.</p></div>
+        <div class="project-proof-bar" aria-label="핵심 결과 요약">
+          <div class="project-proof"><span>공식 문서</span><strong>996개</strong></div>
+          <div class="project-proof"><span>자동화 테스트</span><strong>1,378건 통과</strong></div>
+          <div class="project-proof"><span>사람 검수</span><strong>62.5%</strong></div>
+          <div class="project-proof project-proof-caution"><span>적용 판단</span><strong>보류</strong></div>
         </div>
+        <div class="project-story-grid">
+          <div class="story-item"><strong>문제</strong><p>문서가 여러 위치에 흩어져 있어 답과 근거를 함께 찾기 어려웠습니다.</p></div>
+          <div class="story-item"><strong>내 역할</strong><p>수집·정제·검색·평가·데모 전 과정을 단독 수행했습니다.</p></div>
+          <div class="story-item"><strong>핵심 판단</strong><p>개발용 평가와 최종 검증을 분리하고, 사람 검수 정확도 80%를 적용 기준으로 정했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>문서 996개와 검색 단위 3,925개를 구축하고 자동화 테스트 1,378건을 통과했습니다. 사람 검수는 20/32로 기준에 미달해 적용을 보류했습니다.</p></div>
+        </div>
+        <div class="hr-application"><strong>HR AX/DX 적용</strong><p>인사 규정·채용 FAQ 자동화에도 별도 검증 데이터, 사람의 확인 기준, 적용 중단 조건이 함께 필요합니다.</p></div>
         <div class="project-tags">
           <span>검색·근거 연결</span><span>별도 검증 데이터</span><span>사람 검수</span><span>적용 중단 기준</span><span>무료·로컬 환경 구현</span>
         </div>
@@ -185,12 +192,19 @@
             <p class="project-meta">2023.11~2024.02 · 산학협력 · 데이터 구축·라벨링 기준·군집 분석 담당</p>
           </div>
         </div>
+        <div class="project-proof-bar" aria-label="핵심 결과 요약">
+          <div class="project-proof"><span>초기 군집</span><strong>9개</strong></div>
+          <div class="project-proof"><span>재설계 군집</span><strong>6개</strong></div>
+          <div class="project-proof"><span>기준 개선</span><strong>평가 기준 수정</strong></div>
+          <div class="project-proof"><span>최종 방향</span><strong>속성 중심 추천</strong></div>
+        </div>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>육아용품 리뷰만으로 상품 속성별 만족도를 구분하고, 사용자별 추천으로 연결할 수 있는지 확인해야 했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>리뷰에서 상품 속성별 만족도를 구분해 개인화 추천으로 연결해야 했습니다.</p></div>
           <div class="story-item"><strong>내 역할</strong><p>리뷰 데이터 구축, 라벨링 기준 설계, 사용자 군집 분석을 담당했습니다.</p></div>
           <div class="story-item"><strong>핵심 판단</strong><p>감성 점수만으로 놓치는 정보를 확인해 평가 기준을 수정하고, 군집을 9개에서 6개로 재설계했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>복합 맞춤형 추천의 현실적 한계를 확인하고, 상품 속성별 만족도를 중심으로 추천하는 구조로 방향을 전환했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>복합 추천의 한계를 확인해 상품 속성별 만족도 중심 구조로 방향을 전환했습니다.</p></div>
         </div>
+        <div class="hr-application"><strong>HR AX/DX 적용</strong><p>구성원 의견과 설문 데이터를 분류할 때도 라벨링 기준을 먼저 합의하고, 검증 결과에 따라 분류 구조를 조정해야 합니다.</p></div>
         <div class="project-tags">
           <span>데이터 라벨링</span><span>사용자 군집</span><span>평가 기준 개선</span><span>산학협력</span>
         </div>
@@ -210,12 +224,19 @@
             <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증 전 과정 단독 수행</p>
           </div>
         </div>
+        <div class="project-proof-bar" aria-label="핵심 결과 요약">
+          <div class="project-proof"><span>분석 규모</span><strong>약 69만 건</strong></div>
+          <div class="project-proof"><span>결측 집단</span><strong>21.71%</strong></div>
+          <div class="project-proof"><span>성능 격차 설명</span><strong>54.97%</strong></div>
+          <div class="project-proof project-proof-caution"><span>추가 개선폭</span><strong>0.000041</strong></div>
+        </div>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>약 69만 건의 불균형 데이터에서 전체 점수만으로는 성능이 낮은 집단과 원인을 알기 어려웠습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>전체 점수만으로는 성능이 낮은 집단과 그 원인을 확인하기 어려웠습니다.</p></div>
           <div class="story-item"><strong>내 역할</strong><p>데이터 정제, 예측 모델 구축, 누수 방지 검증과 집단별 오류 분석을 단독 수행했습니다.</p></div>
           <div class="story-item"><strong>핵심 판단</strong><p>전체 평균과 함께 결측 집단을 따로 분석하고, 개선폭이 작은 추가 모델은 최종안에서 제외했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>전체의 21.71%인 결측 집단이 남은 성능 격차의 54.97%를 설명한다는 점을 확인했습니다. 추가 모델의 개선폭은 0.000041이었습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>21.71%의 결측 집단이 성능 격차의 54.97%를 설명했습니다. 추가 모델의 개선폭은 0.000041에 그쳤습니다.</p></div>
         </div>
+        <div class="hr-application"><strong>HR AX/DX 적용</strong><p>인사 데이터도 전체 평균만 보지 않고 결측·소수 집단의 오류를 따로 확인해 특정 구성원에게 불리한 판단을 줄여야 합니다.</p></div>
         <div class="project-tags">
           <span>불균형 분류</span><span>결측 집단 분석</span><span>교차검증</span><span>XGBoost·LightGBM</span>
         </div>
@@ -308,6 +329,6 @@
   <p>&copy; 2026 김태훈</p>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20260830-1"></script>
 </body>
 </html>
