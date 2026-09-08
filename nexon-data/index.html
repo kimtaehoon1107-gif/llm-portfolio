@@ -183,32 +183,32 @@
       <article class="project-card project-card-featured reveal">
         <div class="project-head">
           <div>
-            <span class="project-number">대용량 예측과 원인 분석</span>
-            <span class="badge badge-done">분석 완료</span>
-            <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
-            <p class="project-tagline">69만 행 · 폴드 안에서 전처리 · 결측 집단 분석 · 모델 복잡도 비교</p>
-            <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증·원인 분석 전 과정 수행</p>
+            <span class="project-number">문서 검색과 답변 검증</span>
+            <span class="badge badge-done">배포 · 검증 완료</span>
+            <h3>DNF 공식 문서 기반 질의응답 시스템</h3>
+            <p class="project-tagline">공식 문서 996개 · 검색 문서 조각 3,925개 · 하이브리드 검색 · 근거 기반 답변</p>
+            <p class="project-meta">개인 프로젝트 · 데이터 수집·검색·답변 생성·평가·웹 데모 전 과정 수행</p>
           </div>
         </div>
         <div class="project-proof-bar" aria-label="핵심 결과 요약">
-          <div class="project-proof"><span>분석 규모</span><strong>690,088행</strong></div>
-          <div class="project-proof"><span>검증</span><strong>7-fold OOF</strong></div>
-          <div class="project-proof"><span>Balanced Accuracy</span><strong>0.9501</strong></div>
-          <div class="project-proof project-proof-caution"><span>추가 개선폭</span><strong>+0.000041</strong></div>
+          <div class="project-proof"><span>공식 문서</span><strong>996개</strong></div>
+          <div class="project-proof"><span>검색 문서 조각</span><strong>3,925개</strong></div>
+          <div class="project-proof"><span>직접 검토</span><strong>32건</strong></div>
+          <div class="project-proof project-proof-caution"><span>통과율</span><strong>62.5%</strong></div>
         </div>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>전체 점수만으로는 어떤 집단에서 예측이 흔들리는지, 더 복잡한 모델이 실제로 필요한지 알기 어려웠습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>LightGBM과 XGBoost를 기준 모델로 삼고, 각 폴드 안에서 Target Encoding을 적용해 다중 시드와 FT-Transformer 혼합 모델을 비교했습니다.</p></div>
-          <div class="story-item"><strong>판단 근거</strong><p>평가 데이터에 맞춰 가중치를 고르는 일을 피하고, 전체 성능뿐 아니라 결측 유형별 오류를 따로 확인했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>핵심 변수 결측 21.71%의 행이 남은 성능 격차의 54.97%를 설명했습니다. 고급 혼합의 개선은 미미해 기본 모델을 최종안으로 유지했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>던전앤파이터 공식 정보가 여러 문서에 흩어져 있어 필요한 내용을 찾기 어렵고, 검색 결과가 있어도 답변 전체를 뒷받침하는지 따로 확인해야 했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>공식 문서 수집과 정제, 키워드·벡터 결합 검색, 근거 원문 복원, 답변 생성 기준과 웹 데모까지 하나의 흐름으로 구현했습니다.</p></div>
+          <div class="story-item"><strong>판단 근거</strong><p>검색 실패, 잘못된 근거 선택, 생성·거절 실패를 나눠 살펴보고 같은 검색 조건에서 답변 방식별 결과를 비교했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>직접 검토한 32건 중 20건만 기준을 통과했습니다. 목표치 80%에 미치지 못해 기본 답변 방식으로 채택하지 않고 실패 사례를 다음 개선 과제로 남겼습니다.</p></div>
         </div>
-        <div class="hr-application"><strong>업무 활용</strong><p>대규모 유저 데이터에서도 전체 평균만 보지 않고 결측치와 소수 집단의 성능을 따로 확인했습니다. 실제 개선이 거의 없는 복잡한 모델은 최종안에서 제외했습니다.</p></div>
+        <div class="hr-application"><strong>업무 활용</strong><p>공식 문서를 빠르게 찾는 기능뿐 아니라 답변이 근거를 제대로 사용했는지 검증하는 절차까지 만들었습니다. 기준에 못 미친 결과는 그대로 공개해 활용 범위를 분명히 했습니다.</p></div>
         <div class="project-tags">
-          <span>Python</span><span>XGBoost</span><span>LightGBM</span><span>FT-Transformer</span><span>불균형 분류</span><span>누수 방지</span>
+          <span>Python</span><span>RAG</span><span>Hybrid Search</span><span>근거 검증</span><span>답변 평가</span><span>LoRA</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>
-          <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk/blob/main/REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 리포트</a>
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-domain-qa-slm-rag/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">웹 포트폴리오</a>
+          <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub</a>
         </div>
       </article>
       </div>
@@ -218,21 +218,21 @@
           <span class="section-eyebrow">More work</span>
           <h3>추가 프로젝트</h3>
         </div>
-        <p>AI 분석 시스템 구축, 협업, Excel을 활용한 게임 경제 분석 경험입니다.</p>
+        <p>예측 모델 검증, 산학협력, Excel을 활용한 게임 경제 분석 경험입니다.</p>
       </div>
 
       <div class="compact-grid">
         <article class="project-card project-card-compact reveal">
           <div>
-            <span class="badge badge-done">배포 · 검증 완료</span>
-            <h3>DNF Domain QA — SLM/RAG</h3>
-            <p class="project-meta">개인 프로젝트 · 수집·검색·평가·데모 전 과정 수행</p>
-            <p class="project-desc">공식 문서 996개를 검색용 문서 조각 3,925개로 나누고, 키워드와 벡터를 함께 쓰는 검색·근거 원문 복원·답변 생성 기준·검증 절차를 하나의 로컬 시스템으로 구현했습니다.</p>
-            <p class="compact-proof"><strong>판단</strong> 직접 검토한 32건 중 20건(62.5%)만 통과해 목표치 80%에 미치지 못했습니다. 따라서 기본 답변 방식으로 채택하지 않았습니다.</p>
+            <span class="badge badge-done">분석 완료</span>
+            <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
+            <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증·원인 분석</p>
+            <p class="project-desc">69만 행의 불균형 데이터를 대상으로 LightGBM과 XGBoost를 비교하고, 각 폴드 안에서 전처리해 누수를 막았습니다. 결측 유형별 오류와 복잡한 혼합 모델의 실제 개선폭도 따로 확인했습니다.</p>
+            <p class="compact-proof"><strong>결과</strong> Balanced Accuracy 0.9501을 기록했습니다. 고급 혼합 모델의 개선은 +0.000041에 그쳐 기본 모델을 최종안으로 유지했습니다.</p>
           </div>
           <div class="project-links">
-            <a href="https://kimtaehoon1107-gif.github.io/dnf-domain-qa-slm-rag/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">웹 포트폴리오</a>
-            <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub</a>
+            <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>
+            <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk/blob/main/REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 리포트</a>
           </div>
         </article>
 
