@@ -87,7 +87,9 @@ fig.text(0.055, 0.137, "공개된 원본 집계 데이터로 다시 그린 차�
 fig.text(0.055, 0.089, "예측은 실측과 구분해 표시합니다. 목표 80% 구간은 포함 확률을 보장하지 않으며, 7일 뒤 예측의 평가 사례는 아직 없습니다.", fontsize=9, color="#64707e")
 fig.text(0.055, 0.040, "데이터 출처: Neople Open API · DNF 경매장 시세 추적기", fontsize=9, color="#7c8794")
 
-fig.savefig(assets / "dnf-candles-20260909-hd.svg")
+svg = assets / "dnf-candles-20260909-hd.svg"
+fig.savefig(svg)
+svg.write_text("\n".join(line.rstrip() for line in svg.read_text(encoding="utf-8").splitlines()) + "\n", encoding="utf-8")
 fig.savefig(assets / "dnf-candles-20260909-hd.png", dpi=240)
 plt.close(fig)
 print("Exported SVG and 2880 × 1620 PNG")
