@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김태훈 | 던전앤파이터 이벤트·유료화 기획 포트폴리오</title>
+<meta name="description" content="던전앤파이터 트로피컬 바캉스 패키지의 확률·경매장 시세·보상 구조를 분석하고, 원하는 보상을 늦어도 151번째에는 얻도록 하는 위시 쥬얼을 제안합니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="css/style.css?v=20260823-4">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">김태훈</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#overview">상품 구조</a>
+      <a href="#data">데이터 분석</a>
+      <a href="#problem">문제 정의</a>
+      <a href="#improve">개선안</a>
+      <a href="#verify">검증 설계</a>
+      <a href="#conclusion">결론</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">넥슨/네오플 · 게임 이벤트·유료화 기획자 지원</p>
+      <h1>좋은 보상을 얻을 확률과,<br><span class="accent">원하는 보상</span>을 얻을 확률은 다르다.</h1>
+      <p class="hero-sub">
+        던전앤파이터 ‘트로피컬 바캉스 패키지’의 200개 보상 풀과 실제 경매장 시세를 분석하고,
+        200회 완주 시 보상 풀 구성을 유지하면서 원하는 보상을 늦어도 151번째에는 얻도록 하는
+        <strong>‘위시 쥬얼’</strong>을 제안합니다.
+      </p>
+      <div class="hero-proof" aria-label="핵심 분석 결과">
+        <div><strong>86%</strong><span>프루티·편의성 보상 비율</span></div>
+        <div><strong>50%</strong><span>100회 후 특정 목표 획득률</span></div>
+        <div><strong>35.4%</strong><span>카드 비용 대비 거래 보상값</span></div>
+      </div>
+      <div class="hero-meta">
+        <span>공식 확률표 재구성</span>
+        <span>Neople 경매장 API 연동</span>
+        <span>비복원 확률 모델링</span>
+        <span>Excel 경제 시뮬레이션</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">01 · 선정 상품과 목적</p>
+      <h2 class="section-title">트로피컬 바캉스 패키지</h2>
+      <p class="section-lead">
+        여름·명절 등 시즌마다 유사한 구조로 반복 출시되는 대표 패키지는 라이브 서비스의
+        정기 매출을 담당하는 핵심 상품군으로 기능한다고 판단했습니다. 개별 패키지의 실제 매출
+        비중은 공개되지 않았지만, 이번 상품에는 첫 구매 확정권, 누적 구매 보상, 오라 천장,
+        비복원형 쥬얼박스와 교환 상점이 결합돼 있습니다. 정기 매출 상품의 첫 결제부터 반복 구매,
+        확률형 개봉과 가치 회수까지 유료화 흐름 전체를 수치로 관찰할 수 있어 분석 대상으로 선정했습니다.
+      </p>
+
+      <div class="fact-grid">
+        <div class="fact-card"><div class="k">판매 기간</div><div class="v">2026.06.04 – 08.27</div></div>
+        <div class="fact-card"><div class="k">가격</div><div class="v">36,800세라 / 개</div></div>
+        <div class="fact-card"><div class="k">기본 구성</div><div class="v">아바타 · 오라 · 크리쳐 · 칭호 · 세라상자</div></div>
+        <div class="fact-card"><div class="k">첫 구매 혜택</div><div class="v">‘열대야의 추억’ 오라 확정 변경권</div></div>
+      </div>
+
+      <div class="funnel" aria-label="판매 구조">
+        <div class="funnel-step"><div class="n">ENTRY</div><div class="t">첫 구매 오라 확정</div></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step"><div class="n">LADDER</div><div class="t">2~10개 누적 보상</div></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step"><div class="n">LOOP</div><div class="t">200개 쥬얼박스</div></div>
+        <div class="funnel-arrow">→</div>
+        <div class="funnel-step"><div class="n">RECOVERY</div><div class="t">코인·쥬얼 교환</div></div>
+      </div>
+
+      <p class="source-note">
+        출처:
+        <a href="https://df.nexon.com/pg/tropicalpkg" target="_blank" rel="noopener">트로피컬 바캉스 패키지</a>,
+        <a href="https://df.nexon.com/community/news/seriashop/628" target="_blank" rel="noopener">세리아 상점 상세 안내</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">02 · 예상 기획 의도</p>
+      <h2 class="section-title">구매 단계마다 다음 목표를 보여준다</h2>
+      <div class="intent-grid">
+        <article class="intent-card">
+          <span>01</span>
+          <h3>첫 구매 부담 완화</h3>
+          <p>최고 등급 오라 확정 변경권으로 첫 결제의 확률 부담을 낮춥니다.</p>
+        </article>
+        <article class="intent-card">
+          <span>02</span>
+          <h3>다음 구매 보상</h3>
+          <p>2~10개 구간에 외형과 성능 보상을 배치해 다음 구매 목표를 이어갑니다.</p>
+        </article>
+        <article class="intent-card">
+          <span>03</span>
+          <h3>개봉을 이어갈 이유</h3>
+          <p>보상을 하나씩 풀에서 빼고 50회마다 누적 보상을 제공해 다음 목표를 보여줍니다.</p>
+        </article>
+        <article class="intent-card">
+          <span>04</span>
+          <h3>필요 없는 구성품 활용</h3>
+          <p>사용하지 않는 구성품을 코인으로 바꿔 에너지 카드나 다른 상품에 다시 쓸 수 있습니다.</p>
+        </article>
+      </div>
+
+      <div class="jewel-intro">
+        <span class="jewel-intro-kicker">패키지와 같은 시즌에 운영되는 별도 개봉 콘텐츠</span>
+        <h3>트로피컬 쥬얼박스란?</h3>
+        <p>
+          에너지 카드 1장을 사용해 200개로 고정된 보상 풀에서 아이템 1개를 얻는 콘텐츠입니다.
+          한 번 나온 보상은 풀에서 빠지므로 개봉할수록 남은 보상의 확률이 달라집니다. 또한
+          50·100·150·200회에는 누적 개봉 보상이 지급됩니다. 다음 절에서는 이 200개 풀을
+          실제 슬롯 수와 경매장 시세로 나눠 분석합니다.
+        </p>
+        <div class="bm-flow jewel-flow" aria-label="트로피컬 쥬얼박스 개봉 구조">
+          <div><span>01</span><strong>에너지 카드 1장</strong><p>개봉할 때마다 카드 한 장을 사용합니다.</p></div>
+          <i>→</i>
+          <div><span>02</span><strong>200개 고정 풀</strong><p>정해진 수량의 보상 중 하나를 뽑습니다.</p></div>
+          <i>→</i>
+          <div><span>03</span><strong>당첨 보상 제거</strong><p>뽑힌 아이템은 남은 풀에서 빠집니다.</p></div>
+          <i>→</i>
+          <div><span>04</span><strong>50회 단위 보상</strong><p>누적 개봉 횟수에 따라 추가 보상을 받습니다.</p></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-heading">
+          <h3>누적 구매 보상 구조</h3>
+          <p>2~10개 구매 구간에 외형·성능 보상과 프리미엄 코인이 순차적으로 지급됩니다.</p>
+        </div>
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr><th>구매 수량</th><th>프리미엄 코인</th><th>주요 보상</th><th>역할</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2개</td><td>1</td><td>찬란한 엠블렘 2개 선택</td><td>초기 보상</td></tr>
+              <tr><td>3~5개</td><td>각 2</td><td>모자·무기·E타입 풀세트</td><td>외형 수집</td></tr>
+              <tr><td>6~7개</td><td>각 2</td><td>데미지 폰트·각성 컷신</td><td>계정 연출</td></tr>
+              <tr class="row-highlight"><td>8개</td><td>3</td><td>레어 무기 클론 아바타</td><td>성능·희소</td></tr>
+              <tr class="row-highlight"><td>9개</td><td>3</td><td>[EVENT]트로피컬 가이드 운디네/트로피컬 바텐더 마린 크리쳐 선택 상자</td><td>종결 옵션 · 크리쳐</td></tr>
+              <tr class="row-highlight"><td>10개</td><td>3</td><td>[EVENT]신선한 햇살의 조각 오라 상자</td><td>종결 옵션 · 오라</td></tr>
+              <tr><td>11개 이후</td><td>+1 / 개</td><td>프리미엄 코인</td><td>장기 반복</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="data" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">03 · 공식 확률·경매장 데이터 분석</p>
+      <h2 class="section-title">보상 풀과 시장가를 함께 본다</h2>
+      <p class="section-lead">
+        공식 확률표를 200개 슬롯으로 복원하고, Neople 경매장 API의 최근 실거래 가중평균을
+        연결한 Excel 계산기로 거래 가능한 보상의 시장가 기준 기대값을 계산했습니다.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="label">200회 카드 비용</div>
+          <div class="value">7.21억</div>
+          <div class="sub">720,847,000골드</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">200회 거래 보상 EV</div>
+          <div class="value">2.55억</div>
+          <div class="sub">255,221,286골드</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">카드 비용 대비 거래 보상값</div>
+          <div class="value">35.4%</div>
+          <div class="sub">거래 가능 보상 기준</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">거래 가능 보상 기준 차액</div>
+          <div class="value critical">-4.66억</div>
+          <div class="sub">거래 가능 보상만 반영 · -465,625,714골드</div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3>쥬얼박스 200슬롯 구성</h3>
+        <p class="chart-note">
+          개봉할 때마다 해당 보상이 빠지는 비복원 구조입니다. 최상위 보상 4슬롯, 교환 가능
+          상자·보주 24슬롯, 프루티 쥬얼 60슬롯, 편의성 아이템 4종 각 28슬롯으로 구성됩니다.
+        </p>
+        <div class="stackbar-wrap">
+          <div class="stackbar-highlight" aria-hidden="true"><strong>2%</strong><span>최상위 4종</span></div>
+          <div class="stackbar" role="img" aria-label="프루티 쥬얼 30퍼센트, 편의성 아이템 56퍼센트, 교환 가능 상자와 보주 12퍼센트, 최상위 보상 2퍼센트">
+            <div class="stackbar-seg" style="width:30%;background:var(--series-2);border-right:2px solid var(--chart-surface)"><span>30%</span></div>
+            <div class="stackbar-seg" style="width:56%;background:var(--series-1);border-right:2px solid var(--chart-surface)"><span>56%</span></div>
+            <div class="stackbar-seg" style="width:12%;background:var(--series-3);border-right:2px solid var(--chart-surface)"><span>12%</span></div>
+            <div class="stackbar-seg" style="width:2%;background:var(--series-4)" aria-label="최상위 보상 2퍼센트"></div>
+          </div>
+        </div>
+        <div class="stackbar-legend">
+          <span><span class="dot" style="background:var(--series-2)"></span>프루티 쥬얼 · 60슬롯</span>
+          <span><span class="dot" style="background:var(--series-1)"></span>편의성 아이템 · 28×4 = 112슬롯</span>
+          <span><span class="dot" style="background:var(--series-3)"></span>교환 가능 상자·보주 · 24슬롯</span>
+          <span><span class="dot" style="background:var(--series-4)"></span>최상위 보상 4종 · 4슬롯</span>
+        </div>
+      </div>
+
+      <div class="chart-card probability-card">
+        <div class="chart-heading">
+          <div>
+            <h3>‘아무 핵심 보상’과 ‘원하는 보상’의 차이</h3>
+            <p class="chart-note">초기 확률 0.5%인 핵심 보상 4종은 각각 200개 풀 안에 한 개씩 존재합니다.</p>
+          </div>
+          <div class="chart-legend">
+            <span><i class="legend-any"></i>핵심 4종 중 하나 이상</span>
+            <span><i class="legend-target"></i>원하는 특정 1종</span>
+          </div>
+        </div>
+        <div class="prob-chart">
+          <div class="prob-row">
+            <div class="prob-label"><strong>50회</strong><span>첫 체크포인트</span></div>
+            <div class="prob-bars">
+              <div class="prob-track"><div class="prob-fill any" style="width:68.7%"><span>68.7%</span></div></div>
+              <div class="prob-track"><div class="prob-fill target" style="width:25%"><span>25%</span></div></div>
+            </div>
+          </div>
+          <div class="prob-row">
+            <div class="prob-label"><strong>100회</strong><span>중간 지점</span></div>
+            <div class="prob-bars">
+              <div class="prob-track"><div class="prob-fill any" style="width:93.9%"><span>93.9%</span></div></div>
+              <div class="prob-track"><div class="prob-fill target" style="width:50%"><span>50%</span></div></div>
+            </div>
+          </div>
+          <div class="prob-row">
+            <div class="prob-label"><strong>150회</strong><span>후반 구간</span></div>
+            <div class="prob-bars">
+              <div class="prob-track"><div class="prob-fill any" style="width:99.6%"><span>99.6%</span></div></div>
+              <div class="prob-track"><div class="prob-fill target" style="width:75%"><span>75%</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="formula-note">
+          <code>P(특정 1종을 n회 이내 획득) = n / 200</code>
+          <code>P(핵심 4종 중 하나 이상) = 1 - C(196,n) / C(200,n)</code>
+        </div>
+        <div class="probability-explainer">
+          <span>100회 기준 해석</span>
+          <strong>핵심 보상 4종 중 하나를 얻을 확률은 93.9%지만, 내가 지정한 1종은 50%입니다.</strong>
+          <p>‘아무 핵심 보상’은 풀 안의 4개 슬롯 중 하나만 만나도 성공이지만, ‘원하는 보상’은
+          특정 슬롯 1개를 만나야 성공합니다. 다른 핵심 보상을 얻어도 목표를 얻지 못한 상태가
+          생기므로, 핵심 보상을 하나라도 얻는 것과 본인이 지정한 보상을 얻는 것은
+          별도 지표로 봐야 합니다.</p>
+        </div>
+      </div>
+
+      <div class="chart-card completion-chart-card">
+        <h3>핵심 4종 전체 수집은 후반에 집중된다</h3>
+        <p class="chart-note">
+          핵심 보상 4종을 모두 얻을 확률은 100회 시점에도 6.1%, 150회에도 31.3%입니다.
+          절반이 수집을 마치는 시점은 169회이며, 95% 이상이 완료하려면 198회까지 필요합니다.
+        </p>
+        <div class="curve-chart-wrap">
+          <svg class="curve-chart" data-completion-chart viewBox="0 0 860 340" role="img" aria-label="개봉 횟수에 따른 핵심 보상 4종 전체 수집 완료 확률. 평균 완료 시점은 160.8회, 50% 완료 시점은 169회, 95% 이상 완료 시점은 198회입니다.">
+            <line x1="60" y1="280" x2="840" y2="280" stroke="var(--chart-grid)" stroke-width="1"/>
+            <line x1="60" y1="228" x2="840" y2="228" stroke="var(--chart-grid)" stroke-width="1"/>
+            <line x1="60" y1="176" x2="840" y2="176" stroke="var(--chart-grid)" stroke-width="1"/>
+            <line x1="60" y1="124" x2="840" y2="124" stroke="var(--chart-grid)" stroke-width="1"/>
+            <line x1="60" y1="72"  x2="840" y2="72"  stroke="var(--chart-grid)" stroke-width="1"/>
+            <line x1="60" y1="20"  x2="840" y2="20"  stroke="var(--chart-grid)" stroke-width="1"/>
+            <text x="52" y="284" text-anchor="end" class="axis-label">0%</text>
+            <text x="52" y="232" text-anchor="end" class="axis-label">20%</text>
+            <text x="52" y="180" text-anchor="end" class="axis-label">40%</text>
+            <text x="52" y="128" text-anchor="end" class="axis-label">60%</text>
+            <text x="52" y="76"  text-anchor="end" class="axis-label">80%</text>
+            <text x="52" y="24"  text-anchor="end" class="axis-label">100%</text>
+
+            <line x1="255" y1="20" x2="255" y2="280" stroke="var(--chart-axis)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="450" y1="20" x2="450" y2="280" stroke="var(--chart-axis)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="645" y1="20" x2="645" y2="280" stroke="var(--chart-axis)" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="60"  y="304" text-anchor="start"  class="axis-label">0회</text>
+            <text x="255" y="304" text-anchor="middle" class="axis-label">50회</text>
+            <text x="450" y="304" text-anchor="middle" class="axis-label">100회</text>
+            <text x="645" y="304" text-anchor="middle" class="axis-label">150회</text>
+            <text x="840" y="304" text-anchor="end"    class="axis-label">200회</text>
+
+            <polygon points="60.0,20.0 67.8,30.3 75.6,40.3 83.4,50.0 91.2,59.4 99.0,68.6 106.8,77.4 114.6,86.0 122.4,94.2 130.2,102.2 138.0,110.0 145.8,117.5 153.6,124.7 161.4,131.7 169.2,138.5 177.0,145.0 184.8,151.3 192.6,157.4 200.4,163.2 208.2,168.9 216.0,174.3 223.8,179.5 231.6,184.6 239.4,189.4 247.2,194.1 255.0,198.6 262.8,202.9 270.6,207.0 278.4,210.9 286.2,214.7 294.0,218.4 301.8,221.9 309.6,225.2 317.4,228.4 325.2,231.4 333.0,234.3 340.8,237.1 348.6,239.8 356.4,242.3 364.2,244.7 372.0,247.0 379.8,249.2 387.6,251.2 395.4,253.2 403.2,255.0 411.0,256.8 418.8,258.5 426.6,260.0 434.4,261.5 442.2,262.9 450.0,264.2 457.8,265.5 465.6,266.6 473.4,267.7 481.2,268.8 489.0,269.7 496.8,270.6 504.6,271.5 512.4,272.2 520.2,273.0 528.0,273.6 535.8,274.3 543.6,274.8 551.4,275.4 559.2,275.9 567.0,276.3 574.8,276.7 582.6,277.1 590.4,277.4 598.2,277.8 606.0,278.0 613.8,278.3 621.6,278.5 629.4,278.7 637.2,278.9 645.0,279.1 652.8,279.2 660.6,279.3 668.4,279.5 676.2,279.6 684.0,279.6 691.8,279.7 699.6,279.8 707.4,279.8 715.2,279.9 723.0,279.9 730.8,279.9 738.6,279.9 746.4,280.0 754.2,280.0 762.0,280.0 769.8,280.0 777.6,280.0 785.4,280.0 793.2,280.0 801.0,280.0 808.8,280.0 816.6,280.0 824.4,280.0 832.2,280.0 840.0,280.0 840.0,280.0 60.0,280.0" fill="var(--curve-0)" stroke="var(--chart-surface)" stroke-width="2" stroke-linejoin="round"/>
+            <polygon points="60.0,20.0 67.8,20.1 75.6,20.5 83.4,21.1 91.2,22.1 99.0,23.3 106.8,24.8 114.6,26.6 122.4,28.5 130.2,30.7 138.0,33.1 145.8,35.8 153.6,38.6 161.4,41.5 169.2,44.7 177.0,48.0 184.8,51.5 192.6,55.1 200.4,58.8 208.2,62.6 216.0,66.6 223.8,70.7 231.6,74.8 239.4,79.1 247.2,83.4 255.0,87.8 262.8,92.2 270.6,96.7 278.4,101.3 286.2,105.8 294.0,110.4 301.8,115.1 309.6,119.7 317.4,124.4 325.2,129.0 333.0,133.7 340.8,138.3 348.6,143.0 356.4,147.6 364.2,152.1 372.0,156.7 379.8,161.2 387.6,165.6 395.4,170.1 403.2,174.4 411.0,178.7 418.8,183.0 426.6,187.1 434.4,191.2 442.2,195.3 450.0,199.2 457.8,203.1 465.6,206.9 473.4,210.6 481.2,214.3 489.0,217.8 496.8,221.2 504.6,224.6 512.4,227.8 520.2,231.0 528.0,234.0 535.8,237.0 543.6,239.8 551.4,242.5 559.2,245.2 567.0,247.7 574.8,250.1 582.6,252.5 590.4,254.7 598.2,256.8 606.0,258.8 613.8,260.7 621.6,262.5 629.4,264.2 637.2,265.8 645.0,267.3 652.8,268.7 660.6,269.9 668.4,271.1 676.2,272.3 684.0,273.3 691.8,274.2 699.6,275.1 707.4,275.8 715.2,276.5 723.0,277.1 730.8,277.7 738.6,278.1 746.4,278.5 754.2,278.9 762.0,279.2 769.8,279.4 777.6,279.6 785.4,279.7 793.2,279.8 801.0,279.9 808.8,280.0 816.6,280.0 824.4,280.0 832.2,280.0 840.0,280.0 840.0,280.0 832.2,280.0 824.4,280.0 816.6,280.0 808.8,280.0 801.0,280.0 793.2,280.0 785.4,280.0 777.6,280.0 769.8,280.0 762.0,280.0 754.2,280.0 746.4,280.0 738.6,279.9 730.8,279.9 723.0,279.9 715.2,279.9 707.4,279.8 699.6,279.8 691.8,279.7 684.0,279.6 676.2,279.6 668.4,279.5 660.6,279.3 652.8,279.2 645.0,279.1 637.2,278.9 629.4,278.7 621.6,278.5 613.8,278.3 606.0,278.0 598.2,277.8 590.4,277.4 582.6,277.1 574.8,276.7 567.0,276.3 559.2,275.9 551.4,275.4 543.6,274.8 535.8,274.3 528.0,273.6 520.2,273.0 512.4,272.2 504.6,271.5 496.8,270.6 489.0,269.7 481.2,268.8 473.4,267.7 465.6,266.6 457.8,265.5 450.0,264.2 442.2,262.9 434.4,261.5 426.6,260.0 418.8,258.5 411.0,256.8 403.2,255.0 395.4,253.2 387.6,251.2 379.8,249.2 372.0,247.0 364.2,244.7 356.4,242.3 348.6,239.8 340.8,237.1 333.0,234.3 325.2,231.4 317.4,228.4 309.6,225.2 301.8,221.9 294.0,218.4 286.2,214.7 278.4,210.9 270.6,207.0 262.8,202.9 255.0,198.6 247.2,194.1 239.4,189.4 231.6,184.6 223.8,179.5 216.0,174.3 208.2,168.9 200.4,163.2 192.6,157.4 184.8,151.3 177.0,145.0 169.2,138.5 161.4,131.7 153.6,124.7 145.8,117.5 138.0,110.0 130.2,102.2 122.4,94.2 114.6,86.0 106.8,77.4 99.0,68.6 91.2,59.4 83.4,50.0 75.6,40.3 67.8,30.3 60.0,20.0" fill="var(--curve-1)" stroke="var(--chart-surface)" stroke-width="2" stroke-linejoin="round"/>
+            <polygon points="60.0,20.0 67.8,20.0 75.6,20.0 83.4,20.0 91.2,20.0 99.0,20.1 106.8,20.2 114.6,20.3 122.4,20.4 130.2,20.6 138.0,20.8 145.8,21.1 153.6,21.5 161.4,21.9 169.2,22.3 177.0,22.9 184.8,23.5 192.6,24.2 200.4,24.9 208.2,25.8 216.0,26.7 223.8,27.7 231.6,28.9 239.4,30.1 247.2,31.3 255.0,32.7 262.8,34.2 270.6,35.8 278.4,37.5 286.2,39.3 294.0,41.2 301.8,43.2 309.6,45.3 317.4,47.5 325.2,49.9 333.0,52.3 340.8,54.8 348.6,57.5 356.4,60.2 364.2,63.0 372.0,66.0 379.8,69.0 387.6,72.2 395.4,75.4 403.2,78.8 411.0,82.2 418.8,85.7 426.6,89.4 434.4,93.1 442.2,96.9 450.0,100.8 457.8,104.7 465.6,108.8 473.4,112.9 481.2,117.0 489.0,121.3 496.8,125.6 504.6,129.9 512.4,134.4 520.2,138.8 528.0,143.3 535.8,147.9 543.6,152.4 551.4,157.0 559.2,161.7 567.0,166.3 574.8,171.0 582.6,175.6 590.4,180.3 598.2,184.9 606.0,189.6 613.8,194.2 621.6,198.7 629.4,203.3 637.2,207.8 645.0,212.2 652.8,216.6 660.6,220.9 668.4,225.2 676.2,229.3 684.0,233.4 691.8,237.4 699.6,241.2 707.4,244.9 715.2,248.5 723.0,252.0 730.8,255.3 738.6,258.5 746.4,261.4 754.2,264.2 762.0,266.9 769.8,269.3 777.6,271.5 785.4,273.4 793.2,275.2 801.0,276.7 808.8,277.9 816.6,278.9 824.4,279.5 832.2,279.9 840.0,280.0 840.0,280.0 832.2,280.0 824.4,280.0 816.6,280.0 808.8,280.0 801.0,279.9 793.2,279.8 785.4,279.7 777.6,279.6 769.8,279.4 762.0,279.2 754.2,278.9 746.4,278.5 738.6,278.1 730.8,277.7 723.0,277.1 715.2,276.5 707.4,275.8 699.6,275.1 691.8,274.2 684.0,273.3 676.2,272.3 668.4,271.1 660.6,269.9 652.8,268.7 645.0,267.3 637.2,265.8 629.4,264.2 621.6,262.5 613.8,260.7 606.0,258.8 598.2,256.8 590.4,254.7 582.6,252.5 574.8,250.1 567.0,247.7 559.2,245.2 551.4,242.5 543.6,239.8 535.8,237.0 528.0,234.0 520.2,231.0 512.4,227.8 504.6,224.6 496.8,221.2 489.0,217.8 481.2,214.3 473.4,210.6 465.6,206.9 457.8,203.1 450.0,199.2 442.2,195.3 434.4,191.2 426.6,187.1 418.8,183.0 411.0,178.7 403.2,174.4 395.4,170.1 387.6,165.6 379.8,161.2 372.0,156.7 364.2,152.1 356.4,147.6 348.6,143.0 340.8,138.3 333.0,133.7 325.2,129.0 317.4,124.4 309.6,119.7 301.8,115.1 294.0,110.4 286.2,105.8 278.4,101.3 270.6,96.7 262.8,92.2 255.0,87.8 247.2,83.4 239.4,79.1 231.6,74.8 223.8,70.7 216.0,66.6 208.2,62.6 200.4,58.8 192.6,55.1 184.8,51.5 177.0,48.0 169.2,44.7 161.4,41.5 153.6,38.6 145.8,35.8 138.0,33.1 130.2,30.7 122.4,28.5 114.6,26.6 106.8,24.8 99.0,23.3 91.2,22.1 83.4,21.1 75.6,20.5 67.8,20.1 60.0,20.0" fill="var(--curve-2)" stroke="var(--chart-surface)" stroke-width="2" stroke-linejoin="round"/>
+            <polygon points="60.0,20.0 67.8,20.0 75.6,20.0 83.4,20.0 91.2,20.0 99.0,20.0 106.8,20.0 114.6,20.0 122.4,20.0 130.2,20.0 138.0,20.0 145.8,20.0 153.6,20.0 161.4,20.1 169.2,20.1 177.0,20.1 184.8,20.1 192.6,20.2 200.4,20.2 208.2,20.3 216.0,20.4 223.8,20.4 231.6,20.5 239.4,20.7 247.2,20.8 255.0,20.9 262.8,21.1 270.6,21.3 278.4,21.5 286.2,21.7 294.0,22.0 301.8,22.2 309.6,22.6 317.4,22.9 325.2,23.3 333.0,23.7 340.8,24.1 348.6,24.6 356.4,25.2 364.2,25.7 372.0,26.4 379.8,27.0 387.6,27.8 395.4,28.5 403.2,29.4 411.0,30.3 418.8,31.2 426.6,32.3 434.4,33.4 442.2,34.5 450.0,35.8 457.8,37.1 465.6,38.5 473.4,40.0 481.2,41.5 489.0,43.2 496.8,45.0 504.6,46.8 512.4,48.8 520.2,50.8 528.0,53.0 535.8,55.3 543.6,57.7 551.4,60.2 559.2,62.9 567.0,65.7 574.8,68.6 582.6,71.6 590.4,74.8 598.2,78.1 606.0,81.6 613.8,85.3 621.6,89.1 629.4,93.0 637.2,97.1 645.0,101.4 652.8,105.9 660.6,110.6 668.4,115.4 676.2,120.5 684.0,125.7 691.8,131.1 699.6,136.8 707.4,142.6 715.2,148.7 723.0,155.0 730.8,161.5 738.6,168.3 746.4,175.3 754.2,182.5 762.0,190.0 769.8,197.8 777.6,205.8 785.4,214.0 793.2,222.6 801.0,231.4 808.8,240.6 816.6,250.0 824.4,259.7 832.2,269.7 840.0,280.0 840.0,280.0 832.2,279.9 824.4,279.5 816.6,278.9 808.8,277.9 801.0,276.7 793.2,275.2 785.4,273.4 777.6,271.5 769.8,269.3 762.0,266.9 754.2,264.2 746.4,261.4 738.6,258.5 730.8,255.3 723.0,252.0 715.2,248.5 707.4,244.9 699.6,241.2 691.8,237.4 684.0,233.4 676.2,229.3 668.4,225.2 660.6,220.9 652.8,216.6 645.0,212.2 637.2,207.8 629.4,203.3 621.6,198.7 613.8,194.2 606.0,189.6 598.2,184.9 590.4,180.3 582.6,175.6 574.8,171.0 567.0,166.3 559.2,161.7 551.4,157.0 543.6,152.4 535.8,147.9 528.0,143.3 520.2,138.8 512.4,134.4 504.6,129.9 496.8,125.6 489.0,121.3 481.2,117.0 473.4,112.9 465.6,108.8 457.8,104.7 450.0,100.8 442.2,96.9 434.4,93.1 426.6,89.4 418.8,85.7 411.0,82.2 403.2,78.8 395.4,75.4 387.6,72.2 379.8,69.0 372.0,66.0 364.2,63.0 356.4,60.2 348.6,57.5 340.8,54.8 333.0,52.3 325.2,49.9 317.4,47.5 309.6,45.3 301.8,43.2 294.0,41.2 286.2,39.3 278.4,37.5 270.6,35.8 262.8,34.2 255.0,32.7 247.2,31.3 239.4,30.1 231.6,28.9 223.8,27.7 216.0,26.7 208.2,25.8 200.4,24.9 192.6,24.2 184.8,23.5 177.0,22.9 169.2,22.3 161.4,21.9 153.6,21.5 145.8,21.1 138.0,20.8 130.2,20.6 122.4,20.4 114.6,20.3 106.8,20.2 99.0,20.1 91.2,20.0 83.4,20.0 75.6,20.0 67.8,20.0 60.0,20.0" fill="var(--curve-3)" stroke="var(--chart-surface)" stroke-width="2" stroke-linejoin="round"/>
+            <polygon points="60.0,20.0 67.8,20.0 75.6,20.0 83.4,20.0 91.2,20.0 99.0,20.0 106.8,20.0 114.6,20.0 122.4,20.0 130.2,20.0 138.0,20.0 145.8,20.0 153.6,20.0 161.4,20.0 169.2,20.0 177.0,20.0 184.8,20.0 192.6,20.0 200.4,20.0 208.2,20.0 216.0,20.0 223.8,20.0 231.6,20.0 239.4,20.0 247.2,20.0 255.0,20.0 262.8,20.0 270.6,20.0 278.4,20.0 286.2,20.0 294.0,20.0 301.8,20.0 309.6,20.0 317.4,20.0 325.2,20.0 333.0,20.0 340.8,20.0 348.6,20.0 356.4,20.0 364.2,20.0 372.0,20.0 379.8,20.0 387.6,20.0 395.4,20.0 403.2,20.0 411.0,20.0 418.8,20.0 426.6,20.0 434.4,20.0 442.2,20.0 450.0,20.0 457.8,20.0 465.6,20.0 473.4,20.0 481.2,20.0 489.0,20.0 496.8,20.0 504.6,20.0 512.4,20.0 520.2,20.0 528.0,20.0 535.8,20.0 543.6,20.0 551.4,20.0 559.2,20.0 567.0,20.0 574.8,20.0 582.6,20.0 590.4,20.0 598.2,20.0 606.0,20.0 613.8,20.0 621.6,20.0 629.4,20.0 637.2,20.0 645.0,20.0 652.8,20.0 660.6,20.0 668.4,20.0 676.2,20.0 684.0,20.0 691.8,20.0 699.6,20.0 707.4,20.0 715.2,20.0 723.0,20.0 730.8,20.0 738.6,20.0 746.4,20.0 754.2,20.0 762.0,20.0 769.8,20.0 777.6,20.0 785.4,20.0 793.2,20.0 801.0,20.0 808.8,20.0 816.6,20.0 824.4,20.0 832.2,20.0 840.0,20.0 840.0,280.0 832.2,269.7 824.4,259.7 816.6,250.0 808.8,240.6 801.0,231.4 793.2,222.6 785.4,214.0 777.6,205.8 769.8,197.8 762.0,190.0 754.2,182.5 746.4,175.3 738.6,168.3 730.8,161.5 723.0,155.0 715.2,148.7 707.4,142.6 699.6,136.8 691.8,131.1 684.0,125.7 676.2,120.5 668.4,115.4 660.6,110.6 652.8,105.9 645.0,101.4 637.2,97.1 629.4,93.0 621.6,89.1 613.8,85.3 606.0,81.6 598.2,78.1 590.4,74.8 582.6,71.6 574.8,68.6 567.0,65.7 559.2,62.9 551.4,60.2 543.6,57.7 535.8,55.3 528.0,53.0 520.2,50.8 512.4,48.8 504.6,46.8 496.8,45.0 489.0,43.2 481.2,41.5 473.4,40.0 465.6,38.5 457.8,37.1 450.0,35.8 442.2,34.5 434.4,33.4 426.6,32.3 418.8,31.2 411.0,30.3 403.2,29.4 395.4,28.5 387.6,27.8 379.8,27.0 372.0,26.4 364.2,25.7 356.4,25.2 348.6,24.6 340.8,24.1 333.0,23.7 325.2,23.3 317.4,22.9 309.6,22.6 301.8,22.2 294.0,22.0 286.2,21.7 278.4,21.5 270.6,21.3 262.8,21.1 255.0,20.9 247.2,20.8 239.4,20.7 231.6,20.5 223.8,20.4 216.0,20.4 208.2,20.3 200.4,20.2 192.6,20.2 184.8,20.1 177.0,20.1 169.2,20.1 161.4,20.1 153.6,20.0 145.8,20.0 138.0,20.0 130.2,20.0 122.4,20.0 114.6,20.0 106.8,20.0 99.0,20.0 91.2,20.0 83.4,20.0 75.6,20.0 67.8,20.0 60.0,20.0" fill="var(--curve-4)" stroke="var(--chart-surface)" stroke-width="2" stroke-linejoin="round"/>
+
+            <g class="curve-markers">
+              <circle cx="255" cy="239.3" r="3.5" fill="var(--curve-0)"><title>50회, 0개: 31.32%</title></circle>
+              <circle cx="450" cy="272.1" r="3.5" fill="var(--curve-0)"><title>100회, 0개: 6.06%</title></circle>
+              <circle cx="645" cy="279.5" r="3.5" fill="var(--curve-0)"><title>150회, 0개: 0.36%</title></circle>
+              <circle cx="255" cy="143.2" r="3.5" fill="var(--curve-1)"><title>50회, 1개: 42.61%</title></circle>
+              <circle cx="450" cy="231.7" r="3.5" fill="var(--curve-1)"><title>100회, 1개: 25.00%</title></circle>
+              <circle cx="645" cy="273.2" r="3.5" fill="var(--curve-1)"><title>150회, 1개: 4.55%</title></circle>
+              <circle cx="255" cy="60.3" r="3.5" fill="var(--curve-2)"><title>50회, 2개: 21.16%</title></circle>
+              <circle cx="450" cy="150.0" r="3.5" fill="var(--curve-2)"><title>100회, 2개: 37.88%</title></circle>
+              <circle cx="645" cy="239.7" r="3.5" fill="var(--curve-2)"><title>150회, 2개: 21.16%</title></circle>
+              <circle cx="255" cy="26.8" r="3.5" fill="var(--curve-3)"><title>50회, 3개: 4.55%</title></circle>
+              <circle cx="450" cy="68.3" r="3.5" fill="var(--curve-3)"><title>100회, 3개: 25.00%</title></circle>
+              <circle cx="645" cy="156.8" r="3.5" fill="var(--curve-3)"><title>150회, 3개: 42.61%</title></circle>
+              <circle cx="255" cy="20.5" r="3.5" fill="var(--curve-4)"><title>50회, 4개: 0.36%</title></circle>
+              <circle cx="450" cy="27.9" r="3.5" fill="var(--curve-4)"><title>100회, 4개: 6.06%</title></circle>
+              <circle cx="645" cy="60.7" r="3.5" fill="var(--curve-4)"><title>150회, 4개: 31.32%</title></circle>
+            </g>
+          </svg>
+        </div>
+        <div class="dist-legend">
+          <span><i style="background:var(--curve-0)"></i>0개</span>
+          <span><i style="background:var(--curve-1)"></i>1개</span>
+          <span><i style="background:var(--curve-2)"></i>2개</span>
+          <span><i style="background:var(--curve-3)"></i>3개</span>
+          <span><i style="background:var(--curve-4)"></i>4개(전부)</span>
+        </div>
+        <div class="formula-note">
+          <code>P(정확히 k개 획득) = C(4,k) × C(196, n-k) / C(200,n)</code>
+        </div>
+        <div class="probability-explainer completion-explainer">
+          <span>수치 해석</span>
+          <strong>평균 완료 시점과 50%·95% 완료 시점은 서로 다른 기준입니다.</strong>
+          <p>160.8회는 전체 이용자의 완료 시점을 평균한 값이며, 169회와 198회는 각각 50%와
+          95% 이상이 수집을 마치는 지점입니다. 이는 4종 전체 수집의 부담을 보여주는 보조
+          지표입니다. 위시 쥬얼은 전종 수집을 앞당기는 제안이 아니라, 이용자가 선택한 1종을
+          늦어도 151번째에는 얻도록 하는 개선안입니다.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>시장가 지표는 보수적 경제 지표입니다</strong>
+        시장가 수치는 200회 완주 시 풀 전체의 경제성을 비교하기 위한 값입니다. 계정귀속 보상과
+        체크포인트 보상의 사용 가치가 포함되지 않으므로 상품 전체의 가치나 이용자 만족도를
+        의미하지 않습니다.
+      </div>
+
+      <div class="callout research-callout">
+        <strong>비복원 구조를 일방적인 약점으로 보지 않았습니다</strong>
+        Chen 외 연구는 보상이 하나씩 제거되는 ‘유니크 박스’가 특정 이론 조건에서 판매자 수익에
+        유리할 수 있음을 보입니다. 이는 던파의 실제 매출을 증명하는 자료가 아니라, 현재 구조가
+        구매 지속과 잔여 풀 가치를 함께 고려한 합리적 선택일 가능성을 설명하는 참고 근거입니다.
+        <a href="https://pubsonline.informs.org/doi/10.1287/mnsc.2020.3748" target="_blank" rel="noopener">연구 원문</a>
+      </div>
+
+      <p class="source-note">
+        확률 출처:
+        <a href="https://df.nexon.com/probability?no=369&type=all" target="_blank" rel="noopener">쥬얼박스 개봉 확률</a>,
+        <a href="https://df.nexon.com/probability?no=370&type=all" target="_blank" rel="noopener">쥬얼박스 개봉 결과</a>.
+        시세 기준: 2026-08-21 Neople API 스냅샷, 최근 실거래 100건 가중평균, 경매장 수수료 3%.
+      </p>
+    </div>
+  </section>
+
+  <section id="problem" class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">04 · 기획 의도의 결과와 문제 정의</p>
+      <h2 class="section-title">‘좋은 결과’에는 강하지만 ‘내 목표’에는 약하다</h2>
+      <p class="section-lead">
+        100회 개봉 시 핵심 4종 중 하나 이상을 얻을 확률은 93.9%입니다. 고가 보상 중
+        하나라도 얻는 데에는 유리한 구조입니다. 그러나 이용자가 원하는 특정 1종의 획득 확률은 같은
+        시점에도 50%에 머뭅니다.
+      </p>
+
+      <div class="problem-grid">
+        <article class="problem-card">
+          <div class="problem-number">01</div>
+          <h3>원하는 보상을 고를 수 없음</h3>
+          <p>‘무엇이든 좋은 것’과 ‘내가 필요한 것’의 확률 차이가 개봉 횟수가 늘수록 선명해집니다.</p>
+          <div class="problem-solution">
+            <span>대응 개선안</span>
+            <strong>위시 쥬얼 · 151회 확정</strong>
+            <p>원하는 1종을 먼저 고르고, 언제까지 얻을 수 있는지와 최대 비용을 결제 전에 보여줍니다.</p>
+          </div>
+        </article>
+        <article class="problem-card">
+          <div class="problem-number">02</div>
+          <h3>중간 구간 피로</h3>
+          <p>프루티 쥬얼 60슬롯과 편의성 아이템 112슬롯이 전체의 86%라서, 체크포인트 사이의 개봉이 반복으로 느껴질 수 있습니다.</p>
+          <div class="problem-solution">
+            <span>대응 개선안</span>
+            <strong>100회차 더블 리워드</strong>
+            <p>100번째 결과를 같은 조건으로 하나 더 지급해 중간 지점에 별도의 기대감과 달성감을 만듭니다.</p>
+          </div>
+        </article>
+        <article class="problem-card">
+          <div class="problem-number">03</div>
+          <h3>상품 사이의 진입장벽</h3>
+          <p>패키지를 반복 구매한 뒤에도 에너지 카드를 별도로 구매해야 해, 쥬얼박스 진입에 한 번 더 구매 판단이 필요합니다.</p>
+          <div class="problem-solution">
+            <span>대응 개선안</span>
+            <strong>쥬얼박스 스타트 쿠폰</strong>
+            <p>이탈률이 가장 높은 구매 단계에 계정당 1회 체험권을 제공해 별도 카드 구매 판단을 한 번 줄입니다.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="callout">
+        <strong>초기화 규칙을 결제 전에 명확히 안내합니다</strong>
+        박스를 초기화하면 위시 진행도는 0회가 됩니다. 초기화 전에 사라지는 진행도와 남은 최대 비용을
+        명확히 보여주고, 초기화 시점의 이탈률과 관련 문의를 확인해 안내 화면을 개선합니다.
+      </div>
+
+      <div class="evidence-grid">
+        <article class="evidence-card">
+          <div class="evidence-kicker">KOCCA · 신규 상품 구매 경험자 945명</div>
+          <h3>구매 판단은 기간 제한보다 가격과 플레이 영향에 가깝다</h3>
+          <div class="evidence-stats" aria-label="신규 상품 구매 결정 기준 중복응답">
+            <div><strong>67.9%</strong><span>게임플레이 영향</span></div>
+            <div><strong>65.5%</strong><span>상품 가격</span></div>
+            <div><strong>23.7%</strong><span>구매기간 제한</span></div>
+          </div>
+          <p>기간 한정 압박보다 목표 보상의 가치와 총비용을 분명히 보여주는 개선이 우선이라는 판단 근거입니다.</p>
+        </article>
+        <blockquote class="fgi">
+          “확률형 아이템 같은 경우는 기대값을 생각하면 아는 거죠. 이건 진짜 몇 백만 원짜리라는 걸.”
+          <cite>30대 초반 남성 게임이용자 · KOCCA 「2025 게임이용자 실태조사」 p.191</cite>
+        </blockquote>
+      </div>
+
+      <p class="source-note">
+        출처: <a href="https://www.kocca.kr/kocca/bbs/view/B0000147/2010445.do?menuNo=204153" target="_blank" rel="noopener">KOCCA 「2025 게임이용자 실태조사」 pp.140, 191</a>
+      </p>
+
+      <div class="insight-band">
+        <span>핵심 발견</span>
+        <p>이용자는 원하는 보상을 언제 얻을지 알기 어렵고, 100회 전후의 개봉은 반복적으로 느껴지며, 패키지 구매 뒤 쥬얼박스를 시작하려면 다시 결제해야 합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="improve" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">05 · 핵심 개선안</p>
+      <h2 class="section-title">트로피컬 위시 쥬얼</h2>
+      <p class="section-lead">
+        1~150회는 기존 방식으로 추첨하되, 그 안에서 선택한 보상을 얻지 못하면 151번째 개봉에서 확정 지급합니다.
+      </p>
+
+      <div class="improve-card wish-card">
+        <div class="wish-head">
+          <span class="tag">CORE PROPOSAL</span>
+          <h3>목표를 먼저 선택하고, 150회 이후 획득을 보장</h3>
+          <p class="desc">
+            각 박스의 첫 개봉 전에 최상위 0.5% 보상 4종 중 하나를 선택합니다. 150회까지 추첨으로 얻지 못하면
+            151번째 개봉에서 목표 보상을 확정하고, 해당 아이템을 남은 풀에서 제거합니다.
+          </p>
+        </div>
+
+        <ol class="solution-steps">
+          <li><span>1</span><div><strong>목표 선택</strong><p>박스당 핵심 보상 4종 중 하나만 위시로 지정합니다.</p></div></li>
+          <li><span>2</span><div><strong>기존 추첨 유지</strong><p>1~150회는 현재 200개 비복원 풀의 추첨 규칙을 적용합니다.</p></div></li>
+          <li><span>3</span><div><strong>151번째 확정</strong><p>미획득 시 남은 풀의 목표 아이템을 다음 개봉 위치로 이동합니다.</p></div></li>
+          <li><span>4</span><div><strong>풀 구성 보존</strong><p>200회를 모두 개봉하면 기존 풀의 품목과 최대 공급량은 같습니다.</p></div></li>
+          <li><span>5</span><div><strong>위시 종료·새 목표 선택</strong><p>목표를 얻으면 해당 박스의 위시 기능은 종료됩니다. 박스를 초기화하면 0회부터 새 목표를 선택합니다.</p></div></li>
+        </ol>
+
+        <div class="wish-ui" aria-label="위시 쥬얼 안전 정보 화면 예시">
+          <div class="wish-ui-head">
+            <div><span>필수 안전 UI</span><strong>목표와 최대 비용을 결제 전에 공개</strong></div>
+            <span class="carry-chip">박스 초기화 시 0회</span>
+          </div>
+          <div class="wish-ui-grid">
+            <div><span>선택 목표</span><strong>레어 무기 클론 아바타</strong></div>
+            <div><span>현재 진행</span><strong>0 / 151회</strong></div>
+            <div><span>100회 안에 얻을 확률</span><strong>50.0%</strong></div>
+            <div><span>확정까지 남은 횟수</span><strong>151회</strong></div>
+            <div><span>시세 환산 최대 비용</span><strong>약 5.44억 골드</strong></div>
+          </div>
+          <p>골드 환산은 2026-08-21 에너지 카드 시세 기준이며, 실제 화면에서는 현재 시세와 남은 필요량에 따라 갱신합니다.</p>
+        </div>
+
+        <div class="effect-grid">
+          <div>
+            <span>기존 평균 획득</span>
+            <strong>100.5회</strong>
+          </div>
+          <div class="effect-arrow">→</div>
+          <div>
+            <span>151회 확정 적용</span>
+            <strong>94.4회</strong>
+          </div>
+          <div>
+            <span>평균 감소</span>
+            <strong>약 6.1회</strong>
+          </div>
+          <div>
+            <span>150회까지 미획득</span>
+            <strong>25%의 경우</strong>
+          </div>
+        </div>
+
+        <div class="callout compact">
+          <strong>설계 의도</strong>
+          새로운 보상을 더하지 않고, 150회까지 선택한 아이템을 얻지 못하는 경우에만 획득 순서를
+          앞당깁니다. 200회를 모두 열면 지급되는 아이템 수는 기존과 같습니다. 목표를 얻으면 해당
+          박스의 위시 기능은 종료되고, 박스를 초기화하면 0회부터 새 목표를 선택합니다. 초기화 전에는
+          사라질 진행도와 최대 비용을 보여줍니다.
+          희귀 보상이 추가 개봉을 부추길 수 있다는 연구가 있으므로, 출시 후에는 지출 분포와 문의량도 함께 확인합니다.
+        </div>
+
+        <div class="precedent-grid single">
+          <article>
+            <span>행동과학 참고</span>
+            <strong>진행 상태를 명확하게 보이는 설계</strong>
+            <p>Nunes와 Drèze의 연구는 같은 진행도라도 시작점과 남은 거리를 어떻게 보여주느냐에 따라 완주 행동이 달라질 수 있음을 시사합니다. 효과를 보장하는 근거가 아니라 UI 가설로만 사용합니다.</p>
+            <a href="https://doi.org/10.1086/500480" target="_blank" rel="noopener">연구 원문</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="improve-card checkpoint-card">
+        <span class="tag">CHECKPOINT DESIGN</span>
+        <h3>100회차 더블 리워드</h3>
+        <p class="desc">
+          장시간 개봉이 이어지는 중간 구간에 결과를 두 배로 지급하는 체크포인트를 배치해,
+          100회 도달에 별도의 기대감과 달성감을 부여합니다.
+        </p>
+
+        <div class="bm-flow checkpoint-flow">
+          <div><span>01</span><strong>100번째 유료 개봉</strong><p>에너지 카드는 1장만 사용합니다.</p></div>
+          <i>→</i>
+          <div><span>02</span><strong>정상 추첨</strong><p>기존 확률에 따라 보상 하나를 뽑습니다.</p></div>
+          <i>→</i>
+          <div><span>03</span><strong>같은 보상 +1</strong><p>당첨된 보상을 동일하게 하나 더 지급합니다.</p></div>
+          <i>→</i>
+          <div><span>04</span><strong>진행은 1회만</strong><p>풀 슬롯 1개 제거·위시 진행도 1회 증가를 유지합니다.</p></div>
+        </div>
+
+        <ul class="metric-list checkpoint-metrics">
+          <li><strong>약 1,276,106골드</strong>추가 보상의 기대 시장가 = 정상 개봉 1회 EV</li>
+          <li><strong>아이템 1개 · 약 0.5%</strong>200회 완주 기준 추가 공급량</li>
+          <li><strong>각각 약 0.5%</strong>최상위 4종의 기대 공급량 증가</li>
+          <li><strong>카드 소비량 유지</strong>추가 카드를 지급하지 않고 모든 등급에 동일 적용</li>
+        </ul>
+
+        <div class="callout compact">
+          <strong>‘좋은 보상 보장’은 아닙니다</strong>
+          100번째에도 프루티 쥬얼 또는 편의성 아이템이 나올 확률은 86%입니다. 최상위 보상을
+          포함해 모든 등급에 같은 규칙을 적용하며, 추가 지급 아이템의 거래·계정귀속 조건도
+          기존 당첨 아이템의 규칙을 따릅니다.
+        </div>
+      </div>
+
+      <h3 class="subsection-title">보조안 — 추가 결제 없이 한 번 체험</h3>
+      <div class="aux-grid">
+        <article class="aux-card starter-card">
+          <div class="aux-kicker">계정당 1회 · 과거 개봉 이력과 무관하게 지급</div>
+          <h4>쥬얼박스 스타트 쿠폰</h4>
+          <p class="starter-lead">패키지를 여러 개 산 이용자가 에너지 카드를 추가로 결제하지 않고 쥬얼박스를 한 번 체험하도록 합니다.</p>
+
+          <div class="starter-layout">
+            <div class="starter-panel">
+              <strong>체험 전용 보상 구성</strong>
+              <ul>
+                <li>기존 200개 유료 풀과 완전히 분리</li>
+                <li>모든 보상 계정귀속, 최상위 0.5% 보상 4종 제외</li>
+                <li>제외한 2%는 교환 가능 상자·보주 9종에만 비례 재분배</li>
+                <li>해당 24슬롯의 총확률 12% → 14%, 프루티·편의성 86% 유지</li>
+                <li>1% 보상 약 1.17%, 2.5% 보상 약 2.92%</li>
+              </ul>
+            </div>
+            <div class="starter-panel">
+              <strong>지급 시점은 데이터로 결정</strong>
+              <p>2~5회 구매 구간을 초기 후보로 두고, 2→3·3→4·4→5·5→6회 전환 중 이탈률이 가장 높은 단계에 지급합니다.</p>
+              <div class="formula-box">n회 구매 이탈률 = 7일 이내 n+1회 구매로 이어지지 않은 계정 ÷ n회 구매 도달 계정</div>
+              <p>판매 종료 직전 구매자는 동일한 7일 관찰기간을 적용하거나 분석 대상에서 제외합니다.</p>
+            </div>
+          </div>
+
+          <ul class="metric-list starter-metrics">
+            <li><strong>1,276,106골드</strong>정상 개봉 1회 기대 시장가</li>
+            <li><strong>955,488골드</strong>최상위 4종의 EV 기여분</li>
+            <li><strong>약 355,233골드</strong>체험판 1회 시세 환산 기대 사용가치</li>
+            <li><strong>약 28%</strong>정상 개봉 기대 시장가 대비 체험판 사용가치</li>
+          </ul>
+          <div class="aux-metric">계정귀속 보상이므로 355,233골드는 회사 비용이나 거래 가치가 아니라, 거래 가능한 동일 보상의 시세를 이용한 기대 사용가치입니다.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="verify" class="section section-alt">
+    <div class="section-inner">
+      <p class="section-eyebrow">06 · 검증 설계</p>
+      <h2 class="section-title">매출과 신뢰를 함께 검증한다</h2>
+      <p class="section-lead">
+        실제 패키지별 매출은 공개되지 않았으므로 성공을 단정하지 않습니다. 개선안 적용 전
+        시뮬레이션과 이용자 조사를 거친 뒤, 다음 시즌의 동일 형식 상품에서 단계별 지표를 확인합니다.
+      </p>
+
+      <div class="callout revenue-hypothesis">
+        <strong>평균 6.1회 감소는 매출 증가가 아니라 이용자 보호 지표입니다</strong>
+        위시 쥬얼은 목표 보상의 평균 개봉 횟수를 100.5회에서 94.4회로 줄여 기존 이용자의 카드 소비를
+        낮출 수 있습니다. 따라서 매출 증가를 전제로 하지 않습니다. 최대 비용 공개로 첫 유료 개봉률과
+        구간별 도달률이 높아지는지 확인하고, 더블 리워드와 스타트 쿠폰이 신규 진입과 반복 개봉을
+        늘리는지도 함께 보겠습니다. 최종 판단은 패키지와 쥬얼박스를 합산한 계정당 총구매액으로 합니다.
+      </div>
+
+      <div class="verify-grid">
+        <div class="verify-card">
+          <h3>핵심안·체크포인트</h3>
+          <ul>
+            <li>위시 목표 선택률과 자연·확정 획득률</li>
+            <li>1→50→100→150회 구간 전환율</li>
+            <li>99→100회 및 100→101회 개봉 전환율</li>
+            <li>더블 리워드의 실제 추가 공급량과 시장가격</li>
+            <li>에너지 카드 소비량과 가격</li>
+            <li>초기화 전 안내 확인률과 진행도 초기화 관련 문의</li>
+            <li>최대 횟수·비용 규칙 정답률과 신뢰도</li>
+          </ul>
+        </div>
+        <div class="verify-card">
+          <h3>쿠폰 지급 단계 선정</h3>
+          <ul>
+            <li>2·3·4·5회 구매 후 7일 이내 다음 구매 전환율</li>
+            <li>2→3·3→4·4→5·5→6회 구매 단계별 이탈률</li>
+            <li>각 구매 단계의 쥬얼박스 진입률</li>
+            <li>판매 종료 직전 구매자의 관찰기간 충족 여부</li>
+          </ul>
+        </div>
+        <div class="verify-card verify-wide">
+          <h3>스타트 쿠폰 적용 후</h3>
+          <ul class="verify-columns">
+            <li>쿠폰 사용률</li>
+            <li>미개봉자의 첫 유료 쥬얼박스 개봉률</li>
+            <li>기존 개봉자의 7일 이내 재개봉률</li>
+            <li>쿠폰 사용 후 10회·50회 개봉 도달률</li>
+            <li>쿠폰 지급 전후 다음 패키지 구매 전환율</li>
+            <li>패키지와 쥬얼박스를 합산한 계정당 총구매액</li>
+            <li>계정귀속 체험 보상의 실제 사용률</li>
+            <li>체험판·정상판 확률 차이에 관한 문의 비율</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout break-even-callout">
+        <strong>쥬얼박스가 늘고 패키지 구매가 줄지는 않는지 확인합니다</strong>
+        쥬얼박스 개봉은 늘어도 다음 패키지 구매가 감소할 수 있습니다. 상품별 개봉률만 보지 않고,
+        계정당 전체 구매액과 패키지 구매 이탈률을 함께 확인해 신규 소비인지 상품 간 이동인지 구분합니다.
+      </div>
+
+      <div class="test-roadmap">
+        <div><span>1</span><strong>사전 시뮬레이션</strong><p>151회 확정·추가 1개 공급의 경제 영향 추정</p></div>
+        <div><span>2</span><strong>지급 단계 선정</strong><p>2~5회 구매 단계별 7일 전환율 분석</p></div>
+        <div><span>3</span><strong>다음 시즌 검증</strong><p>신규·기존 개봉자와 전체 구매액을 분리 비교</p></div>
+      </div>
+
+      <p class="body-text">
+        유료 보상 조건을 이용자별로 다르게 제공하는 실시간 A/B 테스트는 형평성 문제가 생길 수
+        있습니다. 따라서 유료 풀의 확률과 확정 규칙은 모든 이용자에게 동일하게 적용합니다. 쿠폰
+        지급 단계는 이전 시즌의 단계별 구매 전환율로 먼저 선정하고, 적용 후에는 신규·기존 개봉자를 나눠
+        다음 시즌 및 지급 전 지표와 비교합니다.
+      </p>
+    </div>
+  </section>
+
+  <section id="conclusion" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">07 · 결론과 개인 의견</p>
+      <h2 class="section-title">확률을 없애는 것이 아니라, 목표를 보이게 한다</h2>
+      <div class="conclusion-box">
+        <p>
+          트로피컬 바캉스 패키지는 첫 구매 보장, 누적 구매 보상, 비복원 박스와 교환 상점을
+          결합해 구매 단계별 목표를 효과적으로 제시합니다. 실제 계산에서도 100회 개봉 시
+          핵심 보상 중 하나 이상을 얻을 확률은 93.9%로 높았습니다.
+        </p>
+        <p>
+          그러나 같은 시점에 원하는 특정 보상을 얻을 확률은 50%에 불과했습니다. 저는 이 차이가
+          현재 구조의 가장 중요한 개선 지점이라고 판단했습니다. 확률형 상품을 단순히 완화하거나
+          보상을 추가하는 것보다, 이용자가 자신의 목표와 남은 거리를 이해할 수 있게 만드는 편이
+          구매 결정과 만족을 함께 개선할 수 있다고 생각합니다.
+        </p>
+        <p class="final-claim">
+          ‘위시 쥬얼’은 200회를 모두 개봉할 때 기존 보상 풀의 구성과 최대 공급량을 유지하면서,
+          150회까지 목표를 얻지 못하는 25%의 경우에만 획득 순서를 앞당깁니다. 100회차 더블
+          리워드는 중간 구간의 반복 피로를, 스타트 쿠폰은 패키지와 쥬얼박스 사이의 진입장벽을
+          보완합니다. 성공 여부는 평균 매출뿐 아니라 전체 구매액, 실제 시장 유통량, 규칙 이해도와
+          문의·불만까지 함께 판단하겠습니다.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="section section-alt">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title">김태훈</h2>
+      <p class="body-text">데이터로 문제를 정의하고, 이용자의 목표와 사업 지표를 함께 설계하는 기획자가 되겠습니다.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/main.js?v=20260823-2"></script>
+</body>
+</html>
