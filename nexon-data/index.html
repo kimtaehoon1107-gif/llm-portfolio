@@ -166,10 +166,10 @@
         </div>
         <p class="project-note">2026.09.09 16:05 KST 공개 집계를 고정한 기록입니다. 체결 기록 범위는 2026.08.08~09.09이며, 수집 시작 시 조회한 과거 기록을 포함합니다. 품목별 관측 기간은 다르고, 연결된 분석 페이지는 매시간 갱신됩니다. <a href="assets/dnf-analysis-20260909.json" target="_blank" rel="noopener">기준 시점 집계 확인</a></p>
         <figure class="project-preview">
-          <a href="assets/dnf-candles-20260909-hd.png" target="_blank" rel="noopener" aria-label="일별 가격 캔들과 VWAP 고해상도 PNG 크게 보기">
-            <img src="assets/dnf-candles-20260909-hd.svg" alt="+6 장비 증폭권[골고라이언]의 실제 데이터로 다시 그린 일별 캔들·VWAP·예측 차트. 관측봉이 없는 날짜와 예측 구간을 구분합니다." width="1200" height="675" loading="lazy" decoding="async">
+          <a href="assets/dnf-sky-title-service-20260909.jpg" target="_blank" rel="noopener" aria-label="천공의 지배자 실제 서비스 차트 크게 보기">
+            <img src="assets/dnf-sky-title-service-20260909.jpg" alt="천공의 지배자의 실제 서비스 가격 차트. 일별 상승·하락 캔들, 검은 VWAP 실선, 파란 예측 점선을 함께 표시합니다." width="1920" height="1013" loading="lazy" decoding="async">
           </a>
-          <figcaption><strong>+6 장비 증폭권[골고라이언] — 실제 데이터로 다시 그린 가격 차트</strong><span>표본 101건 · C등급 · 2026.09.09 16:56 KST 공개 데이터 기준. 캔들은 시가·고가·저가·종가, 검은 실선은 일별 VWAP, 파란 점선은 예측입니다. 과거 조회 기록을 포함하며, 당일 봉은 미완성입니다. 이미지를 누르면 2880×1620 PNG로 확대됩니다. <a href="assets/dnf-candles-20260909-hd.svg" target="_blank" rel="noopener">벡터 원본</a> · <a href="assets/dnf-candles-20260909.json" target="_blank" rel="noopener">차트 데이터</a> · <a href="assets/dnf-candles-20260909.jpg" target="_blank" rel="noopener">기존 서비스 캡처</a></span></figcaption>
+          <figcaption><strong>천공의 지배자 — 실제 서비스의 가격 캔들·VWAP·예측</strong><span>표본 118건 · C등급 · 2026.09.09 17:05 KST 배포본. 공개 서비스 코드와 데이터를 2배 크기로 렌더링해 캡처했습니다. 8월 24일~9월 8일의 완료 일봉 16개가 이어지며, 과거 조회 기록을 포함합니다. 9월 9일 봉은 미완성이고, 파란 점선은 예측입니다. 이미지를 누르면 1920×1013 원본으로 확대됩니다. <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/index.html#157903e48399874bc18b35d276b3ef1b" target="_blank" rel="noopener">아이템 상세 보기</a></span></figcaption>
         </figure>
         <div class="project-story-grid">
           <div class="story-item"><strong>문제</strong><p>체결 API는 최근 100건 또는 최대 한 달 중 먼저 도달하는 한도까지만 제공합니다. 더 긴 시세 이력과 이벤트 전후 자료를 확보하려면 데이터를 직접 쌓아야 했습니다.</p></div>
@@ -299,7 +299,7 @@
         <div class="process-card"><span>03</span><h3>분석하고 오류 확인하기</h3><p>연속 시간봉의 분산비 검정에 Holm 보정을 적용했습니다. 예측은 평가일 이전 자료로 다시 학습하고, 마지막 완료 일봉 VWAP과 오차를 비교했습니다.</p></div>
         <div class="process-card"><span>04</span><h3>결과 공유와 다음 검증</h3><p>기준선보다 큰 예측 오차와 표본 부족을 공개했습니다. 요일 효과의 해석은 보류하고, 관측이 쌓이면 검정 범위와 예측 평가를 확장하도록 정리했습니다.</p></div>
       </div>
-      <p class="process-note">복잡한 모델 자체가 목표는 아닙니다. 게임 운영에 필요한 근거를 더 빠르고 정확하게 만드는 것이 목표입니다.</p>
+      <p class="process-note">데이터 분석으로 판단의 근거를 만들고, 이를 명확하게 전달해 더 효율적인 의사결정을 돕겠습니다.</p>
     </div>
   </section>
 
