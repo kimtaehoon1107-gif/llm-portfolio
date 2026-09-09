@@ -7,7 +7,7 @@
 <meta name="description" content="네오플 전략분석실 데이터분석가 지원을 위한 김태훈의 게임 데이터 분석 포트폴리오입니다.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="css/style.css?v=20260909-2">
+<link rel="stylesheet" href="css/style.css?v=20260909-3">
 </head>
 <body>
 
@@ -160,17 +160,24 @@
         </div>
         <div class="project-proof-bar" aria-label="핵심 결과 요약">
           <div class="project-proof"><span>추적 품목</span><strong>68종</strong></div>
-          <div class="project-proof"><span>누적 체결 기록</span><strong>46,279건</strong></div>
+          <div class="project-proof"><span>누적 체결 기록</span><strong>59,725건</strong></div>
           <div class="project-proof"><span>체결가 분석 후보</span><strong>34종</strong></div>
-          <div class="project-proof"><span>연속 구간 검정 가능</span><strong>11종</strong></div>
+          <div class="project-proof"><span>연속 구간 검정 가능</span><strong>15종</strong></div>
         </div>
-        <p class="project-note">2026.09.09 00:27 KST 공개 집계 기준 · 체결 기록 범위 2026.08.08~09.09(과거 기록 조회 포함). 품목별 관측 기간은 다르며, 카드는 업그레이드 단계별 호가로 따로 추적합니다.</p>
+        <p class="project-note">2026.09.09 16:05 KST 공개 집계를 고정한 기록입니다. 체결 기록 범위는 2026.08.08~09.09이며, 수집 시작 시 조회한 과거 기록을 포함합니다. 품목별 관측 기간은 다르고, 연결된 분석 페이지는 매시간 갱신됩니다. <a href="assets/dnf-analysis-20260909.json" target="_blank" rel="noopener">기준 시점 집계 확인</a></p>
+        <figure class="project-preview">
+          <a href="assets/dnf-candles-20260909.jpg" target="_blank" rel="noopener" aria-label="일별 가격 캔들과 VWAP 화면 크게 보기">
+            <img src="assets/dnf-candles-20260909.jpg" alt="+6 장비 증폭권의 일별 가격 캔들, 검은 VWAP 실선, 파란 예측 점선을 함께 표시한 실제 서비스 화면" width="960" height="507" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>일별 가격 범위·수량 가중평균·예측을 함께 시각화</strong><span>+6 장비 증폭권[골고라이언] · 표본 101건 · C등급 · 2026.09.09 16:05 KST 배포 화면. 캔들은 시가·고가·저가·종가, 검은 실선은 일별 VWAP, 파란 점선은 예측입니다. 당일 봉은 미완성이며, 과거 조회 기록을 포함한 화면 예시입니다. 예측 성능은 아래의 전체 평가로 구분해 보고합니다. 이미지를 누르면 확대됩니다.</span></figcaption>
+        </figure>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>경매장 API에서는 최근 체결 100건 또는 한 달 이내의 기록만 조회할 수 있어, 과거 시세와 이벤트 영향을 분석하려면 데이터를 직접 쌓아야 했습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>API 수집·SQL 저장·자동 집계·웹 차트를 구현하고, 가격 변동의 분산비 검정과 날짜를 이동하며 반복하는 예측 평가를 연결했습니다.</p></div>
-          <div class="story-item"><strong>판단 근거</strong><p>수집 공백을 임의로 메우지 않고 연속된 완료 시간봉만 검정했습니다. 호가와 체결가를 구분하고, 매물 감소에는 취소가 섞일 수 있어 체결량과 합산하지 않았습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>검정 가능한 11종 중 1종에서 다중 검정 보정 후 단기 반전 신호를 관측했습니다. 1일 뒤 예측은 4종·15건 평가에서 MAPE 2.32%로, 마지막 관측 가격을 유지하는 기준선(1.97%)을 넘지 못했습니다. 요일 효과는 표본 부족으로 판단을 보류했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>체결 API는 최근 100건 또는 최대 한 달 중 먼저 도달하는 한도까지만 제공합니다. 더 긴 시세 이력과 이벤트 전후 자료를 확보하려면 데이터를 직접 쌓아야 했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>API 수집·SQL 저장·시간봉 집계·웹 차트를 구현했습니다. 원본 체결과 시간봉을 대조하고, 집계 불일치나 지연이 발견되면 새 배포를 중단하도록 검증 절차를 구축했습니다.</p></div>
+          <div class="story-item"><strong>판단 근거</strong><p>빈 시간봉을 채우거나 공백 양쪽을 이어 붙이지 않고, 종목별 가장 긴 연속 완료 구간을 검정했습니다. 일반 아이템의 대표 가격은 최근 60분 VWAP, 카드는 단계별 최저 호가로 구분했습니다. 매물 감소에는 취소가 섞여 체결량과 합산하지 않았습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>검정 가능한 15종 중 1종에서 Holm 다중 검정 보정 후 단기 반전 신호를 관측했습니다. 평가일 기준 1일 뒤 예측은 4종·15건에서 MAPE 2.32%로, 마지막 완료 일봉의 VWAP을 유지하는 기준선(1.97%)보다 오차가 컸습니다. 요일 효과는 표본 부족으로 판단을 보류했습니다.</p></div>
         </div>
+        <p class="project-note">예측은 평가일 이전 자료로 다시 학습하는 롤링 방식으로 점검했습니다. 백필을 포함한 체결 시각 기준의 과거 재구성이며, 당시 수집기가 보유했던 자료까지 재현한 평가는 아닙니다. 15건은 독립 표본 수를 뜻하지 않으며, 7일 뒤 예측은 아직 평가 가능한 사례가 없습니다.</p>
         <div class="hr-application"><strong>업무 연결</strong><p>품목별 거래 조건과 데이터 품질을 함께 확인할 수 있는 분석 기반을 만들었습니다. 관측된 신호를 장기 추세나 원인으로 단정하지 않고, 추가 데이터가 필요한 질문을 구분했습니다.</p></div>
         <div class="project-tags">
           <span>Neople Open API</span><span>SQL</span><span>TypeScript</span><span>GitHub Actions</span><span>시계열</span><span>웹 시각화</span>
@@ -285,12 +292,12 @@
     <div class="section-inner">
       <span class="section-eyebrow">How I analyze</span>
       <h2 class="section-title">분석 방식</h2>
-      <p class="section-lead">무엇을 판단하기 위한 분석인지 먼저 정하고, 다시 확인할 수 있는 데이터 구조와 검증 기준을 만들어 결론과 한계를 함께 전달합니다.</p>
+      <p class="section-lead">무엇을 판단하기 위한 분석인지 먼저 정하고, 데이터 구조와 검증 기준을 만들어 결론과 한계를 함께 전달합니다. DNF 경매장 프로젝트에서는 다음 순서로 적용했습니다.</p>
       <div class="process-grid">
-        <div class="process-card"><span>01</span><h3>분석 질문 정하기</h3><p>분석 결과를 사용할 사람이 무엇을 판단해야 하는지 생각하고, 확인할 대상과 시점, 비교 기준을 정합니다.</p></div>
-        <div class="process-card"><span>02</span><h3>데이터 구조화</h3><p>원천 데이터와 이벤트 정보, 분석 단위를 설계해 필요한 데이터를 쉽게 추출·결합하고 다시 활용할 수 있도록 합니다.</p></div>
-        <div class="process-card"><span>03</span><h3>분석하고 오류 확인하기</h3><p>통계·ML·AI를 목적에 맞게 적용하고, 표본을 직접 살펴보거나 별도로 검증해 결과가 달라지는 조건을 찾습니다.</p></div>
-        <div class="process-card"><span>04</span><h3>결과 공유와 다음 검증</h3><p>결론과 한계, 다음에 확인할 지표를 함께 정리해 실제 업무에 바로 활용할 수 있도록 설명합니다.</p></div>
+        <div class="process-card"><span>01</span><h3>분석 질문 정하기</h3><p>가격 변화에 단기 반전·지속 신호가 있는지, 예측 모델이 마지막 가격을 유지하는 기준선보다 나은지 별도 질문으로 나눴습니다.</p></div>
+        <div class="process-card"><span>02</span><h3>데이터 구조화</h3><p>체결과 호가를 구분하고 완료 시간봉·일봉을 분석 단위로 정했습니다. 원본과 집계를 대조하고, 빈 시간봉을 임의로 채우지 않았습니다.</p></div>
+        <div class="process-card"><span>03</span><h3>분석하고 오류 확인하기</h3><p>연속 시간봉의 분산비 검정에 Holm 보정을 적용했습니다. 예측은 평가일 이전 자료로 다시 학습하고, 마지막 완료 일봉 VWAP과 오차를 비교했습니다.</p></div>
+        <div class="process-card"><span>04</span><h3>결과 공유와 다음 검증</h3><p>기준선보다 큰 예측 오차와 표본 부족을 공개했습니다. 요일 효과의 해석은 보류하고, 관측이 쌓이면 검정 범위와 예측 평가를 확장하도록 정리했습니다.</p></div>
       </div>
       <p class="process-note">복잡한 모델 자체가 목표는 아닙니다. 게임 운영에 필요한 근거를 더 빠르고 정확하게 만드는 것이 목표입니다.</p>
     </div>

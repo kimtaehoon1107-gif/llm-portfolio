@@ -1,0 +1,527 @@
+{
+  "source": "https://kimtaehoon1107-gif.github.io/dnf-price-tracker/data/summary.json",
+  "builtAt": "2026-09-09T07:05:37.720Z",
+  "priceAsOf": "2026-09-09T07:05:17.598Z",
+  "note": "2026-09-09 16:05 KST 공개 집계의 고정 기록. 백필을 포함하며 평가 건수는 독립 표본 수가 아님.",
+  "meta": {
+    "items": 68,
+    "trades": 59725,
+    "lo": "2026-08-08",
+    "hi": "2026-09-09"
+  },
+  "randomWalk": {
+    "q": 2,
+    "minBars": 30,
+    "asOf": "2026-09-09T07:00:00.000Z",
+    "candidates": 34,
+    "excluded": [
+      {
+        "item_name": "+11 장비 증폭권[골고라이언]",
+        "bars": 17,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+12 장비 증폭권[골고라이언]",
+        "bars": 10,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+3 장비 증폭권[골고라이언]",
+        "bars": 3,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+5 장비 증폭권[골고라이언]",
+        "bars": 4,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+6 장비 증폭권[골고라이언]",
+        "bars": 5,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+7 장비 증폭권[골고라이언]",
+        "bars": 15,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+8 장비 증폭권[골고라이언]",
+        "bars": 4,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "+9 장비 증폭권[골고라이언]",
+        "bars": 4,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "고대의 황금 증폭서",
+        "bars": 4,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "군자의 사계",
+        "bars": 18,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "숲속의 유랑악단 아바타 풀세트 상자",
+        "bars": 21,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "숲속의 유랑악단 오라 상자",
+        "bars": 24,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "숲속의 유랑악단 칭호 상자",
+        "bars": 22,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "숲속의 유랑악단 패키지",
+        "bars": 28,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "종이달 오르골 칭호 선택 상자",
+        "bars": 9,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "천공의 지배자",
+        "bars": 6,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "프로스트의 전설",
+        "bars": 7,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "플로럴 스태그 플래티넘 크리쳐 알 선택 상자",
+        "bars": 20,
+        "reason": "연속 관측 부족"
+      },
+      {
+        "item_name": "히스토리아 쿼츠",
+        "bars": 20,
+        "reason": "연속 관측 부족"
+      }
+    ],
+    "items": [
+      {
+        "item_id": "518a2615502a5c67dde0e3b133a75bf0",
+        "item_name": "PC방 토큰 교환권",
+        "category": "재료·소모품",
+        "bars": 52,
+        "from": "2026-09-07T03:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 42.92307692307692,
+        "price": 3437.0882337408616,
+        "volatility": 4.651067937302644,
+        "vr": 0.4804865672085617,
+        "z": -3.309563692493695,
+        "p": 0.000934530586824088,
+        "returns": 51,
+        "adjustedP": 0.014017958802361319,
+        "significant": true
+      },
+      {
+        "item_id": "c7d845c65ab9dbcff6e55dc910fbea87",
+        "item_name": "에픽 소울 결정",
+        "category": "소울 결정",
+        "bars": 53,
+        "from": "2026-09-07T02:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 104,
+        "price": 968516.3631943038,
+        "volatility": 7.128294447111151,
+        "vr": 0.5319013592007898,
+        "z": -2.504797368550207,
+        "p": 0.01225218739489406,
+        "returns": 52,
+        "adjustedP": 0.15927843613362277,
+        "significant": false
+      },
+      {
+        "item_id": "c6947ff630cc59aebdcbabfb449258d1",
+        "item_name": "레전더리 소울 결정",
+        "category": "소울 결정",
+        "bars": 53,
+        "from": "2026-09-07T02:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 62.660377358490564,
+        "price": 43363.35405354692,
+        "volatility": 7.870737451293365,
+        "vr": 0.5492917232778102,
+        "z": -1.9574597617427545,
+        "p": 0.05029329830111686,
+        "returns": 52,
+        "adjustedP": 0.5532262813122855,
+        "significant": false
+      },
+      {
+        "item_id": "f9941d3fa0b8253bb0b2567a29b1299f",
+        "item_name": "닳아버린 순례의 증표",
+        "category": "재료·소모품",
+        "bars": 45,
+        "from": "2026-09-07T10:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 386.2888888888889,
+        "price": 374800.5826011265,
+        "volatility": 0.4560862256228098,
+        "vr": 0.627072234888179,
+        "z": -2.805584972061729,
+        "p": 0.005022655271829818,
+        "returns": 44,
+        "adjustedP": 0.07031717380561746,
+        "significant": false
+      },
+      {
+        "item_id": "0620c107b1aae1f3a6cf9eee3aaf43d7",
+        "item_name": "유니크 소울 결정",
+        "category": "소울 결정",
+        "bars": 56,
+        "from": "2026-09-06T23:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 44.42857142857143,
+        "price": 4206.78483252069,
+        "volatility": 8.167067936168111,
+        "vr": 0.6433140099324945,
+        "z": -2.0681629330268145,
+        "p": 0.038624571955713075,
+        "returns": 55,
+        "adjustedP": 0.4634948634685569,
+        "significant": false
+      },
+      {
+        "item_id": "27a5877768a40a3a0eccc493d0a53b9b",
+        "item_name": "광휘의 소울 결정",
+        "category": "소울 결정",
+        "bars": 45,
+        "from": "2026-09-07T10:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 154.37777777777777,
+        "price": 43473.88020565856,
+        "volatility": 11.254822166953518,
+        "vr": 0.6477329090810544,
+        "z": -1.6405316136054537,
+        "p": 0.10089465207216956,
+        "returns": 44,
+        "adjustedP": 0.908051868649526,
+        "significant": false
+      },
+      {
+        "item_id": "55be75a1c024aac3ef84ed3bed5b8db9",
+        "item_name": "증폭 보호권",
+        "category": "강화·증폭",
+        "bars": 49,
+        "from": "2026-09-07T06:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 16.183673469387756,
+        "price": 14719720.360929523,
+        "volatility": 1.290095927767324,
+        "vr": 0.7244650591688687,
+        "z": -1.30588844990254,
+        "p": 0.19159062388605724,
+        "returns": 48,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "5538350d018cb676ecaff09fad1ed4e0",
+        "item_name": "골드 코인",
+        "category": "재료·소모품",
+        "bars": 55,
+        "from": "2026-09-07T00:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 35.85454545454545,
+        "price": 175941.094006931,
+        "volatility": 0.9844229387132833,
+        "vr": 0.7330243618667571,
+        "z": -1.8013327585054988,
+        "p": 0.07165033976090562,
+        "returns": 54,
+        "adjustedP": 0.7165033976090562,
+        "significant": false
+      },
+      {
+        "item_id": "4a737b2ae337a57260ca4663ce6a9bb0",
+        "item_name": "+10 장비 증폭권[골고라이언]",
+        "category": "강화·증폭",
+        "bars": 35,
+        "from": "2026-09-07T20:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 14.2,
+        "price": 51449335.68633935,
+        "volatility": 0.19098292889692714,
+        "vr": 0.7708082911109432,
+        "z": -0.8927073738229019,
+        "p": 0.37201382735701505,
+        "returns": 34,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "d39b0118e0d6cd3eccbaadb9797b6bac",
+        "item_name": "플로럴 스태그 알",
+        "category": "크리쳐",
+        "bars": 47,
+        "from": "2026-09-06T23:00:00Z",
+        "to": "2026-09-08T21:00:00Z",
+        "per_bar": 20.46808510638298,
+        "price": 20182396.408593714,
+        "volatility": 1.498067374721201,
+        "vr": 0.79334941753201,
+        "z": -1.0029343573835179,
+        "p": 0.3158925477241911,
+        "returns": 46,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "c4816db14d145416921f0210063cb014",
+        "item_name": "레어 소울 결정",
+        "category": "소울 결정",
+        "bars": 32,
+        "from": "2026-09-07T23:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 43.78125,
+        "price": 4909.387769383058,
+        "volatility": 83.15884261444182,
+        "vr": 0.7937204193624695,
+        "z": -0.48563997721149027,
+        "p": 0.627222449628308,
+        "returns": 31,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "d288ebf406a65f4ec23d1f9c33227888",
+        "item_name": "태초 소울 결정",
+        "category": "소울 결정",
+        "bars": 45,
+        "from": "2026-09-06T23:00:00Z",
+        "to": "2026-09-08T19:00:00Z",
+        "per_bar": 39.355555555555554,
+        "price": 4597927.218902954,
+        "volatility": 4.026692677326658,
+        "vr": 0.8475493660604781,
+        "z": -0.8101277202508812,
+        "p": 0.4178666487560016,
+        "returns": 44,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "b971992f2529a494215fdf9368cfa0dd",
+        "item_name": "숲속의 유랑악단 세라 상자",
+        "category": "유랑악단 패키지",
+        "bars": 30,
+        "from": "2026-09-06T12:00:00Z",
+        "to": "2026-09-07T17:00:00Z",
+        "per_bar": 8.233333333333333,
+        "price": 3939601.712738163,
+        "volatility": 0.8069404261352773,
+        "vr": 0.8584697726057725,
+        "z": -0.6451178958129244,
+        "p": 0.5188506546704827,
+        "returns": 29,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "ae1b370972f85389d77eee716ae9f6e2",
+        "item_name": "열대야의 추억 오라 상자",
+        "category": "오라",
+        "bars": 60,
+        "from": "2026-09-06T08:00:00Z",
+        "to": "2026-09-08T19:00:00Z",
+        "per_bar": 4.9,
+        "price": 45002671.667421274,
+        "volatility": 0.18445922482152613,
+        "vr": 0.9474708377053478,
+        "z": -0.157214723369713,
+        "p": 0.8750755980658372,
+        "returns": 59,
+        "adjustedP": 1,
+        "significant": false
+      },
+      {
+        "item_id": "a295bdbb26984dcb946eb3a3044dcfe5",
+        "item_name": "숲속의 유랑악단 크리쳐 상자",
+        "category": "유랑악단 패키지",
+        "bars": 61,
+        "from": "2026-09-06T18:00:00Z",
+        "to": "2026-09-09T06:00:00Z",
+        "per_bar": 21.311475409836067,
+        "price": 8172105.322537942,
+        "volatility": 0.5012920507162021,
+        "vr": 1.1534432771554501,
+        "z": 0.7094424327016606,
+        "p": 0.4780498147164201,
+        "returns": 60,
+        "adjustedP": 1,
+        "significant": false
+      }
+    ],
+    "total": 15,
+    "significant": 1,
+    "negative": 1,
+    "positive": 0,
+    "medianVr": 0.7330243618667571,
+    "thickness": [
+      {
+        "label": "얇음",
+        "items": 5,
+        "perBar": 12.797018381820813,
+        "vr": 0.8189126756245886
+      },
+      {
+        "label": "중간",
+        "items": 5,
+        "perBar": 36.645180668602805,
+        "vr": 0.8016447983307433
+      },
+      {
+        "label": "두꺼움",
+        "items": 5,
+        "perBar": 150.35112309074572,
+        "vr": 0.5998624472760656
+      }
+    ]
+  },
+  "forecastScores": [
+    {
+      "horizonDays": 1,
+      "items": 4,
+      "count": 15,
+      "mape": 2.322306080005503,
+      "naiveMape": 1.96608785941726,
+      "coverage": 80
+    },
+    {
+      "horizonDays": 7,
+      "items": 0,
+      "count": 0,
+      "mape": null,
+      "naiveMape": null,
+      "coverage": null
+    }
+  ],
+  "forecastItems": [
+    {
+      "item_id": "26577a7e1b708fb3db9ac397b6eb896d",
+      "item_name": "+5 장비 증폭권[골고라이언]",
+      "backtest": [
+        {
+          "horizonDays": 1,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        },
+        {
+          "horizonDays": 7,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        }
+      ]
+    },
+    {
+      "item_id": "95bc0be4f7a2a017e5ff63197ef5ad25",
+      "item_name": "+6 장비 증폭권[골고라이언]",
+      "backtest": [
+        {
+          "horizonDays": 1,
+          "count": 5,
+          "mape": 1.8638223902295632,
+          "naiveMape": 1.975063952825153,
+          "coverage": 80,
+          "vsNaive": 5.63230180149198
+        },
+        {
+          "horizonDays": 7,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        }
+      ]
+    },
+    {
+      "item_id": "61d639279dcf23950ce989ffac8caf63",
+      "item_name": "+8 장비 증폭권[골고라이언]",
+      "backtest": [
+        {
+          "horizonDays": 1,
+          "count": 2,
+          "mape": 1.507121427086339,
+          "naiveMape": 0.8229665784667304,
+          "coverage": 100,
+          "vsNaive": -83.1327621948218
+        },
+        {
+          "horizonDays": 7,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        }
+      ]
+    },
+    {
+      "item_id": "4e15b97c37dc8d1ded9e0c88ce08a748",
+      "item_name": "+9 장비 증폭권[골고라이언]",
+      "backtest": [
+        {
+          "horizonDays": 1,
+          "count": 3,
+          "mape": 3.264175189629457,
+          "naiveMape": 1.5649572393748792,
+          "coverage": 66.66666666666666,
+          "vsNaive": -108.57919357166135
+        },
+        {
+          "horizonDays": 7,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        }
+      ]
+    },
+    {
+      "item_id": "157903e48399874bc18b35d276b3ef1b",
+      "item_name": "천공의 지배자",
+      "backtest": [
+        {
+          "horizonDays": 1,
+          "count": 5,
+          "mape": 2.5417421651747363,
+          "naiveMape": 2.655038650415007,
+          "coverage": 80,
+          "vsNaive": 4.267225459130752
+        },
+        {
+          "horizonDays": 7,
+          "count": 0,
+          "mape": null,
+          "naiveMape": null,
+          "coverage": null,
+          "vsNaive": null
+        }
+      ]
+    }
+  ]
+}
