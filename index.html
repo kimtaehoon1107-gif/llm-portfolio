@@ -70,6 +70,37 @@
     <div class="section-inner">
       <h2 class="section-title">대표 프로젝트</h2>
 
+      <article class="project-card" id="dnf-price-tracker">
+        <div class="project-head">
+          <div>
+            <span class="badge badge-progress">운영 중 · 개인 프로젝트</span>
+            <h3>던파 경매장 시세 추적기 — 수집 파이프라인·게임 경제 분석</h3>
+            <p class="project-tagline">Neople Open API · 수집·집계 정합성 검증 · 가격·매물 시각화 · 시계열 예측 평가</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          최근 체결만 제공하는 API의 한계를 보완하기 위해 아이템별 체결·매물을 주기적으로 수집하고,
+          PostgreSQL에 가격 이력을 직접 쌓는 비공식 개인 서비스입니다. 수집 지연 감시부터 중복 체결 처리,
+          시간봉 집계 검증, 정적 사이트 배포까지 구현했습니다. 가격과 API 관측 매물 잔량을 같은 시간축에서
+          비교하고, 통계 검정과 예측 평가 결과에 표본 부족·관측 누락 등의 한계를 함께 공개합니다.
+        </p>
+        <ul class="project-metrics">
+          <li><strong>수집·보존</strong><span>아이템별 수집 주기·지연 감시, 원본 대조 후 시간봉 보존</span></li>
+          <li><strong>가격·매물 비교</strong><span>체결 수량 가중평균(VWAP)과 카드 단계별 최저 호가 구분, 관측 잔량 비교</span></li>
+          <li><strong>통계 분석</strong><span>연속 시간봉의 분산비 검정·다중 검정 보정, 수수료를 반영한 패키지 해체 마진 계산</span></li>
+          <li><strong>예측 검증</strong><span>날짜별 롤링 평가로 직전 가격 유지 기준선과 비교, 실험적 예측의 성능·한계 공개</span></li>
+        </ul>
+        <div class="project-tags">
+          <span>TypeScript</span><span>PostgreSQL / Supabase</span><span>GitHub Actions</span><span>시계열 분석</span><span>데이터 품질 검증</span>
+        </div>
+        <div class="project-links">
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">서비스 보기</a>
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/analysis.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 페이지</a>
+          <a href="nexon-data/#projects" class="btn btn-sm btn-outline">구현·분석 설명</a>
+          <a href="https://github.com/kimtaehoon1107-gif/dnf-price-tracker" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub 저장소</a>
+        </div>
+      </article>
+
       <article class="project-card">
         <div class="project-head">
           <div>
