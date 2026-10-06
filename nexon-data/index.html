@@ -173,9 +173,9 @@
         </figure>
         <div class="project-story-grid">
           <div class="story-item"><strong>문제</strong><p>현재 최저 호가와 실제 체결가는 다르고, 체결 API는 최근 거래를 최대 100건까지만 제공합니다. 이벤트 전후의 가격과 거래량을 비교하려면 짧게 열리는 API 기록을 지속적으로 쌓고 같은 기준으로 정리해야 했습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>품목별로 2~60분의 기본 수집 주기를 정하고, 최근 100건이 기본 주기보다 짧은 시간에 쌓이면 수집 간격을 줄이도록 설계했습니다. 원본 체결·호가와 시간 단위 집계를 PostgreSQL에 저장하고, 페이지 생성과 최신성 점검도 자동화했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>품목별로 2~60분의 기본 수집 주기를 정하고, 최근 100건이 현재 수집 주기의 1.5배보다 짧은 구간에 집중되면 수집 간격을 줄이도록 설계했습니다. 원본 체결·호가와 시간 단위 집계를 PostgreSQL에 저장하고, 페이지 생성과 최신성 점검도 자동화했습니다.</p></div>
           <div class="story-item"><strong>판단 기준</strong><p>일반 아이템은 직전 60분 체결량 가중 평균가, 카드는 강화 단계별 최저 호가를 대표값으로 사용했습니다. 빈 관측은 0으로 채우지 않았고, 취소가 섞일 수 있는 매물 감소를 체결량과 합산하지 않았습니다. 표본이 적거나 수집 중인 구간도 화면에 구분했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>72개 품목에서 73만 건 이상의 체결 기록을 축적하고, 가격·거래량·호가를 한 화면에서 비교하는 서비스를 운영했습니다. 예측 실험은 단순 기준선보다 오차가 커 기본 판단 지표와 분리했고, 요일 추세도 인과관계가 아닌 탐색 정보로만 제공했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>72개 품목에서 73만 건 이상의 체결 기록을 축적하고, 가격·거래량·호가를 한 화면에서 비교하는 서비스를 운영했습니다. 예측 실험은 단순 기준선보다 오차가 커 기본 판단 지표와 분리했고, 후향 분석에서 발견한 4개 패턴은 판정 규칙을 먼저 고정한 전향 검증 FT1로 확인하고 있습니다.</p></div>
         </div>
         <p class="project-note">수집된 체결 기록은 API에서 관측한 하한값이며 전체 거래량이 아닙니다. 요일별 차이와 이벤트 전후 변화도 현재는 관찰 결과로 제시하고, 통계적 유의성이나 원인으로 단정하지 않았습니다.</p>
         <div class="hr-application"><strong>업무 연결</strong><p>운영 담당자가 품목별 가격, 거래량, 매물과 이벤트 전후 변화를 데이터의 완전성과 함께 확인할 수 있는 기반을 만들었습니다. 수치의 정의와 한계를 화면에 같이 제시해 과도한 해석을 막고, 추가 확인이 필요한 이상 변화를 빠르게 찾도록 했습니다.</p></div>
@@ -193,7 +193,7 @@
         <div class="project-head">
           <div>
             <span class="project-number">문서 검색과 답변 검증</span>
-            <span class="badge badge-done">구현 · 평가 완료</span>
+            <span class="badge badge-progress">기준 평가 완료 · 개선 진행 중</span>
             <h3>DNF 공식 문서 기반 질의응답 시스템</h3>
             <p class="project-tagline">공식 문서 996개 · 검색 문서 조각 3,925개 · 하이브리드 검색 · 근거 기반 답변</p>
             <p class="project-meta">개인 프로젝트 · 데이터 수집·검색·답변 생성·평가·웹 데모 전 과정 수행</p>
@@ -205,7 +205,7 @@
           <div class="project-proof"><span>별도 보관 평가</span><strong>32문항</strong></div>
           <div class="project-proof project-proof-caution"><span>사람 검수 통과</span><strong>20/32 · 62.5%</strong></div>
         </div>
-        <p class="project-note">개발 과정에서 사용하지 않고 별도로 보관한 32개 문항을 한 번만 평가한 결과입니다. 공식 문서·검색 조각 수는 2026.08.07에 저장한 데이터 기준입니다.</p>
+        <p class="project-note">996개 문서와 3,925개 검색 단위, 20/32의 사람 검수 결과는 2026.08.07 데이터로 수행한 공식 평가 기록입니다. 이후 표 구조와 근거 검증을 개선하고 있으나, 변경된 작업본에 대한 새로운 독립 평가는 아직 진행하지 않았습니다.</p>
         <figure class="project-preview">
           <a href="assets/dnf-rag-entry-demo-20260910.jpg" target="_blank" rel="noopener" aria-label="DNF 질의응답 데모 화면 크게 보기">
             <img src="assets/dnf-rag-entry-demo-20260910.jpg" alt="미카엘라·디레지에 레이드 입장 명성을 질문한 데모 화면. 각 레이드의 답변과 공식 문서 근거를 함께 보여줍니다." width="900" height="657" loading="lazy" decoding="async">
@@ -244,7 +244,7 @@
           <div>
             <span class="badge badge-done">분석 완료</span>
             <h3>학생 건강 위험 예측 — 결측 집단과 모델 한계 분석</h3>
-            <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증·원인 분석</p>
+            <p class="project-meta">2026.07 · 개인 프로젝트 · 데이터 정제·모델링·검증·오차 집단 분석</p>
             <p class="project-desc">Kaggle 대회용 합성 데이터 약 69만 행에서 LightGBM과 XGBoost를 비교했습니다. 전처리는 교차검증의 각 학습 구간 안에서만 수행해 데이터 누수를 막고, 결측 유형별 성능 차이도 따로 확인했습니다.</p>
             <figure class="model-comparison" aria-labelledby="model-comparison-title">
               <figcaption id="model-comparison-title">모델별 검증 성능</figcaption>
@@ -264,7 +264,7 @@
               <div class="model-comparison-axis" aria-hidden="true"><span>0.9490</span><span>0.9496</span><span>0.9502</span></div>
               <p class="model-comparison-note">점수 차이를 보기 위해 가로축을 확대했습니다. 가장 높은 점수보다 개선의 안정성과 재현 가능성을 우선해 최종 모델을 선택했습니다.</p>
             </figure>
-            <p class="compact-proof"><strong>모델 선택</strong> XGBoost 7-fold의 검증 점수는 0.949975였습니다. 혼합 모델은 0.950061로 조금 높았지만 차이가 작고 과정이 복잡해 최종안에서 제외했습니다.</p>
+            <p class="compact-proof"><strong>오차 분석과 모델 선택</strong> 수면시간 또는 스트레스 수준이 결측인 21.71%의 집단이 완전 성능 대비 오차 간극의 54.97%를 차지했습니다. 혼합 모델은 XGBoost보다 0.000086 높았지만 차이가 작고 과정이 복잡해 XGBoost 7-fold를 최종 선택했습니다.</p>
           </div>
           <div class="project-links">
             <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub 저장소</a>
