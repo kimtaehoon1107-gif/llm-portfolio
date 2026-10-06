@@ -154,33 +154,33 @@
             <span class="project-number">게임 경제 분석과 데이터 구조 설계</span>
             <span class="badge badge-progress">자동 수집 중</span>
             <h3>DNF 경매장 트렌드 분석</h3>
-            <p class="project-tagline">Neople Open API · SQL 저장 · 가격 변동 검정 · 시계열 예측 평가</p>
+            <p class="project-tagline">Neople Open API · PostgreSQL · 자동 수집·정합성 점검 · 가격·거래량 시각화</p>
             <p class="project-meta">2026.09~ · 개인 프로젝트 · 수집 파이프라인·저장 구조·분석·웹 시각화 수행</p>
           </div>
         </div>
         <div class="project-proof-bar" aria-label="핵심 결과 요약">
-          <div class="project-proof"><span>추적 품목</span><strong>68종</strong></div>
-          <div class="project-proof"><span>누적 체결 기록</span><strong>59,725건</strong></div>
-          <div class="project-proof"><span>체결가 분석 후보</span><strong>34종</strong></div>
-          <div class="project-proof"><span>연속 구간 검정 가능</span><strong>15종</strong></div>
+          <div class="project-proof"><span>추적 품목</span><strong>72종</strong></div>
+          <div class="project-proof"><span>누적 체결 기록</span><strong>732,486건</strong></div>
+          <div class="project-proof"><span>체결가 분석 후보</span><strong>38종</strong></div>
+          <div class="project-proof"><span>요일 추세 표시 조건 충족</span><strong>26/38종</strong></div>
         </div>
-        <p class="project-note">핵심 결과 수치는 2026.09.09 16:05 KST 공개 집계를 고정한 기록입니다. 체결 기록 범위는 2026.08.08~09.09이며, 수집 시작 시 조회한 과거 기록을 포함합니다. 아래 서비스 화면은 2026.10.07 00:08 KST 기준으로 최신화했고, 연결된 분석 페이지는 매시간 갱신됩니다. <a href="assets/dnf-analysis-20260909.json" target="_blank" rel="noopener">기준 시점 집계 확인</a></p>
+        <p class="project-note">2026.10.07 02:12 KST 공개 서비스 집계 기준입니다. 체결 기록 범위는 2026.08.08~10.07이며 수집 시작 시 조회한 과거 기록을 포함합니다. 체결 API가 한 번에 최근 100건까지만 제공하므로 누적 기록은 전체 거래량이 아닌 관측 하한값입니다. 연결된 서비스는 매시간 갱신됩니다.</p>
         <figure class="project-preview">
-          <a href="assets/dnf-sky-title-service-20261007.jpg" target="_blank" rel="noopener" aria-label="천공의 지배자 실제 서비스 차트 크게 보기">
-            <img src="assets/dnf-sky-title-service-20261007.jpg" alt="천공의 지배자 실제 서비스 가격 차트. 30일 수량 가중 중앙값, 주요 거래 가격대, 수집된 거래 수량을 함께 표시합니다." width="1836" height="682" loading="lazy" decoding="async">
+          <a href="assets/dnf-epic-soul-service-20261007.jpg" target="_blank" rel="noopener" aria-label="에픽 소울 결정 실제 서비스 차트 크게 보기">
+            <img src="assets/dnf-epic-soul-service-20261007.jpg" alt="에픽 소울 결정의 실제 서비스 가격 차트. 30일 수량 가중 중앙값, 주요 거래 가격대, 수집된 거래 수량과 실험 예측을 구분해 표시합니다." width="1836" height="682" loading="lazy" decoding="async">
           </a>
-          <figcaption><strong>천공의 지배자 — 실제 서비스의 가격·거래 수량 추세</strong><span>수집된 거래 기록 388건 · C등급 · 2026.10.07 00:08 KST 기준. 30일 완료 관측일의 수량 가중 중앙값과 주요 거래 가격대, 수집된 거래 수량을 함께 표시합니다. 빈 구간은 거래 관측이 없는 날짜이며, 당일 데이터는 수집 중 상태로 구분했습니다. 이미지를 누르면 1836×682 원본으로 확대됩니다. <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/index.html#157903e48399874bc18b35d276b3ef1b" target="_blank" rel="noopener">아이템 상세 보기</a></span></figcaption>
+          <figcaption><strong>에픽 소울 결정 — 실제 서비스의 가격·거래 수량 추세</strong><span>수집된 거래 기록 94,166건 · A등급 · 2026.10.07 02:12 KST 기준. 파란 실선은 완료 관측일의 수량 가중 중앙값, 회색 영역은 주요 거래 가격대, 막대는 API에서 수집한 거래 수량입니다. 보라색 점선은 실측과 구분한 실험 예측이며 미래 가격을 보장하지 않습니다. 이미지를 누르면 1836×682 원본으로 확대됩니다. <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/#c7d845c65ab9dbcff6e55dc910fbea87" target="_blank" rel="noopener">아이템 상세 보기</a></span></figcaption>
         </figure>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>체결 API는 최근 100건 또는 최대 한 달 중 먼저 도달하는 한도까지만 제공합니다. 더 긴 시세 이력과 이벤트 전후 자료를 확보하려면 데이터를 직접 쌓아야 했습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>API 수집·SQL 저장·시간봉 집계·웹 차트를 구현했습니다. 원본 체결과 시간봉을 대조하고, 집계 불일치나 지연이 발견되면 새 배포를 중단하도록 검증 절차를 구축했습니다.</p></div>
-          <div class="story-item"><strong>판단 근거</strong><p>빈 시간봉을 채우거나 공백 양쪽을 이어 붙이지 않고, 종목별 가장 긴 연속 완료 구간을 검정했습니다. 일반 아이템의 대표 가격은 최근 60분 VWAP, 카드는 단계별 최저 호가로 구분했습니다. 매물 감소에는 취소가 섞여 체결량과 합산하지 않았습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>검정 가능한 15종 중 1종에서 Holm 다중 검정 보정 후 단기 반전 신호를 관측했습니다. 평가일 기준 1일 뒤 예측은 4종·15건에서 MAPE 2.32%로, 마지막 완료 일봉의 VWAP을 유지하는 기준선(1.97%)보다 오차가 컸습니다. 요일 효과는 표본 부족으로 판단을 보류했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>현재 최저 호가와 실제 체결가는 다르고, 체결 API는 최근 거래를 최대 100건까지만 제공합니다. 이벤트 전후의 가격과 거래량을 비교하려면 짧게 열리는 API 기록을 지속적으로 쌓고 같은 기준으로 정리해야 했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>품목별 2~60분 수집 주기와 거래량 급증 시 주기를 줄이는 로직을 설계하고, 원본 체결·호가와 시간 단위 집계를 PostgreSQL에 저장했습니다. 시간별 정적 페이지 생성과 전체·품목별 최신성 점검까지 자동화했습니다.</p></div>
+          <div class="story-item"><strong>판단 기준</strong><p>일반 아이템은 직전 60분 체결량 가중 평균가, 카드는 강화 단계별 최저 호가를 대표값으로 사용했습니다. 빈 관측은 0으로 채우지 않았고, 취소가 섞일 수 있는 매물 감소를 체결량과 합산하지 않았습니다. 표본이 적거나 수집 중인 구간도 화면에 구분했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>72개 품목에서 73만 건 이상의 체결 기록을 축적하고, 가격·거래량·호가를 한 화면에서 비교하는 서비스를 운영했습니다. 예측 실험은 단순 기준선보다 오차가 커 기본 판단 지표와 분리했고, 요일 추세도 인과관계가 아닌 탐색 정보로만 제공했습니다.</p></div>
         </div>
-        <p class="project-note">예측은 평가일 이전 자료로 다시 학습하는 롤링 방식으로 점검했습니다. 백필을 포함한 체결 시각 기준의 과거 재구성이며, 당시 수집기가 보유했던 자료까지 재현한 평가는 아닙니다. 15건은 독립 표본 수를 뜻하지 않으며, 7일 뒤 예측은 아직 평가 가능한 사례가 없습니다.</p>
-        <div class="hr-application"><strong>업무 연결</strong><p>품목별 거래 조건과 데이터 품질을 함께 확인할 수 있는 분석 기반을 만들었습니다. 관측된 신호를 장기 추세나 원인으로 단정하지 않고, 추가 데이터가 필요한 질문을 구분했습니다.</p></div>
+        <p class="project-note">수집된 체결 기록은 API에서 관측한 하한값이며 전체 거래량이 아닙니다. 요일별 차이와 이벤트 전후 변화도 현재는 관찰 결과로 제시하고, 통계적 유의성이나 원인으로 단정하지 않았습니다.</p>
+        <div class="hr-application"><strong>업무 연결</strong><p>운영 담당자가 품목별 가격, 거래량, 매물과 이벤트 전후 변화를 데이터의 완전성과 함께 확인할 수 있는 기반을 만들었습니다. 수치의 정의와 한계를 화면에 같이 제시해 과도한 해석을 막고, 추가 확인이 필요한 이상 변화를 빠르게 찾도록 했습니다.</p></div>
         <div class="project-tags">
-          <span>Neople Open API</span><span>SQL</span><span>TypeScript</span><span>GitHub Actions</span><span>시계열</span><span>웹 시각화</span>
+          <span>Neople Open API</span><span>PostgreSQL</span><span>TypeScript</span><span>GitHub Actions</span><span>데이터 품질</span><span>웹 시각화</span>
         </div>
         <div class="project-links">
           <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/analysis.html" target="_blank" rel="noopener" class="btn btn-sm btn-primary">분석 결과 보기</a>
@@ -315,10 +315,10 @@
       <h2 class="section-title">분석 방식</h2>
       <p class="section-lead">무엇을 판단하기 위한 분석인지 먼저 정하고, 데이터 구조와 검증 기준을 만들어 결론과 한계를 함께 전달합니다. DNF 경매장 프로젝트에서는 다음 순서로 적용했습니다.</p>
       <div class="process-grid">
-        <div class="process-card"><span>01</span><h3>분석 질문 정하기</h3><p>가격 변화에 단기 반전·지속 신호가 있는지, 예측 모델이 마지막 가격을 유지하는 기준선보다 나은지 별도 질문으로 나눴습니다.</p></div>
-        <div class="process-card"><span>02</span><h3>데이터 구조화</h3><p>체결과 호가를 구분하고 완료 시간봉·일봉을 분석 단위로 정했습니다. 원본과 집계를 대조하고, 빈 시간봉을 임의로 채우지 않았습니다.</p></div>
-        <div class="process-card"><span>03</span><h3>분석하고 오류 확인하기</h3><p>연속 시간봉의 분산비 검정에 Holm 보정을 적용했습니다. 예측은 평가일 이전 자료로 다시 학습하고, 마지막 완료 일봉 VWAP과 오차를 비교했습니다.</p></div>
-        <div class="process-card"><span>04</span><h3>결과 공유와 다음 검증</h3><p>기준선보다 큰 예측 오차와 표본 부족을 공개했습니다. 요일 효과의 해석은 보류하고, 관측이 쌓이면 검정 범위와 예측 평가를 확장하도록 정리했습니다.</p></div>
+        <div class="process-card"><span>01</span><h3>분석 질문 정하기</h3><p>현재 체결 가격과 거래 활발도를 어떻게 보여줄지, 이벤트와 요일에 따라 나타난 차이를 어디까지 해석할 수 있는지 질문을 나눴습니다.</p></div>
+        <div class="process-card"><span>02</span><h3>데이터 구조화</h3><p>체결과 호가를 분리해 저장하고 원본 기록을 시간 단위로 집계했습니다. 아이템 특성에 따라 체결량 가중 가격과 단계별 최저 호가를 구분해 사용했습니다.</p></div>
+        <div class="process-card"><span>03</span><h3>정합성과 품질 확인</h3><p>API의 100건 한도에 자주 도달하는 품목은 수집 주기를 줄였습니다. 전체·품목별 최신성을 점검하고, 빈 관측과 당일 미완료 구간, 적은 표본을 화면에서 구분했습니다.</p></div>
+        <div class="process-card"><span>04</span><h3>결과와 한계 함께 공개</h3><p>예측은 단순 기준선과 비교해 성능을 확인한 뒤 실험값으로 분리했습니다. 요일 추세와 매물 변화도 인과관계로 단정하지 않고 실제 활용 범위를 함께 적었습니다.</p></div>
       </div>
       <p class="process-note">데이터 분석으로 판단의 근거를 만들고, 이를 명확하게 전달해 더 효율적인 의사결정을 돕겠습니다.</p>
     </div>
