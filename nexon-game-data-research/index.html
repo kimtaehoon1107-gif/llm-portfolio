@@ -195,7 +195,7 @@
             <a href="../nexon-data/assets/dnf-epic-soul-service-20261007.jpg" target="_blank" rel="noopener" aria-label="에픽 소울 결정 상세 차트 크게 보기">
               <img src="../nexon-data/assets/dnf-epic-soul-service-20261007.jpg" alt="에픽 소울 결정의 가격, 거래 수량과 실험 예측을 구분해 표시한 상세 차트" width="1836" height="682" loading="lazy" decoding="async">
             </a>
-            <figcaption><strong>에픽 소울 결정 상세 화면</strong><span>실측 가격·거래량과 실험 예측을 구분해 표시했습니다.</span></figcaption>
+            <figcaption><strong>에픽 소울 결정 상세 화면</strong><span>실측 가격·거래량과 ARIMA(1,1,0)에 요일 보정을 추가한 실험 예측을 구분해 표시했습니다.</span></figcaption>
           </figure>
         </div>
         <div class="project-proof-bar" aria-label="핵심 결과 요약">
@@ -217,6 +217,23 @@
             <div><strong>수집 밀도</strong><p>최근 100건만 제공되는 구조에서는 거래가 활발한 품목일수록 기록이 누락될 가능성이 커졌습니다. 품목별 거래 속도에 따라 수집 주기를 2~60분으로 조정했습니다.</p></div>
             <div><strong>요일별 추세</strong><p>가격 분석 후보 38종 중 26종이 4주 이상·하루 평균 거래 52건 이상의 표시 조건을 충족했습니다. 이는 탐색적 관찰이며 요일 효과나 인과관계로 단정하지 않았습니다.</p></div>
             <div><strong>예측 검증</strong><p>실험 예측은 직전 가격 유지 기준선보다 오차가 커 기본 판단 지표에서 제외했습니다. 후향 분석에서 찾은 4개 패턴은 판정 규칙을 고정한 전향 검증 FT1으로 확인 중입니다.</p></div>
+          </div>
+          <div class="research-case">
+            <div class="research-case-head">
+              <strong>에픽 소울 결정 · 요일 보정 ARIMA 사례</strong>
+              <span>후향 평가 · MAPE, 낮을수록 좋음</span>
+            </div>
+            <div class="research-table-wrap">
+              <table class="research-table">
+                <thead><tr><th>예측 거리</th><th>평가 건수</th><th>마지막 가격 유지</th><th>ARIMA(1,1,0)</th><th>ARIMA+요일 보정</th></tr></thead>
+                <tbody>
+                  <tr><td>1일</td><td>7건</td><td>6.97%</td><td>6.86%</td><td class="best-value">4.38%</td></tr>
+                  <tr><td>3일</td><td>5건</td><td>6.64%</td><td>7.24%</td><td class="best-value">1.32%</td></tr>
+                  <tr><td>7일</td><td>1건</td><td>6.97%</td><td>9.18%</td><td class="best-value">0.77%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>에픽 소울에서는 요일 보정 모델의 오차가 가장 낮았지만, 7일 평가는 1건뿐이고 이미 관측한 기간을 사용한 후향 결과입니다. 특정 품목의 결과를 전체 시장으로 일반화하지 않고 전향 검증 대상으로만 남겼습니다.</p>
           </div>
           <p class="research-insight"><strong>배운 점</strong> 복잡한 모델을 추가하기 전에 데이터가 충분한 간격으로 수집됐는지, 지표가 실제 거래를 어떤 범위까지 설명하는지부터 확인해야 했습니다. 보이지 않는 수집 공백과 지표의 한계를 함께 제시하는 것이 분석 결과 자체만큼 중요했습니다.</p>
         </div>
