@@ -150,8 +150,8 @@
       <div class="skills-grid">
         <div class="skill-group">
           <span class="skill-index">01</span>
-          <h4>로그·원천 데이터 확인</h4>
-          <p>경매장 API 데이터를 지속 수집하며 지연과 중복을 감시하고, 체결·매물 지표를 서로 다른 기준으로 정의했습니다.</p>
+          <h4>원천 데이터 정합성 확인</h4>
+          <p>경매장 API 원천 데이터를 지속 수집하며 지연·중복·수집 공백을 확인하고, 체결과 매물을 서로 다른 지표로 정의했습니다.</p>
         </div>
         <div class="skill-group">
           <span class="skill-index">02</span>
@@ -178,10 +178,10 @@
         <div class="project-head">
           <div>
             <span class="project-number">01 · 게임 데이터 수집과 모니터링</span>
-            <span class="badge badge-progress">운영 중 · 개인 프로젝트</span>
+            <span class="badge badge-progress">자동 수집 중</span>
             <h3>던파 경매장 시세 추적기</h3>
-            <p class="project-tagline">Neople Open API · 수집 정합성 검증 · 가격·매물 시각화 · 시계열 평가</p>
-            <p class="project-meta">2026.08~ · 개인 프로젝트 · 수집·저장·검증·시각화 전 과정 단독 수행</p>
+            <p class="project-tagline">Neople Open API · PostgreSQL · 자동 수집·정합성 점검 · 가격·거래량 시각화</p>
+            <p class="project-meta">2026.09~ · 개인 프로젝트 · 수집 파이프라인·저장 구조·분석·웹 시각화 전 과정 수행</p>
           </div>
         </div>
         <div class="project-preview-grid">
@@ -199,23 +199,25 @@
           </figure>
         </div>
         <div class="project-proof-bar" aria-label="핵심 결과 요약">
-          <div class="project-proof"><span>데이터 원천</span><strong>Open API</strong></div>
-          <div class="project-proof"><span>가격 기준</span><strong>VWAP</strong></div>
-          <div class="project-proof"><span>운영 확인</span><strong>수집 지연 감시</strong></div>
-          <div class="project-proof"><span>예측 판단</span><strong>기준선 비교</strong></div>
+          <div class="project-proof"><span>추적 품목</span><strong>72종</strong></div>
+          <div class="project-proof"><span>관측 체결 기록</span><strong>73만 건+</strong></div>
+          <div class="project-proof"><span>수집 주기</span><strong>2~60분</strong></div>
+          <div class="project-proof project-proof-caution"><span>예측 판단</span><strong>운영 지표와 분리</strong></div>
         </div>
+        <p class="project-note">수치는 2026.10.07 공개 서비스 집계 기준이며, 수집 시작 시 API에서 조회한 과거 기록을 포함합니다. 체결 API는 한 번에 최근 100건까지만 제공하므로 누적 기록은 전체 거래량이 아니라 API에서 관측한 하한값입니다.</p>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>최근 체결만 제공하는 API만으로는 가격 변화와 매물 흐름을 장기간 비교하기 어려웠습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>아이템별 체결·매물을 주기적으로 수집하고 PostgreSQL에 가격 이력을 저장하는 파이프라인을 구축했습니다.</p></div>
-          <div class="story-item"><strong>핵심 판단</strong><p>체결 수량 가중평균과 관측 매물 최저가를 구분하고, 예측은 직전 가격 유지 기준선보다 나은지 평가했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>수집 지연과 중복 체결을 확인하고, 가격·매물·패키지 해체 마진을 같은 화면에서 비교할 수 있게 했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>현재 최저 호가와 실제 체결가는 다르고, 체결 API는 최근 거래를 최대 100건까지만 제공합니다. 장기 추세를 비교하려면 짧게 열리는 기록을 지속적으로 쌓아야 했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>품목별 기본 수집 주기를 정하고 거래가 몰리면 간격을 줄이도록 설계했습니다. 원본 체결·호가와 시간 단위 집계를 PostgreSQL에 분리 저장하고 최신성 점검을 자동화했습니다.</p></div>
+          <div class="story-item"><strong>핵심 판단</strong><p>체결가와 호가를 구분하고 빈 관측을 0으로 채우지 않았습니다. 매물 감소는 취소가 섞일 수 있어 체결량과 합산하지 않았고, 표본이 적은 구간은 화면에 표시했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>72개 품목에서 73만 건 이상의 체결 기록을 축적하고 가격·거래량·매물을 비교하는 서비스를 운영했습니다. 예측 실험은 단순 기준선보다 오차가 커 운영 판단 지표와 분리했습니다.</p></div>
         </div>
-        <div class="hr-application"><strong>직무 연결</strong><p>수집 데이터의 지연·중복을 먼저 확인하고, 체결가와 매물가처럼 서로 다른 의미의 지표를 구분했습니다. 로그 설계와 실제 적재 데이터의 차이를 확인하는 업무에 같은 검증 순서를 적용할 수 있습니다.</p></div>
+        <div class="hr-application"><strong>직무 연결</strong><p>공개 API 데이터이지만, 기대하는 수집 주기와 실제 적재 상태를 대조하고 지연·중복·공백을 확인했습니다. 데이터의 의미와 한계를 문서화한 경험을 로그 검증 절차와 판단 기준을 정리하는 업무에 연결할 수 있습니다.</p></div>
         <div class="project-tags">
-          <span>Neople Open API</span><span>PostgreSQL</span><span>시계열 분석</span><span>데이터 품질 검증</span>
+          <span>Neople Open API</span><span>PostgreSQL</span><span>TypeScript</span><span>GitHub Actions</span><span>데이터 품질 검증</span>
         </div>
         <div class="project-links">
-          <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">서비스 보기</a>
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">시세 대시보드</a>
+          <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/analysis.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 결과</a>
           <a href="https://github.com/kimtaehoon1107-gif/dnf-price-tracker" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub 저장소</a>
         </div>
       </article>
@@ -224,10 +226,10 @@
         <div class="project-head">
           <div>
             <span class="project-number">02 · 분석 도구 QA와 AI 검증</span>
-            <span class="badge badge-done">완료 · 배포됨</span>
+            <span class="badge badge-progress">기준 평가 완료 · 개선 진행 중</span>
             <h3>DNF 공식 문서 QA/RAG</h3>
             <p class="project-tagline">공식 문서 검색 · 근거 표시 · 별도 평가 · 사람 검수</p>
-            <p class="project-meta">2026.07~2026.08 · 개인 프로젝트 · 문서 수집·검색·검증·데모 전 과정 단독 수행</p>
+            <p class="project-meta">2026.07~ · 개인 프로젝트 · 문서 수집·검색·검증·데모 전 과정 단독 수행</p>
           </div>
         </div>
         <figure class="project-preview project-preview-single">
@@ -242,15 +244,16 @@
           <div class="project-proof"><span>사람 검수</span><strong>62.5%</strong></div>
           <div class="project-proof project-proof-caution"><span>적용 판단</span><strong>보류</strong></div>
         </div>
+        <p class="project-note">996개 문서, 검색 단위 3,925개와 사람 검수 20/32는 2026.08.07 데이터로 수행한 기준 평가 결과입니다. 이후 개선 작업은 진행 중이지만 변경본에 대한 새로운 독립 평가는 아직 수행하지 않았습니다.</p>
         <div class="project-story-grid">
-          <div class="story-item"><strong>문제</strong><p>문서가 여러 위치에 흩어져 있어 답과 근거를 함께 찾기 어려웠습니다.</p></div>
-          <div class="story-item"><strong>역할</strong><p>수집·정제·검색·평가·데모 전 과정을 단독 수행했습니다.</p></div>
-          <div class="story-item"><strong>핵심 판단</strong><p>개발용 평가와 최종 검증을 분리하고, 사람 검수 정확도 80%를 적용 기준으로 정했습니다.</p></div>
-          <div class="story-item story-result"><strong>결과</strong><p>문서 996개와 검색 단위 3,925개를 구축하고 자동화 테스트 1,378건을 통과했습니다. 사람 검수는 20/32로 기준에 미달해 적용을 보류했습니다.</p></div>
+          <div class="story-item"><strong>문제</strong><p>공식 정보가 여러 문서에 흩어져 있고, 검색된 문서가 답변 전체를 실제로 뒷받침하는지도 따로 확인해야 했습니다.</p></div>
+          <div class="story-item"><strong>역할</strong><p>공식 문서 수집·정제, 검색, 근거 표시, 답변 생성, 자동화 테스트와 사람 검수까지 하나의 평가 흐름으로 구현했습니다.</p></div>
+          <div class="story-item"><strong>핵심 판단</strong><p>개발 중 진단과 별도 보관 평가를 분리하고, 검색 실패·근거 선택 실패·생성 실패를 나눠 기록했습니다. 사람 검수 80%를 적용 기준으로 정했습니다.</p></div>
+          <div class="story-item story-result"><strong>결과</strong><p>자동화 테스트 1,378건은 통과했지만 사람 검수는 20/32로 적용 기준에 미달했습니다. 기본 답변 방식의 적용을 보류하고 실패 유형과 재현 자료를 남겼습니다.</p></div>
         </div>
         <div class="hr-application"><strong>직무 연결</strong><p>자동화 테스트로 반복 오류를 확인하고, 사람 검수가 필요한 정확성과 근거 적합성은 별도 기준으로 판단했습니다. 기준 미달 시 적용을 보류한 과정은 분석 서비스 QA와 자동화 결과 검증에 연결됩니다.</p></div>
         <div class="project-tags">
-          <span>검색·근거 연결</span><span>별도 검증 데이터</span><span>사람 검수</span><span>적용 중단 기준</span><span>무료·로컬 환경 구현</span>
+          <span>검색·근거 연결</span><span>별도 검증 데이터</span><span>QA 테스트</span><span>사람 검수</span><span>적용 중단 기준</span>
         </div>
         <div class="project-links">
           <a href="https://kimtaehoon1107-gif.github.io/dnf-domain-qa-slm-rag/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">웹 포트폴리오</a>
