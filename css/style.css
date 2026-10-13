@@ -275,42 +275,6 @@ img { max-width: 100%; }
 .profile-list a { text-decoration: none; color: var(--accent-ink); }
 .profile-list a:hover { text-decoration: underline; }
 
-/* Stats strip */
-.stats {
-  position: relative;
-  margin-top: 56px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.stat {
-  padding: 22px 24px;
-}
-
-.stat + .stat { border-left: 1px solid var(--border); }
-
-.stat-value {
-  display: block;
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
-
-.stat-value small { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); }
-
-.stat-label {
-  display: block;
-  margin-top: 2px;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -809,9 +773,6 @@ img { max-width: 100%; }
 
   .container, .nav-inner { padding-left: 16px; padding-right: 16px; }
   .hero { padding: 116px 0 56px; }
-  .stats { grid-template-columns: 1fr 1fr; }
-  .stat:nth-child(3) { border-left: 0; }
-  .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
   .section { padding: 64px 0; }
   .project-metrics { grid-template-columns: 1fr; }
   .contact { padding-bottom: 64px; }

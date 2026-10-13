@@ -11,12 +11,3 @@
 
 .badge-progress { background: #fff2e8; color: #b84a05; }
 
-.stats { position: relative; }
-
-.stats::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-}
