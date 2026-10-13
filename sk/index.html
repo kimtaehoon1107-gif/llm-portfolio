@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김태훈 | SK브로드밴드 AT/DT 지원 포트폴리오</title>
+<meta name="description" content="AI 응답 품질·안전성 평가와 게임 도메인 SLM/RAG 파이프라인, 데이터 수집 서비스를 설계하고 검증합니다.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/theme-sk.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo"><span class="logo-mark">TH</span>김태훈</a>
+    <nav class="nav-links" aria-label="주요 메뉴">
+      <a href="#about">소개</a>
+      <a href="#fit">직무 연결</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">스킬</a>
+      <a href="../research/index.html">대학원 연구</a>
+      <a href="#contact" class="nav-cta">연락하기</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>SK브로드밴드 AT/DT 지원 포트폴리오</p>
+          <h1>현장에서 믿고 쓰는 AI,<br>근거와 기준부터 <span class="grad">직접 검증</span>합니다.</h1>
+          <p class="hero-sub">
+            LLM·RAG 답변의 근거와 거절 기준을 측정하고, 공개 API 데이터를 직접 수집·적재하는 서비스를 운영합니다.
+            AI로 일하는 방식을 바꾸는 현장에서, 사람이 답의 근거를 바로 확인할 수 있는 AI를 만들고 싶습니다.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+            <a href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+          </div>
+        </div>
+
+        <aside class="profile-card" aria-label="프로필">
+          <div class="profile-top">
+            <img src="../nexon-data/assets/profile-photo.png" alt="김태훈 프로필 사진" class="profile-photo" width="357" height="478">
+            <div>
+              <p class="profile-name">김태훈</p>
+              <p class="profile-role">Data Science · LLM 평가 · 데이터 파이프라인</p>
+            </div>
+          </div>
+          <ul class="profile-list">
+            <li><span>학력</span><span>경북대 데이터사이언스대학원 석사 수료<br>경북대 통계학 학사</span></li>
+            <li><span>자격</span><span>빅데이터분석기사 · SQLD · 정보처리기능사</span></li>
+            <li><span>어학</span><span>IELTS 6.5</span></li>
+            <li><span>Email</span><span><a href="mailto:kimdh0994@naver.com">kimdh0994@naver.com</a></span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><span class="stat-value">739,987<small>건</small></span><span class="stat-label">시세 추적기 수집 거래 (10.07 기준)</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">11.27 → 18.86</span><span class="stat-label">RAG 적용 후 답변 품질 (21점 만점)</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">690,088<small>행</small></span><span class="stat-label">불균형 분류·결측 원인 분석</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">2<small>회</small></span><span class="stat-label">해커톤 우수상 · 통계청 공모전 장려상</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="reveal">
+        <div class="section-head">
+          <span class="section-kicker">About</span>
+          <h2 class="section-title">그럴듯한 답보다,<br>믿을 수 있는 기준을 만듭니다.</h2>
+        </div>
+        <p class="about-text">
+          문서 기반 LLM/RAG 시스템의 <strong>평가 파이프라인</strong>과 <strong>소형 언어모델(SLM) 데이터·파인튜닝</strong> 과정을
+          게임(던전앤파이터) 도메인으로 직접 재현하며 공부하고 있습니다. 관심사는 모델이 얼마나 그럴듯하게 말하는지가 아니라,
+          어떤 조건에서 답을 신뢰할 수 있고 어떤 조건에서 거부해야 하는지를 <strong>측정 가능한 기준</strong>으로 만드는 것입니다.
+        </p>
+        <p class="about-text">
+          벤치마크 질문 설계, 검색기 비교(BM25/BGE-M3), 데이터 라벨링, RAFT 학습 데이터 구성, LoRA/QLoRA 파인튜닝,
+          adversarial·stealth safety 평가까지 한 파이프라인 안에서 실험하고, dev 성능과 held-out 성능을 분리해 보고하는 습관을 갖고 있습니다.
+        </p>
+      </div>
+      <div class="info-stack reveal">
+        <div class="info-card">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>경북대학교 데이터사이언스대학원</strong><span>데이터사이언스 석사 과정 수료 · 2023.03 – 2026.02</span></li>
+            <li><strong>경북대학교 통계학과</strong><span>학사 · 2021.03 – 2023.02</span></li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Awards</h3>
+          <ul>
+            <li><strong>제10회 대한민국 SW융합 해커톤 우수상</strong><span>과학기술정보통신부 · 2023.08 · 5인 팀</span></li>
+            <li><strong>제9회 국가승인통계 활용 디지털콘텐츠 공모전 장려상</strong><span>통계청 · 2022.10 · 2인 팀</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="fit" class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Role Fit</span>
+        <h2 class="section-title">AT/DT 업무와 맞닿은 경험</h2>
+        <p class="section-desc">공고의 주요 수행 업무 중, 직접 해 본 경험으로 설명할 수 있는 부분만 연결했습니다.</p>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-card reveal">
+          <h3>AI/LLM·Agent를 서비스 현장에 적용</h3>
+          <p>공식 문서에서 근거를 먼저 찾고 답하는 QA 시스템을 만들고, 근거가 부족하면 거절하도록 기준을 세웠습니다. 기준을 넘지 못한 모델은 배포 단계로 넘기지 않았습니다.</p>
+          <a href="#dnf-qa">DNF QA SLM/RAG 보기 →</a>
+        </div>
+        <div class="fit-card reveal">
+          <h3>Data Lake·Governance, AI용 데이터 구축</h3>
+          <p>원본 거래 기록은 그대로 보존하고 화면 집계에서만 이상 거래를 분리했습니다. 라벨링 가이드와 학습 데이터도 직접 설계해 정형·비정형 데이터를 모두 다뤄 봤습니다.</p>
+          <a href="#dnf-price-tracker">시세 추적기 보기 →</a>
+        </div>
+        <div class="fit-card reveal">
+          <h3>외부 API 연동과 운영 자동화</h3>
+          <p>Neople Open API를 주기적으로 호출해 PostgreSQL에 적재하고, GitHub Actions로 수집·배포를 자동화했습니다. 수집 지연과 중복 기록도 자동으로 점검합니다.</p>
+          <a href="#dnf-price-tracker">구현 내용 보기 →</a>
+        </div>
+        <div class="fit-card reveal">
+          <h3>데이터 기반 품질 진단</h3>
+          <p>69만 행 데이터에서 성능이 떨어지는 구간을 추적해, 결측이 있는 21.71%의 행이 남은 성능 차이의 절반 이상을 설명한다는 것을 정량으로 확인했습니다.</p>
+          <a href="#student-health">학생 건강 위험 예측 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Projects</span>
+        <h2 class="section-title">대표 프로젝트</h2>
+        <p class="section-desc">데이터 수집부터 모델 평가까지, 결과와 한계를 함께 공개합니다.</p>
+      </div>
+
+      <nav class="project-index reveal" aria-label="프로젝트 목록">
+        <a href="#dnf-price-tracker"><b>01</b>시세 추적기</a>
+        <a href="#dnf-qa"><b>02</b>DNF QA SLM/RAG</a>
+        <a href="#student-health"><b>03</b>학생 건강 위험 예측</a>
+        <a href="#ai-fellowship"><b>04</b>AI 육아도우미</a>
+        <a href="#okk"><b>05</b>방구석 아이돌</a>
+        <a href="#frailty"><b>06</b>노쇠 예측 연구</a>
+        <a href="#energy"><b>07</b>에너지 정책 공모전</a>
+      </nav>
+
+      <article class="project reveal" id="dnf-price-tracker">
+        <div class="project-media">
+          <figure class="project-preview">
+            <a href="../nexon-data/assets/dnf-price-tracker-home-20261007.png" target="_blank" rel="noopener" aria-label="시세 추적기 서비스 화면 크게 보기">
+              <img src="../nexon-data/assets/dnf-price-tracker-home-20261007.png" alt="던파 경매장 시세 추적기 메인 화면. 추적 아이템 수, 레전더리 카드 시세, 요일별 가격 트렌드 차트를 보여줍니다." width="1440" height="1000" loading="lazy" decoding="async">
+            </a>
+            <figcaption><strong>실제 서비스 화면</strong><span>추적 아이템 72종, 수집 거래 739,987건(2026.08.08~10.07 기준)과 요일별 가격 트렌드를 보여주는 메인 화면입니다.</span></figcaption>
+          </figure>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">01</span><span class="badge badge-progress">운영 중 · 개인 프로젝트</span></div>
+          <h3>던파 경매장 시세 추적기 — 수집 파이프라인·게임 경제 분석</h3>
+          <p class="project-tagline">Neople Open API · 수집·집계 정합성 검증 · 가격·매물 시각화 · 시계열 예측 평가</p>
+          <p class="project-desc">
+            최근 체결만 제공하는 API의 한계를 보완하기 위해 아이템별 체결·매물을 주기적으로 수집하고,
+            PostgreSQL에 가격 이력을 직접 쌓는 비공식 개인 서비스입니다. 수집 지연 감시부터 중복 체결 처리,
+            시간봉 집계 검증, 정적 사이트 배포까지 구현했습니다. 가격과 API 관측 매물 잔량을 같은 시간축에서
+            비교하고, 통계 검정과 예측 평가 결과에 표본 부족·관측 누락 등의 한계를 함께 공개합니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>수집·보존</strong><span>아이템별 수집 주기·지연 감시, 원본 대조 후 시간봉 보존</span></li>
+            <li><strong>가격·매물 비교</strong><span>체결 수량 가중평균(VWAP)과 카드 단계별 최저 호가 구분, 관측 잔량 비교</span></li>
+            <li><strong>통계 분석</strong><span>연속 시간봉의 분산비 검정·다중 검정 보정, 수수료를 반영한 패키지 해체 마진 계산</span></li>
+            <li><strong>예측 검증</strong><span>날짜별 롤링 평가로 직전 가격 유지 기준선과 비교, 실험적 예측의 성능·한계 공개</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>TypeScript</span><span>PostgreSQL / Supabase</span><span>GitHub Actions</span><span>시계열 분석</span><span>데이터 품질 검증</span>
+          </div>
+          <div class="project-links">
+            <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">서비스 보기</a>
+            <a href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/analysis.html" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 페이지</a>
+            <a href="../nexon-data/#projects" class="btn btn-sm btn-outline">구현·분석 설명</a>
+            <a href="https://github.com/kimtaehoon1107-gif/dnf-price-tracker" target="_blank" rel="noopener" class="btn btn-sm btn-outline">GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="dnf-qa">
+        <div class="project-media">
+          <figure class="project-preview">
+            <a href="../nexon-data/assets/dnf-rag-entry-demo-20260910.jpg" target="_blank" rel="noopener" aria-label="QA 데모 화면 크게 보기">
+              <img src="../nexon-data/assets/dnf-rag-entry-demo-20260910.jpg" alt="미카엘라·디레지에 레이드 입장 명성을 질문한 데모 화면. 각 레이드의 답변과 공식 문서 근거를 함께 보여줍니다." width="900" height="657" loading="lazy" decoding="async">
+            </a>
+            <figcaption><strong>질문에서 답변과 공식 문서 근거까지</strong><span>레이드 입장 명성 질문에 답변과 공식 문서 근거를 함께 보여주는 데모 화면입니다. <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/releases/tag/demo-recording-20260812" target="_blank" rel="noopener">데모 영상 보기</a></span></figcaption>
+          </figure>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">02</span><span class="badge badge-done">개발 사이클 완료</span></div>
+          <h3>DNF Domain QA SLM/RAG v2</h3>
+          <p class="project-tagline">근거 범위 판단 · 실패 원인 분해 · 통제 비교 · Blind 검증 정책</p>
+          <p class="project-desc">
+            목표는 던파 공식 문서를 근거로 답하되, 문서가 질문 전체를 뒷받침하지 못하면 확인 가능한 부분만 답하고
+            나머지는 거절하는 QA 시스템을 만드는 것이었습니다. v1의 오류를 검색 실패·잘못된 근거 선택·생성 및 거절 실패로
+            나누어 측정하고, 같은 검색 결과를 RAG-only·base SLM·tuned SLM에 제공해 학습의 효과를 통제 비교했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>평가 설계</strong><span>답변 가능·부분 가능·답변 불가·안전 질문을 분리하고, 근거 사용과 거절을 각각 측정</span></li>
+            <li><strong>학습 실험</strong><span>근거와 방해 문서를 함께 주는 RAFT 데이터로 Qwen LoRA 학습</span></li>
+            <li><strong>통제 비교</strong><span>검색 조건을 고정한 뒤 규칙 기반 RAG·미학습 SLM·학습 SLM의 차이를 비교</span></li>
+            <li><strong>최종 판단</strong><span>학습 모델은 인용과 부분답변을 개선했지만 거절 기준을 충족하지 못해 blind를 열지 않음</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>Failure Decomposition</span><span>Controlled Comparison</span><span>RAFT/LoRA</span><span>Partial/Refusal</span><span>Blind Gate</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub</a>
+            <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/blob/main/PORTFOLIO_REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">결과 보고서</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project--text reveal" id="student-health">
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">03</span><span class="badge badge-progress">개인 프로젝트</span></div>
+          <h3>학생 건강 위험 예측 — 불균형 데이터·성능 한계 분석</h3>
+          <p class="project-tagline">클래스 불균형 처리 · 결측 패턴·분포 차이 진단 · Fold-safe 검증 · 공개 코드 감사</p>
+          <p class="project-desc">
+            Kaggle 경진대회 데이터 690,088행을 활용한 불균형 3-class 분류 프로젝트입니다. LightGBM
+            5-fold 기준 모델을 구축한 뒤 XGBoost 7-fold OOF 검증으로 성능을 개선했습니다. Target
+            Encoding은 각 outer training fold 내부의 inner 5-fold에서 생성해 누수를 방지했으며,
+            다중 시드 배깅과 FT-Transformer 기반 Cross-family 혼합도 추가로 검증했습니다.
+            Cross-family 혼합은 평가 fold를 제외한 나머지 fold에서 가중치를 선택했으나, 개선폭이
+            +0.000041에 그치고 fold별 우위가 안정적이지 않아 최종 모델에서는 제외했습니다. 원본
+            5만 행 데이터에서 학습한 생성 규칙을 대회 데이터로 전이하고, 수면시간 또는 스트레스
+            변수가 결측된 21.71%의 행이 Balanced Accuracy 잔여 간극의 54.97%를 설명한다는 점을
+            확인했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>검증 설계</strong><span>7-fold OOF 검증, outer fold 내부 5-fold Target Encoding, leave-one-outer-fold-out 앙상블 가중치 평가</span></li>
+            <li><strong>원인 분해</strong><span>결측치 21.71%인 행이 Balanced Accuracy 잔여 간극의 54.97%를 설명함을 정량 확인</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>불균형 분류</span><span>결측 패턴·분포 진단</span><span>Fold-safe 검증</span><span>XGBoost/LightGBM</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener" class="btn btn-sm btn-primary">GitHub</a>
+            <a href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk/blob/main/REPORT.md" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 리포트</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="ai-fellowship">
+        <div class="project-media">
+          <figure class="project-preview project-preview-portrait">
+            <a href="../nexon-data/assets/ai-fellowship-demo.png" target="_blank" rel="noopener" aria-label="AI 육아도우미 화면 크게 보기">
+              <img src="../nexon-data/assets/ai-fellowship-demo.png" alt="AI 육아도우미 서비스 데모 화면" width="480" height="800" loading="lazy" decoding="async">
+            </a>
+            <figcaption><strong>AI 육아도우미 서비스 데모</strong><span>산학협력으로 만든 육아도우미 챗봇 화면입니다.</span></figcaption>
+          </figure>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">04</span><span class="badge badge-progress">산학협력</span></div>
+          <h3>AI Fellowship — (주)모닛 AI 육아도우미 챗봇</h3>
+          <p class="project-tagline">AI양재허브 AI Seoul Fellow · 경북대 Applied AI Lab 산학협력 · 데이터 라벨링 · Zero-shot/Few-shot → 파인튜닝</p>
+          <p class="project-desc">
+            AI양재허브 AI Seoul Fellow 프로그램을 통해 스타트업 (주)모닛과 경북대학교 데이터사이언스대학원
+            인공지능응용연구실(Applied AI Lab, 책임교수 김수현)이 협업한 산학 프로젝트(2023.11~2024.02, 3개월)입니다.
+            육아 커뮤니티(맘카페)와 네이버쇼핑 리뷰 데이터를 기반으로, 리뷰 텍스트만으로 상품의 속성별 만족도를 분류하고
+            사용자 세그먼트에 맞춰 추천할 수 있는지를 검증했으며, LLM의 zero-shot/few-shot 분류 성능을 먼저 검증한 뒤
+            파인튜닝으로 정확도를 끌어올리는 방식으로 접근했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>데이터 구축</strong><span>Selenium 크롤링 + 대/중/소 라벨링 체계 직접 설계, 더미 데이터로 2차 보강</span></li>
+            <li><strong>세그멘테이션</strong><span>K-means 9개 → 6개 군집 재설계, Silhouette Score로 최적값 검증</span></li>
+            <li><strong>평가 기준 개선</strong><span>감성분석 점수만으로 놓치는 실측 정보를 교차검증으로 발견해 평가 기준 수정</span></li>
+            <li><strong>구조 전환</strong><span>복합 맞춤형 추천의 현실적 한계를 파악해 Aspect 기반 구조로 재설계</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>Selenium</span><span>OpenAI API</span><span>K-means</span><span>Silhouette Score</span><span>데이터 라벨링 설계</span>
+          </div>
+          <div class="project-links">
+            <a href="https://monitaichat.azurewebsites.net/MonitBaby" target="_blank" rel="noopener" class="btn btn-sm btn-primary">서비스 데모</a>
+            <span class="project-note">산학협력 프로젝트 · 요청 시 상세 자료 공유 가능</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="okk">
+        <div class="project-media">
+          <figure class="project-preview project-preview-portrait">
+            <a href="../nexon-communications/assets/okk-demo-score.png" target="_blank" rel="noopener" aria-label="안무 채점 화면 크게 보기">
+              <img src="../nexon-communications/assets/okk-demo-score.png" alt="원곡 안무와 사용자 동작을 비교해 70점을 보여주는 채점 화면" width="770" height="1115" loading="lazy" decoding="async">
+            </a>
+            <figcaption><strong>안무 정확도 채점 화면</strong><span>원곡 안무와 사용자 동작을 비교해 점수를 보여주는 앱 화면입니다.</span></figcaption>
+          </figure>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">05</span><span class="badge badge-award">우수상 수상</span></div>
+          <h3>방구석 아이돌 — Perfecting K-POP Dance with AI</h3>
+          <p class="project-tagline">Pose Estimation 안무 채점 · Liquid Warping GAN 모션 합성 · 5인 팀 프로젝트</p>
+          <p class="project-desc">
+            제10회 대한민국 SW융합 해커톤 대회(과학기술정보통신부 주최) 자유 과제에 5인 팀 "옥-K"로 출품한 프로젝트입니다.
+            사용자의 춤 영상에서 관절 keypoint를 추출해 원곡 안무와 프레임 단위로 비교, 정확도를 채점하고,
+            Liquid Warping GAN으로 사용자 외형을 해당 동작에 합성하는 두 파이프라인을 팀 단위로 설계·구현했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>수상</strong><span>제10회 대한민국 SW융합 해커톤 대회 우수상 (2023.08)</span></li>
+            <li><strong>주관</strong><span>과학기술정보통신부 · 정보통신산업진흥원 · SW융합클러스터 12개 기관</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>Pose Estimation</span><span>Liquid Warping GAN</span><span>팀 프로젝트</span>
+          </div>
+          <div class="project-links">
+            <a href="../assets/%EA%B9%80%ED%83%9C%ED%9B%88_%EC%98%A5K_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary">발표자료</a>
+            <span class="project-note">5인 팀 프로젝트 · 팀명 옥-K</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" id="frailty">
+        <div class="project-media">
+          <figure class="project-preview project-preview-poster">
+            <a href="../research/assets/frailty-poster.png" target="_blank" rel="noopener" aria-label="노쇠 연구 학회 포스터 원본 크게 보기">
+              <img src="../research/assets/frailty-poster-web.jpg" alt="그룹별 군집 조합 분석을 통한 노쇠 예측 요인 분석 학회 포스터" width="1200" height="1440" loading="lazy" decoding="async">
+            </a>
+            <figcaption><strong>학회 발표 포스터</strong><span>이미지를 누르면 고해상도 원본으로 볼 수 있습니다.</span></figcaption>
+          </figure>
+        </div>
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">06</span><span class="badge badge-done">학술 발표</span></div>
+          <h3>그룹별 군집 조합 분석을 통한 노쇠 예측 요인 분석</h3>
+          <p class="project-tagline">변수 선택 · 이상치·결측치 처리 · 군집화 · 대학원 개인 연구</p>
+          <p class="project-desc">
+            2024 대한산업공학회 춘계공동학술대회에서 발표한 개인 연구입니다. 지도교수 지도 하에 데이터
+            전처리부터 분석·시각화까지 단독으로 수행했습니다. 노인 노쇠 코호트 데이터의 신체·인지·심리
+            변수군을 정리하며 결측값과 이상치를 먼저 확인하고, Boruta로 노쇠 예측에 유의미한 변수를
+            선택한 뒤 K-means로 변수군별 군집을 구성해 군집 조합별 위험 양상을 비교했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>데이터 정제</strong><span>결측치·이상치 확인 후 범주형 변수 인코딩</span></li>
+            <li><strong>분석 방법</strong><span>Boruta 변수 선택 + K-means 군집화 + SMOTE 불균형 보완</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>통계적 데이터 정제</span><span>Boruta</span><span>K-means</span><span>SMOTE</span>
+          </div>
+          <div class="project-links">
+            <a href="../research/포트폴리오%20자료/김태훈_포스터.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-primary">포스터 PDF</a>
+            <a href="../research/포트폴리오%20자료/김태훈_발표슬라이드.pdf" target="_blank" rel="noopener" class="btn btn-sm btn-outline">발표 슬라이드</a>
+            <a href="../research/포트폴리오%20자료/최종코딩.ipynb" target="_blank" rel="noopener" class="btn btn-sm btn-outline">분석 노트북</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project project--text reveal" id="energy">
+        <div class="project-body">
+          <div class="project-top"><span class="project-num">07</span><span class="badge badge-award">장려상 수상</span></div>
+          <h3>국가승인통계 활용 디지털콘텐츠 공모전 — 원자력·신재생에너지 균형 정책 제언</h3>
+          <p class="project-tagline">공공데이터 교차분석 · 정책 논증 설계 · 2인 팀</p>
+          <p class="project-desc">
+            통계청 주최 「제9회 국가승인통계 활용 디지털콘텐츠 공모전」에 출품한 데이터 분석 프로젝트입니다.
+            온실가스·탄소배출 통계로 에너지 산업이 국내 최대 탄소배출원임을 제기하고, 발전량·정산단가 통계로
+            신재생에너지 단독 대체의 한계를 논증한 뒤, 최종에너지 소비 통계까지 종합해 원자력·신재생에너지의
+            균형 있는 조합이 필요하다는 정책 결론을 도출했습니다.
+          </p>
+          <ul class="project-metrics">
+            <li><strong>수상</strong><span>제9회 국가승인통계 활용 디지털콘텐츠 공모전 장려상 (통계청, 2022.10)</span></li>
+            <li><strong>활용 데이터</strong><span>온실가스·탄소배출(환경부), 에너지원별 발전량·정산단가(한전), 최종에너지 소비(에너지경제연구원)</span></li>
+          </ul>
+          <div class="project-tags">
+            <span>공공데이터 분석</span><span>정책 논증</span><span>2인 팀</span>
+          </div>
+          <div class="project-links">
+            <span class="project-note">2인 팀 프로젝트 · 경북대 통계학과 × 안동대 정보통계학과</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Skills</span>
+        <h2 class="section-title">스킬</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <h3>평가 · 안전성</h3>
+          <ul class="chips">
+            <li>벤치마크/루브릭 설계</li><li>Held-out 검증</li><li>Adversarial·Stealth Red-teaming</li><li>Ablation 설계</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span>
+          <h3>모델 · 데이터</h3>
+          <ul class="chips">
+            <li>RAG (BM25, BGE-M3)</li><li>LoRA/QLoRA 파인튜닝</li><li>RAFT 데이터 구성</li><li>라벨링/정제 (Label Studio)</li><li>API 수집·적재 파이프라인</li><li>시계열 분석</li><li>LightGBM/XGBoost</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <span class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></span>
+          <h3>도구</h3>
+          <ul class="chips">
+            <li>Python</li><li>SQL (PostgreSQL/Supabase)</li><li>PyTorch·Hugging Face</li><li>TypeScript</li><li>GitHub Actions</li><li>Ollama</li><li>Selenium</li><li>Gradio</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div>
+          <h2>함께 일할 기회를 기다리고 있습니다.</h2>
+          <p>협업이나 지원 관련 문의는 이메일로 연락 주세요.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:kimdh0994@naver.com" class="btn btn-primary">이메일 보내기</a>
+          <a href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>&copy; 2026 김태훈</span>
+    <a href="../research/index.html">대학원 연구 포트폴리오 →</a>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

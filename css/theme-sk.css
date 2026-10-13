@@ -1,0 +1,22 @@
+/* SK 브랜드 톤 테마: css/style.css 위에 덮어씁니다. */
+:root {
+  --accent: #ea002c;
+  --accent-2: #f47725;
+  --accent-soft: #fff0f1;
+  --accent-ink: #b8001f;
+  --hero-glow-1: rgba(234, 0, 44, 0.13);
+  --hero-glow-2: rgba(244, 119, 37, 0.16);
+  --dark: #1a1214;
+}
+
+.badge-progress { background: #fff2e8; color: #b84a05; }
+
+.stats { position: relative; }
+
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
