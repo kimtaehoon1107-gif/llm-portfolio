@@ -84,6 +84,12 @@
           시간봉 집계 검증, 정적 사이트 배포까지 구현했습니다. 가격과 API 관측 매물 잔량을 같은 시간축에서
           비교하고, 통계 검정과 예측 평가 결과에 표본 부족·관측 누락 등의 한계를 함께 공개합니다.
         </p>
+        <figure class="project-preview">
+          <a href="nexon-data/assets/dnf-price-tracker-home-20261007.png" target="_blank" rel="noopener" aria-label="시세 추적기 서비스 화면 크게 보기">
+            <img src="nexon-data/assets/dnf-price-tracker-home-20261007.png" alt="던파 경매장 시세 추적기 메인 화면. 추적 아이템 수, 레전더리 카드 시세, 요일별 가격 트렌드 차트를 보여줍니다." width="1440" height="1000" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>실제 서비스 화면</strong><span>추적 아이템 72종, 수집 거래 739,987건(2026.08.08~10.07 기준)과 요일별 가격 트렌드를 보여주는 메인 화면입니다. 이미지를 누르면 크게 볼 수 있습니다.</span></figcaption>
+        </figure>
         <ul class="project-metrics">
           <li><strong>수집·보존</strong><span>아이템별 수집 주기·지연 감시, 원본 대조 후 시간봉 보존</span></li>
           <li><strong>가격·매물 비교</strong><span>체결 수량 가중평균(VWAP)과 카드 단계별 최저 호가 구분, 관측 잔량 비교</span></li>
@@ -114,6 +120,12 @@
           나머지는 거절하는 QA 시스템을 만드는 것이었습니다. v1의 오류를 검색 실패·잘못된 근거 선택·생성 및 거절 실패로
           나누어 측정하고, 같은 검색 결과를 RAG-only·base SLM·tuned SLM에 제공해 학습의 효과를 통제 비교했습니다.
         </p>
+        <figure class="project-preview">
+          <a href="nexon-data/assets/dnf-rag-entry-demo-20260910.jpg" target="_blank" rel="noopener" aria-label="QA 데모 화면 크게 보기">
+            <img src="nexon-data/assets/dnf-rag-entry-demo-20260910.jpg" alt="미카엘라·디레지에 레이드 입장 명성을 질문한 데모 화면. 각 레이드의 답변과 공식 문서 근거를 함께 보여줍니다." width="900" height="657" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>질문에서 답변과 공식 문서 근거까지</strong><span>레이드 입장 명성 질문에 답변과 공식 문서 근거를 함께 보여주는 데모 화면입니다. <a href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/releases/tag/demo-recording-20260812" target="_blank" rel="noopener">데모 영상 보기</a></span></figcaption>
+        </figure>
         <ul class="project-metrics">
           <li><strong>평가 설계</strong><span>답변 가능·부분 가능·답변 불가·안전 질문을 분리하고, 근거 사용과 거절을 각각 측정</span></li>
           <li><strong>학습 실험</strong><span>근거와 방해 문서를 함께 주는 RAFT 데이터로 Qwen LoRA 학습</span></li>
@@ -176,6 +188,12 @@
           사용자 세그먼트에 맞춰 추천할 수 있는지를 검증했으며, LLM의 zero-shot/few-shot 분류 성능을 먼저 검증한 뒤
           파인튜닝으로 정확도를 끌어올리는 방식으로 접근했습니다.
         </p>
+        <figure class="project-preview project-preview-portrait">
+          <a href="nexon-data/assets/ai-fellowship-demo.png" target="_blank" rel="noopener" aria-label="AI 육아도우미 화면 크게 보기">
+            <img src="nexon-data/assets/ai-fellowship-demo.png" alt="AI 육아도우미 서비스 데모 화면" width="480" height="800" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>AI 육아도우미 서비스 데모</strong><span>산학협력으로 만든 육아도우미 챗봇 화면입니다.</span></figcaption>
+        </figure>
         <ul class="project-metrics">
           <li><strong>데이터 구축</strong><span>Selenium 크롤링 + 대/중/소 라벨링 체계 직접 설계, 더미 데이터로 2차 보강</span></li>
           <li><strong>세그멘테이션</strong><span>K-means 9개 → 6개 군집 재설계, Silhouette Score로 최적값 검증</span></li>
@@ -204,6 +222,12 @@
           사용자의 춤 영상에서 관절 keypoint를 추출해 원곡 안무와 프레임 단위로 비교, 정확도를 채점하고,
           Liquid Warping GAN으로 사용자 외형을 해당 동작에 합성하는 두 파이프라인을 팀 단위로 설계·구현했습니다.
         </p>
+        <figure class="project-preview project-preview-portrait">
+          <a href="nexon-communications/assets/okk-demo-score.png" target="_blank" rel="noopener" aria-label="안무 채점 화면 크게 보기">
+            <img src="nexon-communications/assets/okk-demo-score.png" alt="원곡 안무와 사용자 동작을 비교해 70점을 보여주는 채점 화면" width="770" height="1115" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>안무 정확도 채점 화면</strong><span>원곡 안무와 사용자 동작을 비교해 점수를 보여주는 앱 화면입니다.</span></figcaption>
+        </figure>
         <ul class="project-metrics">
           <li><strong>수상</strong><span>제10회 대한민국 SW융합 해커톤 대회 우수상 (2023.08)</span></li>
           <li><strong>주관</strong><span>과학기술정보통신부 · 정보통신산업진흥원 · SW융합클러스터 12개 기관</span></li>
