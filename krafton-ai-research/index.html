@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>김태훈 | KRAFTON AI Research 지원 포트폴리오</title>
+  <meta name="description" content="가설을 검증 가능한 실험으로 바꾸고, 적용과 중단의 근거를 남기는 김태훈의 AI Research 지원 포트폴리오입니다.">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=20261022-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">김태훈 <span>AI Research Portfolio</span></a>
+    <nav aria-label="주요 메뉴">
+      <a href="#approach">연구 방식</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#fit">지원 직무 연결</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">KRAFTON AI Research 지원 · 김태훈</p>
+        <h1>좋은 결과보다 먼저,<br><em>믿을 수 있는 조건</em>을 만듭니다.</h1>
+        <p class="hero-lead">
+          게임과 AI가 만나는 문제를 데이터로 정의하고, 기준선과 분리된 평가 데이터로 가설을 검증해 왔습니다.
+          성능이 기대에 미치지 못하면 실패 원인을 나누고, 실제 적용 여부를 판단할 근거까지 남깁니다.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#projects">대표 연구 보기</a>
+          <a class="button secondary" href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="연구 원칙">
+        <span class="panel-label">RESEARCH PRINCIPLE</span>
+        <blockquote>“성능이 올랐는가?”에서 멈추지 않고<br>“같은 조건에서도 다시 확인되는가?”를 묻습니다.</blockquote>
+        <dl>
+          <div><dt>01</dt><dd>원천 데이터와 측정 기준 확인</dd></div>
+          <div><dt>02</dt><dd>단순 기준선과 같은 조건에서 비교</dd></div>
+          <div><dt>03</dt><dd>별도 평가와 사람 검수로 재확인</dd></div>
+          <div><dt>04</dt><dd>적용·보류·다음 실험을 명시</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="section-heading">
+        <p class="eyebrow">HOW I RESEARCH</p>
+        <h2>연구 질문을 판단 가능한 실험으로 바꾸는 과정</h2>
+        <p>프로젝트가 달라도 같은 순서로 확인합니다.</p>
+      </div>
+      <ol class="research-loop">
+        <li><span>01</span><strong>질문 정의</strong><p>무엇을 개선하려는지 한 문장으로 좁힙니다.</p></li>
+        <li><span>02</span><strong>데이터 점검</strong><p>결측·중복·극단값과 데이터 생성 과정을 확인합니다.</p></li>
+        <li><span>03</span><strong>기준선 설정</strong><p>복잡한 방법이 단순한 방법보다 실제로 나은지 비교합니다.</p></li>
+        <li><span>04</span><strong>분리 평가</strong><p>개발에 쓰지 않은 데이터와 사람 검수로 다시 확인합니다.</p></li>
+        <li><span>05</span><strong>판단 기록</strong><p>적용 여부, 한계와 다음 실험을 함께 남깁니다.</p></li>
+      </ol>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>대표 프로젝트 3건</h2>
+        <p>AI 평가, 게임 시계열, 대규모 예측 데이터의 서로 다른 문제를 같은 검증 원칙으로 다뤘습니다.</p>
+      </div>
+
+      <article class="project featured">
+        <div class="project-visual">
+          <img src="../nexon-data/assets/dnf-rag-entry-demo-20260910.jpg" alt="던전앤파이터 공식 문서 QA/RAG 데모에서 질문, 답변과 근거 문서를 함께 보여주는 화면">
+          <div class="visual-caption">
+            <strong>실제 데모 화면</strong>
+            <span>질문 → 답변 → 공식 문서 근거 확인</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>01 · AI 평가와 적용 판단</span><span>2026.07–08 · 개인 프로젝트</span></div>
+          <h3>DNF 공식 문서 기반 QA/RAG 시스템</h3>
+          <p class="project-summary">흩어진 공식 문서에서 근거를 찾고, 답변과 출처 위치를 함께 보여주는 질의응답 시스템을 설계했습니다.</p>
+          <div class="decision-grid">
+            <div><span>연구 질문</span><p>공식 근거를 제시하면서, 근거가 부족할 때 답변을 멈출 수 있는가?</p></div>
+            <div><span>검증 설계</span><p>개발 질문과 최종 평가 질문을 분리하고 자동 평가 뒤 사람이 원문을 대조했습니다.</p></div>
+            <div><span>관찰 결과</span><p>문서 처리와 평가 과정의 자동화 테스트 1,378건은 통과했지만 사람 검수는 20/32였습니다.</p></div>
+            <div class="decision"><span>연구 판단</span><p>사전에 정한 80% 적용 기준에 미달해 기본 적용을 보류하고 실패 원인을 기록했습니다.</p></div>
+          </div>
+          <div class="project-actions">
+            <a class="button primary" href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag/releases/tag/demo-recording-20260812" target="_blank" rel="noopener">데모 영상</a>
+            <a class="text-link" href="https://github.com/kimtaehoon1107-gif/dnf-domain-qa-slm-rag" target="_blank" rel="noopener">GitHub 저장소 →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reverse">
+        <div class="project-visual tracker-visual">
+          <img src="../nexon-data/assets/dnf-price-tracker-home-20261007.png" alt="던전앤파이터 경매장 가격과 거래량을 보여주는 시세 추적기 첫 화면">
+          <div class="visual-caption">
+            <strong>운영 중인 웹 서비스</strong>
+            <span>품목별 가격·거래량·요일 패턴 확인</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>02 · 게임 데이터와 시계열</span><span>2026.09–10 · 개인 프로젝트</span></div>
+          <h3>DNF 경매장 시세 추적기</h3>
+          <p class="project-summary">최근 100건만 제공되는 Open API 데이터를 품목별 주기로 수집하고, 체결가·거래량·매물을 구분해 추세를 관찰했습니다.</p>
+          <div class="decision-grid">
+            <div><span>연구 질문</span><p>제한된 거래 기록으로 가격 변화와 반복 패턴을 안정적으로 관찰할 수 있는가?</p></div>
+            <div><span>검증 설계</span><p>원본을 보존한 채 극단값 후보를 화면 집계에서만 분리하고, 14개 예측 방법을 같은 표본에서 비교했습니다.</p></div>
+            <div><span>관찰 결과</span><p>전체 비교에서는 복잡한 모델이 직전 가격을 사용하는 단순 기준선보다 뚜렷하게 낫지 않았습니다.</p></div>
+            <div class="decision"><span>연구 판단</span><p>예측을 운영 지표와 분리하고, 발견한 패턴은 새로운 데이터가 쌓인 뒤 다시 검증하기로 했습니다.</p></div>
+          </div>
+          <div class="project-actions">
+            <a class="button primary" href="https://kimtaehoon1107-gif.github.io/dnf-price-tracker/" target="_blank" rel="noopener">서비스 데모</a>
+            <a class="text-link" href="https://github.com/kimtaehoon1107-gif/dnf-price-tracker" target="_blank" rel="noopener">GitHub 저장소 →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project health-project">
+        <div class="health-visual" aria-label="결측 집단 분석 핵심 수치">
+          <div class="health-number">
+            <span>전체 데이터 중</span>
+            <strong>21.71%</strong>
+            <p>특정 결측 패턴을 가진 집단</p>
+          </div>
+          <div class="health-arrow" aria-hidden="true">→</div>
+          <div class="health-number accent-number">
+            <span>잔여 성능 격차 중</span>
+            <strong>54.97%</strong>
+            <p>해당 집단이 설명한 비중</p>
+          </div>
+          <p class="health-note">전체 평균만 보면 놓칠 수 있는 집단을 분리해 원인을 확인했습니다.</p>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>03 · 예측 모델과 데이터 품질</span><span>2026.07 · 개인 프로젝트</span></div>
+          <h3>학생 건강 위험 예측</h3>
+          <p class="project-summary">약 69만 건의 불균형 데이터를 이용해 건강 위험 등급을 예측하고, 전체 성능 뒤에 가려진 집단별 차이를 분석했습니다.</p>
+          <div class="decision-grid">
+            <div><span>연구 질문</span><p>모델 성능의 남은 한계는 알고리즘보다 데이터 특성에서 설명되는가?</p></div>
+            <div><span>검증 설계</span><p>교차검증과 학습 구간 내부 변수 생성으로 누수를 막고, 결측 집단 성능을 따로 측정했습니다.</p></div>
+            <div><span>관찰 결과</span><p>특정 결측 집단이 잔여 성능 격차의 54.97%를 설명했고 추가 모델의 개선은 0.000041에 그쳤습니다.</p></div>
+            <div class="decision"><span>연구 판단</span><p>미미한 개선을 위한 복잡도 증가는 제외하고, 데이터 품질과 집단별 차이를 우선 과제로 남겼습니다.</p></div>
+          </div>
+          <div class="project-actions">
+            <a class="button primary" href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk/blob/main/REPORT.md" target="_blank" rel="noopener">분석 리포트</a>
+            <a class="text-link" href="https://github.com/kimtaehoon1107-gif/predicting-student-health-risk" target="_blank" rel="noopener">GitHub 저장소 →</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section fit" id="fit">
+      <div class="fit-copy">
+        <p class="eyebrow">WHY AI RESEARCH</p>
+        <h2>연구 결과를 서비스 판단으로 연결하겠습니다.</h2>
+        <p>
+          저는 모델을 복잡하게 만드는 것보다 먼저 질문과 평가 조건을 분명히 합니다.
+          인턴십에서는 게임과 AI가 만나는 실제 문제에서 가설을 세우고, 기준선과 비교하며,
+          결과가 서비스에 주는 가치와 위험까지 설명하는 연구자로 성장하고 싶습니다.
+        </p>
+      </div>
+      <div class="fit-points">
+        <div><strong>통계학 · 데이터사이언스</strong><span>가설과 측정 기준을 데이터로 연결</span></div>
+        <div><strong>게임 도메인 프로젝트</strong><span>공식 문서와 경매장 데이터를 직접 수집·분석</span></div>
+        <div><strong>재현 가능한 검증</strong><span>테스트·기준선·사람 검수와 중단 기준 기록</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>김태훈</strong> · KRAFTON AI Research 지원 포트폴리오</p>
+    <a href="https://github.com/kimtaehoon1107-gif" target="_blank" rel="noopener">GitHub</a>
+  </footer>
+</body>
+</html>
